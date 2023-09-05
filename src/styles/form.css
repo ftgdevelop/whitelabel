@@ -1,0 +1,85 @@
+.body .link-style-btn {
+  color: #0d5ab9;
+  padding: 0;
+  border: 0 none !important;
+  background: transparent;
+  box-shadow: none;
+  text-shadow: none;
+  cursor: pointer;
+}
+.body .link-style-btn.gray {
+  color: #bbb;
+}
+.button {
+  height: 46px;
+}
+.button.ant-btn-sm {
+  height: 30px;
+  font-size: 12px;
+}
+.button.ant-btn-sm.inline-btn {
+  min-width: 100px;
+}
+.button.medium-button {
+  height: 35px;
+  font-size: 13px;
+}
+.button.inline-btn {
+  min-width: 120px;
+}
+.button:not(.inline-btn) {
+  width: 100%;
+}
+.TRAVELO .button {
+  border-radius: 8px;
+}
+.button.blue-btn {
+  color: #fff;
+  background-color: #0d5ab9;
+  border-color: #0d5ab9;
+  cursor: pointer;
+}
+.button.blue-btn:hover,
+.button.blue-btn:focus {
+  background-color: #2a6ec1;
+  border-color: #2a6ec1;
+}
+.button.blue-btn[disabled] {
+  background-color: #4e92e6;
+  border-color: #4e92e6;
+  opacity: 1;
+  filter: grayscale(0);
+  cursor: no-drop;
+}
+.button.gray-btn {
+  color: #fff;
+  background-color: #eee;
+  border-color: #aaa;
+  color: #333;
+}
+.button.gray-btn:hover,
+.button.gray-btn:focus {
+  background-color: #e4e4e4;
+  border-color: #aaa;
+}
+.button.red-btn {
+  color: #fff;
+  background-color: #e7412a;
+  border-color: #e7412a;
+}
+.button.red-btn:hover,
+.button.red-btn:focus {
+  background-color: #f25033;
+  border-color: #f25033;
+}
+.form-input {
+  height: 46px;
+  border-radius: 3px !important;
+  border: none;
+  outline: none;
+}
+@media (max-width: 767px) {
+  .TRAVELO .button-v4 {
+    margin-top: 30px;
+  }
+}

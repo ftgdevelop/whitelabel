@@ -1,0 +1,3655 @@
+/*
+
+Theme Name: White Label
+Theme URI: 
+Author: FTG GROUP
+Version: 1.0.0
+Description: 
+
+*/
+/*
+* Table of content
+*=================
+*
+*   1.Resets & General
+*   2.Bus Search
+*   3.Bus List
+*   4.
+*   00.Responsive
+*
+*=================
+*/
+/*=============
+*   1.Resets & General
+===============*/
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.loadingFlightSearch {
+  margin-top: 20px;
+}
+.loadingFlightSearch span {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.loadingFlightSearch svg {
+  transform: rotate(180deg);
+}
+.skeletonPriceLineFlightFilter {
+  width: 100% !important;
+}
+.input95,
+.input95Tablet {
+  width: 95% !important;
+}
+.input65 {
+  width: 65% !important;
+}
+.checkoutConfirmEmail {
+  margin-top: 39px;
+}
+.checkoutConfirmEmail svg {
+  font-size: 16px;
+  vertical-align: middle;
+  color: #3a3a3a;
+  width: 16px;
+  height: 14px;
+  margin-left: 5px;
+}
+.checkoutConfirmEmail span {
+  font-weight: 200;
+  font-size: 12px;
+}
+.radioSelect {
+  margin-right: -10px;
+  padding: 5px 0;
+}
+.availableFlightRoundSkeleton {
+  height: 104px;
+}
+.airlineImageSkeleton {
+  width: 45px !important;
+  height: 45px !important;
+}
+.airlineImageSkeleton svg {
+  width: 20px !important;
+}
+.airlineNameSkeleton {
+  height: 12px !important;
+}
+.textDepartureTimeSkeleton {
+  height: 18px !important;
+}
+.departureAirportLabelSkeleton {
+  height: 12px !important;
+  margin-top: 5px;
+}
+.textPriceFlightLabelSkeleton {
+  height: 12px !important;
+}
+.textPriceFlightSkeleton {
+  height: 22px !important;
+}
+/*=============
+*   2.Bus Search
+===============*/
+.searchBus {
+  padding: 52px 0px 54px;
+}
+.searchBus > div > div .searchBusOrigin,
+.searchBus > div > div .searchBusDestination {
+  position: relative;
+}
+.searchBus > div > div .searchBusDepartureDate > div {
+  width: 50%;
+}
+.searchBus > div > div .searchBusDepartureDate > div input {
+  height: 46px;
+}
+.searchBus > div > div .searchBusBtn button {
+  width: 100%;
+  height: 46px;
+}
+.searchBusTravelo {
+  border-radius: 0 0 8px 8px;
+  padding: 0;
+}
+.searchBusBtnTravelo button {
+  background: #0d5ab9;
+  border-color: #0d5ab9;
+  border-radius: 8px;
+  width: 178px !important;
+  margin: 20px auto;
+  display: block;
+}
+.searchBusBtnTravelo button:hover {
+  background-color: #2a6ec1;
+  border-color: #2a6ec1;
+}
+.searchBusOriginTravelo input,
+.searchBusDestination input {
+  border-radius: 8px !important;
+  border-color: #848f99 !important;
+}
+.searchBusDepartureDateTravelo > div input {
+  border-radius: 8px;
+  border-color: #848f99;
+}
+/*=============
+*   2.Flight List
+===============*/
+.flightList {
+  padding-top: 20px;
+  background-color: #fafafa;
+}
+.flightList .flightListFilterLoading {
+  background: transparent;
+  border-color: transparent;
+}
+.flightList .loadingSearch .labelLoadinigSearch {
+  position: absolute;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 200;
+  margin: 9px 19px;
+  color: #fff;
+}
+.filghtListFilter {
+  margin-top: 1px;
+  margin-right: 0px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dfdfdf;
+  border-image: initial;
+  margin-bottom: 35px;
+}
+.filghtListFilter .filterAirlineItem {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 220px;
+}
+.filghtListFilter .filterAirlineItem span {
+  font-size: 11px;
+}
+.filghtListFilter .filterAirlineLogo {
+  width: 25px;
+  max-height: 25px;
+  height: initial;
+  margin-left: 5px;
+}
+.filghtListFilter .filterAirlineCount {
+  display: inline-block;
+  margin-top: 3px;
+  float: left;
+  font-size: 12px;
+  font-weight: 600;
+}
+.filghtListFilter .filterAirlineCountNull {
+  font-size: 11px;
+  color: #777777;
+}
+.flightListContent {
+  margin-top: 30px;
+}
+.flightListContent .sortFlightList {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.flightListContent .sortFlightList .sortFlightListText {
+  color: #3a3a3a;
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 10px;
+  white-space: nowrap;
+}
+.flightListContent .sortFlightList .sortFlightListIcon {
+  display: none;
+}
+.flightListContent .sortFlightList span {
+  font-size: 12px;
+}
+.flightListContent .flightResultList {
+  margin-bottom: 65px;
+}
+.flightListContent .flightResultList .flightCard {
+  margin-bottom: 10px;
+  position: relative;
+  margin-top: 0px;
+  padding: 0px;
+  border-radius: 2px 0px 2px 2px;
+  margin-right: 0px;
+  margin-left: 0px;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e2e2e2;
+  border-image: initial;
+  border-radius: 2px;
+}
+.flightListContent .flightResultList .flightCard .detailFlightBtn {
+  text-align: center;
+  margin-top: 37px;
+  margin-left: 5px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.flightListContent .flightResultList .flightCard .detailFlightBtn a {
+  text-align: left;
+  font-size: 12px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #777777;
+  font-weight: 400;
+}
+.flightListContent .flightResultList .flightCard .detailFlightBtnClose a {
+  color: #777777;
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+  display: block;
+  padding: 5px;
+}
+.flightListContent .flightResultList .flightCard .detailFlightBtnClose a svg {
+  margin-right: 5px;
+  transform: rotate(180deg);
+  vertical-align: middle;
+}
+.flightListContent .flightResultList .flightCard .rightCard {
+  z-index: 1;
+  margin: 30px 0 0 15px;
+}
+.flightListContent .flightResultList .flightCard .rightCard:before {
+  content: " ";
+  position: absolute;
+  left: -12px;
+  z-index: 1;
+  background: #fafafa;
+  width: 22px;
+  display: block;
+  height: 22px;
+  border: none;
+  border-radius: 100%;
+  top: -9px;
+  box-shadow: inset 0 -1px 1px 0 rgba(29, 27, 27, 0.11);
+}
+.flightListContent .flightResultList .flightCard .rightCard:after {
+  content: " ";
+  position: absolute;
+  left: -12px;
+  z-index: 1;
+  background: #fafafa;
+  width: 22px;
+  display: block;
+  height: 22px;
+  border: none;
+  border-radius: 100%;
+  bottom: -9px;
+  box-shadow: inset 0 1px 1px 0 rgba(29, 27, 27, 0.11);
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard {
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-left: -30px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .rowWitdh {
+  width: 100%;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineLogo {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-right: 15px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineLogo img {
+  width: 40px;
+  height: auto;
+  margin-left: 10px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineLogo .airlineName {
+  font-size: 11px;
+  color: #3a3a3a;
+  display: inline-grid;
+  text-align: right;
+  font-weight: 400;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineLogo .airlineName div {
+  line-height: 1;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineLogo .airlineName div:last-of-type {
+  margin-top: 10px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .companyLogo {
+  margin-top: -15px;
+  padding-right: 15px;
+  text-align: center;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .companyLogo img {
+  max-width: 64px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .companyLogo .companyName {
+  font-size: 11px;
+  color: #3a3a3a;
+  font-weight: 400;
+  margin-top: 5px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .companyLogo .companyName .carrierLabel {
+  background-color: #F2F3F5;
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 3px;
+  margin-top: 4px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .departureTime {
+  text-align: right;
+  padding-right: 0px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .departureTime .textDepartureTime {
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  margin-top: 5px;
+  line-height: 18px;
+  text-align: center;
+  height: 18px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .departureTime .departureAirportLabel {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3a3a3a;
+  text-align: center;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary {
+  position: relative;
+  padding-right: 0px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+  text-align: center;
+  margin-top: -13px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .textAirlineItinerary {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  color: #777777;
+  padding-bottom: 20px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .textAirlineItinerary span {
+  font-size: 12px;
+  font-weight: 200;
+  text-align: center;
+  color: #777777;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary svg {
+  position: absolute;
+  width: 16px;
+  left: 0px;
+  top: 1px;
+  bottom: 0px;
+  color: #dfdfdf;
+  transform: scaleX(-1);
+  margin: auto;
+  height: 24px;
+  flex: 0 0 auto;
+  user-select: none;
+  pointer-events: none;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .lineBusIcon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 0px;
+  top: 1px;
+  bottom: 0px;
+  color: #dfdfdf;
+  margin: auto;
+  flex: 0 0 auto;
+  user-select: none;
+  pointer-events: none;
+  overflow: hidden;
+  vertical-align: middle;
+  z-index: 1;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .lineAirlineItinerary {
+  position: absolute;
+  top: 2px;
+  bottom: 0px;
+  width: 90%;
+  height: 0px;
+  border-top: 1px dashed #dfdfdf;
+  margin: auto;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .lineAirlineItinerary:after {
+  content: " ";
+  position: absolute;
+  bottom: -4px;
+  left: -10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #e74229;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .airlineItineraryLabel {
+  font-size: 12px;
+  font-weight: 400;
+  color: #777777;
+  margin-top: 12px;
+  text-align: center;
+  position: relative;
+  padding-right: 0px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .airlineItineraryLabel > span {
+  padding: 4px 8px;
+  border-radius: 3px;
+  color: #3a3a3a;
+  border: 1px solid #e2e2e2;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .arrivalTime {
+  text-align: center;
+  position: relative;
+  padding-right: 10px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .arrivalTime .arrivalTimeLabel {
+  font-size: 10px;
+  letter-spacing: 0.2px;
+  margin-top: 5px;
+  line-height: 18px;
+  text-align: center;
+  height: 18px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .arrivalTime .arrivalAirportLabel {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3a3a3a;
+  text-align: center;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .arrivalTime .arrivalAirportLabel .bgLabel {
+  display: inline-block;
+  color: white;
+  background: #f5a623;
+  padding: 3px 3px 0px;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: 400;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .activeDetail .detailFlightBtn {
+  background-color: whitesmoke;
+  padding: 5px 10px 5px;
+  font-weight: 400;
+  font-size: 11px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .activeDetail .detailFlightBtn a {
+  color: #777777;
+  font-weight: 400;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .activeDetail .detailFlightBtn a svg {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .hiddenDetail .detailFlightBtn {
+  background-color: whitesmoke;
+  padding: 5px 10px 5px;
+  border: 1px solid #e2e2e2;
+  font-weight: 400;
+  font-size: 11px;
+}
+.flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .hiddenDetail .detailFlightBtn a {
+  color: #777777;
+  font-weight: 400;
+}
+.flightListContent .flightResultList .flightCard .leftCard {
+  height: 100%;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-left: 0px;
+  min-height: 101px;
+}
+.flightListContent .flightResultList .flightCard .leftCard .baggageIncludedIcon {
+  position: absolute;
+  font-size: 10px;
+  color: #3a3a3a;
+  top: auto;
+  bottom: 8px;
+  font-weight: 400;
+  left: 55%;
+  right: unset;
+  background: white;
+  border-radius: 9px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cccccc;
+  border-image: initial;
+  padding: 1px 4px;
+}
+.flightListContent .flightResultList .flightCard .leftCard .baggageIncludedIcon svg {
+  width: 11px;
+  height: 11px;
+  margin-left: 2px;
+  color: #1dac08;
+  vertical-align: middle;
+  margin-bottom: 1px;
+}
+.flightListContent .flightResultList .flightCard .leftCard .baggageIncludedIcon .baggageIncludedText {
+  display: inline-block;
+  width: auto;
+  position: relative;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight {
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  padding: 10px;
+  min-width: 125px;
+  height: 100%;
+  border-right: 2px dashed #cccccc;
+  text-align: center;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight .textPriceFlight {
+  margin-bottom: 3px;
+  color: #3a3a3a;
+  text-align: left;
+  padding-left: 1px;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight .textPriceFlight span {
+  margin-bottom: -9px;
+  margin-left: 1px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight .textPriceFlight h6 {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 25px;
+  margin-bottom: 0;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight .textPriceFlight .isAvailability {
+  height: 56px;
+  display: block;
+  font-size: 12px;
+  padding-top: 15px;
+  color: #777777;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight .flightCardButton {
+  padding-right: 10px;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight .flightCardButton .loadingFlight {
+  text-align: left;
+  color: white;
+  background: #e7412a;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  width: 100%;
+  text-align: center;
+  padding: 9px;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight button {
+  text-align: left;
+  color: white;
+  background: #e7412a;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  width: 100%;
+  text-align: center;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight button svg {
+  transform: rotate(90deg);
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-left: 0px;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight button span:last-of-type {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight button .flightCardButtonIcon {
+  margin-left: 0;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail {
+  margin-top: 30px;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail .activeDetail .detailFlightPrice {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  line-height: 22px;
+  font-weight: 200;
+  font-size: 13px;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail .activeDetail .totalFlightPrice {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail .activeDetail .totalFlightPrice b {
+  font-weight: 400;
+}
+.flightListContent .flightResultList .flightCard .leftCard .priceFlight .remainingSeats {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #e74229;
+  text-align: left;
+  margin-left: 1px;
+}
+.flightListContent .flightResultList .flightCard .bottomCard {
+  margin-top: 40px;
+}
+.flightListContent .flightResultList .flightCard .bottomCard .baggageIncludedIcon {
+  position: absolute;
+  font-size: 10px;
+  color: #3a3a3a;
+  top: auto;
+  bottom: 8px;
+  font-weight: 400;
+  left: 15px;
+  right: unset;
+  background: white;
+  border-radius: 9px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cccccc;
+  border-image: initial;
+  padding: 1px 4px;
+}
+.flightListContent .flightResultList .flightCard .bottomCard .baggageIncludedIcon svg {
+  width: 11px;
+  height: 11px;
+  margin-left: 2px;
+  color: #1dac08;
+  vertical-align: middle;
+  margin-bottom: 1px;
+}
+.flightListContent .flightResultList .flightCard .bottomCard .baggageIncludedIcon .baggageIncludedText {
+  display: inline-block;
+  width: auto;
+  position: relative;
+}
+.flightListContent .flightResultList .flightCard .detailFlight {
+  margin: 0px;
+  background-color: #f5f5f5;
+  padding: 0 20px 0;
+  margin-top: 37px;
+}
+.flightListContent .flightResultList .flightCard .detailFlight > div > div > span > span {
+  font-size: 12px;
+  width: 50% !important;
+}
+.flightListContent .flightResultList .flightCard .detailFlight .flightTab {
+  padding: 0 15px;
+}
+.flightListContent .flightResultList .flightCard .activeDetail {
+  display: block;
+}
+.flightListContent .flightResultList .flightCard .hiddenDetail {
+  display: none;
+}
+.flightListContent .flightResultList .flightCard .hiddenDetail .detailFlightBtn {
+  margin-top: 0;
+}
+.flightListContent .flightResultList .flightCard .subjectDeparture {
+  margin-top: -10px;
+  margin-right: 20px;
+  display: flex;
+}
+.flightListContent .flightResultList .flightCard .subjectDeparture div {
+  width: auto;
+  height: 20px;
+  border-radius: 2px;
+  border: 1px solid #b4b4b4;
+  background-color: #777777;
+  padding-bottom: 10px;
+  display: flex;
+}
+.flightListContent .flightResultList .flightCard .subjectDeparture div svg {
+  transform: scaleX(-1);
+  color: white;
+  margin: 1px 5px;
+}
+.flightListContent .flightResultList .flightCard .subjectDeparture div span {
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 5px;
+  white-space: pre;
+}
+.flightListContent .flightResultList .flightCard .subjectReturn {
+  display: flex;
+  margin-right: 20px;
+  min-width: 100%;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.flightListContent .flightResultList .flightCard .subjectReturn .textReturn {
+  width: auto;
+  height: 20px;
+  border-radius: 2px;
+  border: 1px solid #b4b4b4;
+  background-color: #777777;
+  padding-bottom: 10px;
+  display: flex;
+}
+.flightListContent .flightResultList .flightCard .subjectReturn .textReturn svg {
+  transform: scaleX(-1);
+  color: white;
+  margin: 1px 5px;
+}
+.flightListContent .flightResultList .flightCard .subjectReturn .textReturn span {
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 5px;
+  white-space: pre;
+}
+.flightListContent .flightResultList .flightCard .subjectReturn .dotLineReturn {
+  width: 100%;
+}
+.flightListContent .flightResultList .flightCard .subjectReturn .dotLineReturn div {
+  height: 1px;
+  background-color: rgba(204, 204, 204, 0.5);
+  margin-right: 20px;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.flightListContent .flightResultList .flightCard .subjectReturn .detailFlight {
+  left: 0px;
+  min-width: 80px;
+  background-color: #ffffff;
+  margin-left: 20px;
+}
+.flightListContent .flightResultList .flightCard .subjectReturn .detailFlight span {
+  font-size: 12px;
+  font-weight: 400;
+  color: #3665ac;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.flightListContent .flightResultList .flightCard .leftCardSelect {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex: 1.3 1 0%;
+  height: auto;
+  border-right: 1px dashed #cccccc;
+  padding: 10px;
+}
+.flightListContent .flightResultList .flightCard .leftCardSelect .textPriceFlight {
+  margin-bottom: 3px;
+  color: #3a3a3a;
+  text-align: left;
+  padding-left: 1px;
+}
+.flightListContent .flightResultList .flightCard .leftCardSelect .textPriceFlight span {
+  margin-bottom: -9px;
+  margin-left: 1px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.flightListContent .flightResultList .flightCard .leftCardSelect .textPriceFlight h6 {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 15px;
+  margin-bottom: 0;
+}
+.flightListContent .flightResultList .flightCard .leftCardSelect button {
+  color: white;
+  background: #e7412a;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+}
+.flightListContent .flightResultList .flightCard .leftCardSelect button span:last-of-type {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.flightListContent .flightResultList .flightCard .leftCardSelect button .flightCardButtonIcon {
+  margin-left: 0;
+}
+.flightListContent .flightResultList .flightCard .leftCardSelect .pricingDetail {
+  margin-top: 30px;
+}
+.filterResult {
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  border-bottom: 1px solid #dfdfdf;
+  color: #3a3a3a;
+}
+.filterResult .textFilterResult {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+.filterStops {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: right;
+  border-bottom: 1px solid #dfdfdf;
+  margin-bottom: 15px;
+}
+.filterStops span {
+  font-size: 12px;
+  font-weight: 200;
+  line-height: 28px;
+}
+.filterAirlines {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: right;
+  border-bottom: 1px solid #dfdfdf;
+}
+.filterAirlines .subjectAirlines {
+  font-size: 14px;
+  color: #6598e6;
+  margin-bottom: 8px;
+  margin-top: 24px;
+  text-transform: uppercase;
+  text-align: right;
+  font-weight: bold;
+}
+.filterAirlines span {
+  font-size: 12px;
+  font-weight: 200;
+  line-height: 28px;
+}
+.filterPrice {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: right;
+  border-bottom: 1px solid #dfdfdf;
+}
+.filterAirports {
+  padding-bottom: 15px;
+  text-align: right;
+  border-bottom: 1px solid #dfdfdf;
+}
+.filterAirports .subjectAirports {
+  font-size: 14px;
+  color: #6598e6;
+  margin-bottom: 8px;
+  margin-top: 15px;
+  text-transform: uppercase;
+  text-align: right;
+  font-weight: bold;
+}
+.filterAirports span {
+  font-size: 12px;
+  font-weight: 200;
+  line-height: 28px;
+}
+.filterTime {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: right;
+  border-bottom: 1px solid #dfdfdf;
+}
+.filterTime .subjectTime {
+  font-size: 14px;
+  color: #6598e6;
+  margin-bottom: 8px;
+  margin-top: 24px;
+  text-transform: uppercase;
+  text-align: right;
+  font-weight: bold;
+}
+.filterTime span {
+  font-size: 12px;
+  font-weight: 200;
+  line-height: 28px;
+}
+.btnListFilterOpenSidebar {
+  display: none;
+  background-color: #1990ff;
+  color: #ffffff;
+  border: none;
+  position: fixed;
+  bottom: 15px;
+  right: 30px;
+  z-index: 1;
+  padding: 8px 20px;
+  border-radius: 25px;
+  height: 42px;
+  width: 92px;
+}
+.btnListFilterOpenSidebar span {
+  margin: 3px 0 0 5px;
+}
+.btnListFilterOpenSidebar svg {
+  margin-top: 2px;
+}
+.flightNoAvailable {
+  padding-top: 30px;
+  text-align: center;
+}
+.flightNoAvailable .subjectText {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #3a3a3a;
+}
+.flightNoAvailable .helpText {
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 200;
+  color: #3a3a3a;
+}
+.flightNoAvailable .btnSearch {
+  margin-bottom: 50px;
+}
+.flightNoAvailable .btnSearch button {
+  color: white;
+  background: linear-gradient(to right, #6598e6, #6598e6) #6598e6;
+  border-color: #6598e6;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  border: 1px solid #6598e6;
+  transition: all 0.3s ease 0s;
+  padding: 8px 12px;
+}
+.filterSortFlightList {
+  margin-top: 15px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.filterSortFlightList .filterTopResult .subject {
+  font-size: 14px;
+  font-weight: bold;
+  color: #3a3a3a;
+}
+.filterSortFlightList .filterTopResult .suggested {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 9 1 0%;
+  padding-top: 15px;
+}
+.filterSortFlightList .filterTopResult .suggested button {
+  border: 1.5px solid white;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1.5px 8px 0px;
+  color: #3665ac;
+  border-radius: 16px;
+  padding: 4px 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.filterSortFlightList .filterTopResult .suggested .activeSuggested {
+  background: #eaeff6;
+  border: 1.5px solid #8ea8cc;
+  box-shadow: rgba(2, 100, 122, 0.1) 0px 1px 8px 0px, rgba(0, 0, 0, 0.1) 0px 1px 8px 0px;
+  color: #3665ac;
+  border-width: 1px;
+}
+.filterSortFlightList .filterTopResult .suggested .activeSuggested svg {
+  vertical-align: middle;
+  margin-left: 5px;
+  width: 14px;
+}
+.filterSortFlightList .sortAndDay {
+  display: flex;
+}
+.filterSortFlightList .nextBackDay {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1.5px 8px 0px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  font-weight: 200;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+.filterSortFlightList .nextBackDay .backDay {
+  padding: 10px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  font-size: 13px;
+}
+.filterSortFlightList .nextBackDay .backDay span {
+  vertical-align: middle;
+}
+.filterSortFlightList .nextBackDay .backDay svg {
+  transform: rotate(-90deg);
+  margin-left: 5px;
+  color: #dfdfdf;
+}
+.filterSortFlightList .nextBackDay .backDay:hover {
+  background-color: whitesmoke;
+}
+.filterSortFlightList .nextBackDay .nextDay {
+  padding: 10px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  font-size: 13px;
+}
+.filterSortFlightList .nextBackDay .nextDay span {
+  vertical-align: middle;
+}
+.filterSortFlightList .nextBackDay .nextDay svg {
+  transform: rotate(90deg);
+  margin-right: 5px;
+  color: #dfdfdf;
+}
+.filterSortFlightList .nextBackDay .nextDay:hover {
+  background-color: whitesmoke;
+}
+.filterSortFlightList .nextBackDay .nowDay {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #3a3a3a;
+  border-right: 1px solid #efefef;
+  border-left: 1px solid #efefef;
+}
+.filterSortFlightList .sortTop {
+  margin-top: 11px;
+  margin-left: 15px;
+  font-weight: 200;
+}
+.filterSortFlightList .sortTop svg {
+  margin-left: 10px;
+}
+.filterSortFlightList .sortTop .sortActive {
+  display: inline-block;
+  margin-right: 7px;
+  color: #6598e6;
+  cursor: pointer;
+  font-weight: 400;
+}
+.filterSortFlightList .sortTop .sortActive svg {
+  margin-right: 10px;
+}
+.showMySearch {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dfdfdf;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.showMySearch .mySearchOrigin {
+  color: #3a3a3a;
+  margin-left: 30px;
+  text-align: right;
+  margin-right: 0px;
+  max-width: 70px;
+}
+.showMySearch .mySearchOrigin .labelOrigin {
+  font-size: 16px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: 9px;
+}
+.showMySearch .mySearchOrigin .citytOrigin {
+  font-size: 14px;
+  font-weight: 200;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.showMySearch .middleIcon {
+  padding-top: 15px;
+}
+.showMySearch .middleIcon svg {
+  transform: rotate(-90deg);
+  color: #bdbdbd;
+}
+.showMySearch .mySearchDestination {
+  color: #3a3a3a;
+  margin-left: 30px;
+  text-align: left;
+  margin-right: 40px;
+  max-width: 70px;
+}
+.showMySearch .mySearchDestination .labelDestination {
+  font-size: 16px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: 9px;
+}
+.showMySearch .mySearchDestination .cityDestination {
+  font-size: 14px;
+  font-weight: 200;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.showMySearch .mySearchDeparting {
+  border-right: 1px solid #dfdfdf;
+  padding-right: 40px;
+  text-align: right;
+}
+.showMySearch .mySearchDeparting .labelDeparting {
+  font-size: 12px;
+  color: #a9a9a9;
+  margin-bottom: 3px;
+  font-weight: 200;
+}
+.showMySearch .mySearchDeparting .dateDeparting {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3a3a3a;
+}
+.showMySearch .mySearchReturning {
+  padding-right: 40px;
+  text-align: right;
+}
+.showMySearch .mySearchReturning .labelReturning {
+  font-size: 12px;
+  color: #a9a9a9;
+  margin-bottom: 3px;
+  font-weight: 200;
+}
+.showMySearch .mySearchReturning .dateReturning {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3a3a3a;
+}
+.showMySearch .mySearchPassenger {
+  padding-right: 50px;
+  text-align: right;
+}
+.showMySearch .mySearchPassenger .labelPassenger {
+  font-size: 12px;
+  color: #a9a9a9;
+  margin-bottom: 3px;
+  font-weight: 200;
+}
+.showMySearch .mySearchPassenger .countPassenger {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3a3a3a;
+}
+.showMySearch .mySearchCabin {
+  padding-right: 50px;
+  text-align: right;
+}
+.showMySearch .mySearchCabin .labelCabin {
+  font-size: 12px;
+  color: #a9a9a9;
+  margin-bottom: 3px;
+  font-weight: 200;
+}
+.showMySearch .mySearchCabin .typeCabin {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3a3a3a;
+}
+.showMySearch .mySearchBtn {
+  position: absolute;
+  left: 0;
+}
+.showMySearch .mySearchBtn button {
+  color: white;
+  background: linear-gradient(to left, #6598e6, #6598e6) #6598e6;
+  border-color: #6598e6;
+  margin-right: auto;
+  padding: 0px 9px;
+  height: 35px;
+  align-self: center;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  border: 1px solid #6598e6;
+  transition: all 0.3s ease 0s;
+}
+.showMySearch .mySearchOD,
+.showMySearch .mySearchDR,
+.showMySearch .mySearchPC {
+  display: flex;
+}
+.flightCard .airlineSkeleton {
+  width: 55px;
+  height: 55px;
+  display: block;
+  margin: auto;
+  margin-bottom: 37px;
+}
+.flightCard .citySkeleton {
+  width: 80%;
+  height: 25px;
+  display: block;
+  margin: auto;
+  margin-top: 15px;
+}
+.flightCard .airlineItinerarySkeleton {
+  margin-top: 40px;
+}
+.flightCard .buttonSkeleton {
+  text-align: left;
+  margin-left: 15px;
+  line-height: 36px;
+  margin-top: 36px;
+}
+.flightCard .buttonSkeleton .skeletonButtonFlightCard {
+  width: 60px;
+  height: 20px;
+}
+.flightCard .buttonSkeleton .skeletonInputFlightCard {
+  width: 80%;
+  height: 32px;
+}
+.back_drop {
+  position: fixed;
+  z-index: 150;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+}
+/*=============
+*   3.Flight Round
+===============*/
+.flightRound {
+  margin-bottom: 45px;
+}
+.flightRound .subjectFlightRound {
+  margin-bottom: 10px;
+  color: #777777;
+}
+.flightRound .availableFlightRound {
+  border: 1px solid #e2e2e2;
+  border-radius: 2px;
+  background-color: #ffffff;
+  position: relative;
+}
+.flightRound .availableFlightRound .roundInfo {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.flightRound .availableFlightRound .roundInfo .rowWitdh {
+  width: 100%;
+}
+.flightRound .availableFlightRound .roundInfo .airlineLogo {
+  margin-right: 20px;
+  text-align: center;
+}
+.flightRound .availableFlightRound .roundInfo .airlineLogo img {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+}
+.flightRound .availableFlightRound .roundInfo .airlineLogo .airlineName {
+  font-size: 10px;
+  line-height: 2.5;
+  color: #3a3a3a;
+  height: 30px;
+}
+.flightRound .availableFlightRound .roundInfo .departureTime {
+  text-align: right;
+  padding-right: 0px;
+  padding-top: 10px;
+}
+.flightRound .availableFlightRound .roundInfo .departureTime .textDepartureTime {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  color: #3a3a3a;
+  margin-top: 5px;
+  line-height: 18px;
+  text-align: center;
+  height: 18px;
+}
+.flightRound .availableFlightRound .roundInfo .departureTime .departureAirportLabel {
+  font-size: 14px;
+  font-weight: 200;
+  color: #3a3a3a;
+  text-align: center;
+}
+.flightRound .availableFlightRound .roundInfo .airlineItinerary {
+  position: relative;
+  padding-right: 0px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+  text-align: center;
+  padding-top: 10px;
+}
+.flightRound .availableFlightRound .roundInfo .airlineItinerary svg {
+  position: absolute;
+  width: 22px;
+  left: 0px;
+  top: 30px;
+  bottom: 0px;
+  color: #dfdfdf;
+  transform: scaleX(-1);
+  margin: auto;
+  height: 24px;
+  flex: 0 0 auto;
+  user-select: none;
+  pointer-events: none;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.flightRound .availableFlightRound .roundInfo .arrivalTime {
+  text-align: center;
+  position: relative;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+.flightRound .availableFlightRound .roundInfo .arrivalTime .arrivalTimeLabel {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  color: #3a3a3a;
+  margin-bottom: 5px;
+  height: 18px;
+}
+.flightRound .availableFlightRound .roundInfo .arrivalTime .arrivalAirportLabel {
+  font-size: 14px;
+  font-weight: 300;
+  color: #3a3a3a;
+  display: block;
+}
+.flightRound .availableFlightRound .roundInfo .arrivalTime .arrivalAirportLabel .bgLabel {
+  display: inline-block;
+  color: white;
+  background: #f5a623;
+  padding: 3px 3px 0px;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: 400;
+}
+.flightRound .availableFlightRound .roundDetail {
+  padding: 20px;
+  background-color: #f5f5f5;
+  margin-top: 15px;
+}
+.flightRound .availableFlightRound .roundDetail .mainDetail {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.flightRound .availableFlightRound .roundDetail .mainDetail .destination {
+  text-align: left;
+}
+.flightRound .availableFlightRound .roundDetail .mainDetail .city {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  color: #3a3a3a;
+  margin-bottom: 10px;
+  line-height: 18px;
+}
+.flightRound .availableFlightRound .roundDetail .mainDetail .time {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  color: #3a3a3a;
+  margin-bottom: 5px;
+  line-height: 18px;
+  height: 18px;
+}
+.flightRound .availableFlightRound .roundDetail .mainDetail .date {
+  font-size: 12px;
+  font-weight: 200;
+  color: #3a3a3a;
+  height: 18px;
+}
+.flightRound .availableFlightRound .roundDetail .footDetail {
+  border-top: 1px dashed #cccccc;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.flightRound .availableFlightRound .roundDetail .footDetail span {
+  font-size: 10px;
+  margin-left: 5px;
+  background-color: #ffffff;
+  padding: 3px 5px;
+  border-radius: 2px;
+}
+.flightRound .availableFlightRound .roundFooter {
+  position: relative;
+  height: 100%;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-left: 0px;
+  min-height: 101px;
+  margin-top: 5px;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight {
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  padding: 8px 10px;
+  height: 100%;
+  text-align: center;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight .textPriceFlight {
+  color: #3a3a3a;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight .textPriceFlight span {
+  font-size: 10px;
+  font-weight: 600;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight .textPriceFlight h6 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight a {
+  font-size: 11px;
+  border: 1px solid #3665ac;
+  color: #3665ac;
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight a svg {
+  display: none;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight .pricingDetail {
+  margin-top: 30px;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight .roundAmount {
+  padding-top: 40px;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight .roundAmount .passengerAmount {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  text-align: right;
+  line-height: 18px;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight .roundAmount .passengerAmount span {
+  font-size: 10px;
+  display: block;
+  color: #777777;
+  font-weight: 200;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight .roundAmount .resultAmount {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-top: 5px;
+  text-align: right;
+  line-height: 20px;
+}
+.flightRound .availableFlightRound .roundFooter .priceFlight .roundAmount .resultAmount span {
+  font-size: 10px;
+  display: block;
+  color: #777777;
+  font-weight: 400;
+}
+.flightRound .availableFlightRound button {
+  background-color: whitesmoke !important;
+  position: absolute;
+  right: 190px;
+  padding: 5px 10px 5px !important;
+  border: 1px solid #e2e2e2 !important;
+  border-radius: 0 0 10px 10px;
+  font-weight: 400 !important;
+  font-size: 11px !important;
+  color: #777777 !important;
+}
+.flightRound .availableFlightRound .dashedLine {
+  min-height: 100%;
+  position: absolute;
+  left: calc(25% - 2px);
+  border-right: 2px dashed #cccccc;
+}
+.flightRound .availableFlightRound .dashedLine:before {
+  content: " ";
+  position: absolute;
+  right: -11px;
+  z-index: 1;
+  background: #fafafa;
+  width: 22px;
+  display: block;
+  height: 22px;
+  border: none;
+  border-radius: 100%;
+  top: -9px;
+  box-shadow: inset 0 -1px 1px 0 rgba(29, 27, 27, 0.11);
+}
+.flightRound .availableFlightRound .dashedLine:after {
+  content: " ";
+  position: absolute;
+  right: -11px;
+  z-index: 1;
+  background: #fafafa;
+  width: 22px;
+  display: block;
+  height: 22px;
+  border: none;
+  border-radius: 100%;
+  bottom: -9px;
+  box-shadow: inset 0 1px 1px 0 rgba(29, 27, 27, 0.11);
+}
+.flightRound .emptyFlightRound {
+  border: 2px dashed #cccccc;
+  border-radius: 2px;
+  height: 105px;
+  cursor: pointer;
+  position: relative;
+}
+.flightRound .emptyFlightRound span {
+  font-size: 12px;
+  font-weight: 400;
+  color: #777777;
+  display: block;
+  text-align: center;
+  margin-top: 42px;
+}
+.flightRound .emptyFlightRound:before {
+  content: " ";
+  position: absolute;
+  left: 125px;
+  z-index: 1;
+  background: #fafafa;
+  width: 22px;
+  display: block;
+  height: 22px;
+  border: none;
+  border-radius: 100%;
+  top: -9px;
+  box-shadow: inset 0 -1px 1px 0 rgba(29, 27, 27, 0.11);
+  border-bottom: 2px dashed #d2d2d2;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.flightRound .emptyFlightRound:after {
+  content: " ";
+  position: absolute;
+  left: 125px;
+  z-index: 1;
+  background: #fafafa;
+  width: 22px;
+  display: block;
+  height: 22px;
+  border: none;
+  border-radius: 100%;
+  bottom: -9px;
+  box-shadow: inset 0 1px 1px 0 rgba(29, 27, 27, 0.11);
+  border-top: 2px dashed #d2d2d2;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.infoFlight .rootInfoFlight {
+  background-color: #ffffff;
+  margin-bottom: 5px;
+  padding: 2px 0px;
+  border-radius: 2px;
+  text-align: center;
+}
+.infoFlight .rootInfoFlight span {
+  font-size: 10px;
+}
+.infoFlight .rootInfoFlight span:first-of-type {
+  font-weight: 200;
+}
+.infoFlight .rootInfoFlight span:last-of-type {
+  font-weight: 400;
+  margin-right: 5px;
+}
+.infoFlight .contentInfoFlight .nameInfoFlight {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #3a3a3a;
+  margin-bottom: 10px;
+  line-height: 18px;
+}
+.infoFlight .contentInfoFlight .timeInfoFlight span {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  color: #3a3a3a;
+  margin-bottom: 5px;
+  line-height: 18px;
+}
+.infoFlight .contentInfoFlight span {
+  font-weight: 200;
+  font-size: 12px;
+  color: #3a3a3a;
+}
+.infoBus .infoBusRoot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0px 5px 10px 15px;
+  border-top: 2px solid #669ae6;
+}
+.infoBus .infoBusRoot .root {
+  flex: 1 1 auto;
+  display: block;
+  margin: 0;
+  padding: 10px 0 0;
+  position: relative;
+}
+.infoBus .infoBusRoot .startRoot {
+  text-align: right;
+}
+.infoBus .infoBusRoot .startRoot span {
+  font-size: 11px;
+}
+.infoBus .infoBusRoot .startRoot:before {
+  content: " ";
+  position: absolute;
+  right: -5px;
+  top: -11px;
+  width: 10px;
+  border-radius: 50%;
+  height: 10px;
+  background: #f9fafe;
+  color: #646464;
+  box-shadow: 0 0 0 3px #acc4e8;
+  margin: 5px;
+}
+.infoBus .infoBusRoot .middleRoot {
+  background: #6599e6;
+  color: #fff;
+  padding: 0;
+  height: 20px;
+  border-top: 2px solid #6599e6;
+  text-align: center;
+  font-size: 11px;
+  margin-top: -11px;
+}
+.infoBus .infoBusRoot .endRoot {
+  text-align: left;
+  margin-left: -6px;
+}
+.infoBus .infoBusRoot .endRoot span {
+  font-size: 11px;
+}
+.infoBus .infoBusRoot .endRoot:before {
+  content: " ";
+  position: absolute;
+  top: -11px;
+  width: 10px;
+  border-radius: 50%;
+  height: 10px;
+  color: #646464;
+  box-shadow: 0 0 0 3px #adc4e8;
+  margin: 5px;
+  right: calc(100% - 10px);
+  background: #669ae6;
+  border-color: transparent;
+}
+.infoBus .infoBusAlert {
+  background: #ffffff;
+  margin-bottom: 20px;
+  font-size: 10px;
+  border-radius: 4px;
+  padding: 5px 10px;
+  line-height: 20px;
+  font-weight: 200;
+}
+.infoBus .infoBusCabin {
+  position: relative;
+}
+.infoBus .infoBusCabin .contentCabin {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabin {
+  width: 10%;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabin svg {
+  height: 200px;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabinEnd {
+  float: right;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabinStart {
+  float: left;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabinMiddle {
+  border: 2px solid #d2d4dc;
+  border-right: none;
+  border-left: none;
+  width: 70%;
+  height: 200px;
+  padding: 6px 0;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabinMiddle .rowCabin {
+  height: 38px;
+  direction: ltr;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabinMiddle .rowCabin ol {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  padding: 0;
+  list-style: none;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabinMiddle .rowCabin ol li {
+  flex: 1;
+  height: 38px;
+  display: flex;
+  padding: 2px;
+  position: relative;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabinMiddle .rowCabin ol li .seatItem {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  line-height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  background-color: #ffffff;
+  border: 1px solid #669ae6;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabinMiddle .rowCabin ol li .seatNone {
+  border: none;
+  background-color: transparent;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabinMiddle .rowCabin ol li .reserveItem {
+  background-color: #666;
+  color: #fff;
+}
+.infoBus .infoBusCabin .contentCabin .wrapperCabinMiddle .rowCabin ol li .selectedItem {
+  background-color: #6599e6;
+  color: #fff;
+}
+.infoBus .infoBusCabin .contentCabinReadOnly:hover .wrapperCabinMiddle,
+.infoBus .infoBusCabin .contentCabinReadOnly:focus .wrapperCabinMiddle {
+  filter: blur(3px);
+  transition: all 0.1s ease;
+}
+.infoBus .infoBusCabin .contentCabinReadOnly:hover .infoBusCabinBtn,
+.infoBus .infoBusCabin .contentCabinReadOnly:focus .infoBusCabinBtn {
+  display: initial;
+  transition: all 0.1s ease;
+}
+.infoBus .infoBusCabin .footerCabin {
+  margin: 15px 0;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
+}
+.infoBus .infoBusCabin .footerCabin .itemCabin {
+  display: flex;
+}
+.infoBus .infoBusCabin .footerCabin .itemCabin .seat {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  line-height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  background-color: #ffffff;
+  border: 1px solid #669ae6;
+}
+.infoBus .infoBusCabin .footerCabin .itemCabin .reserve {
+  background-color: #666;
+  color: #fff;
+}
+.infoBus .infoBusCabin .footerCabin .itemCabin .selected {
+  background-color: #6599e6;
+  color: #fff;
+}
+.infoBus .infoBusCabin .footerCabin .itemCabin span {
+  padding: 5px;
+}
+.infoBus .infoBusCabin .infoBusCabinBtn {
+  color: white;
+  background: #e7412a;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  text-align: center;
+  padding: 5px 25px;
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  right: 0;
+  margin: 0 auto;
+  display: none;
+  width: 160px;
+  cursor: pointer;
+}
+.infoBus .infoBusCabin .infoBusCabinBtn:hover,
+.infoBus .infoBusCabin .infoBusCabinBtn:focus {
+  transition: all 0.1s ease;
+}
+.rolesBus {
+  margin-bottom: 25px;
+}
+.rolesBus .role {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  margin-bottom: 15px;
+}
+.rolesBus .role small {
+  padding: 10px;
+  text-align: center;
+  width: 30%;
+  font-size: 12px;
+}
+.rolesBus .role span {
+  padding: 10px;
+  width: 70%;
+  font-size: 12px;
+}
+.rolesBus .role01 span {
+  background-color: #f8877f;
+  color: #fff;
+}
+.rolesBus .role02 span {
+  background: #f6655a;
+  color: #fff;
+}
+.collapseInfoFlight {
+  border-right: 1px dashed #cccccc;
+  padding-right: 20px;
+}
+.flightOneWay .availableFlightRound:before,
+.flightOneWay .availableFlightRound:after {
+  left: 280px;
+}
+.flightOneWay .availableFlightRound .dashedLine {
+  left: 290px;
+}
+.flightOneWay .availableFlightRound:first-of-type {
+  margin-left: 0;
+}
+.roundRight {
+  flex: 75%;
+}
+.roundLeft {
+  flex: 25%;
+}
+/*=============
+*   4.Flight Checkout
+===============*/
+.flightCheckout {
+  background-color: #fafafa;
+}
+.flightCheckout .loadingCheckout {
+  text-align: center;
+  padding: 10px 30px;
+  padding-bottom: 100px;
+}
+.flightCheckout .loadingCheckout .icon {
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+}
+.flightCheckoutTravelo {
+  background-color: #f0f3f5;
+}
+.flightCheckoutTravelo .flightRound .availableFlightRound .dashedLine:before,
+.flightCheckoutTravelo .flightRound .availableFlightRound .dashedLine:after {
+  background: #f0f3f5;
+}
+.flightCheckoutTravelo .contentCheckout .btnContent button {
+  background: #0a438b;
+  border-color: #0a438b;
+  border-radius: 8px;
+  transition: all 0.3s ease 0s;
+}
+.flightCheckoutTravelo .contentCheckout .btnContent button:hover,
+.flightCheckoutTravelo .contentCheckout .btnContent button:focus {
+  background-color: #2a6ec1;
+  border-color: #2a6ec1;
+}
+.checkoutSteps {
+  padding: 30px 0 20px;
+}
+.asideCheckout {
+  background-color: #ffffff;
+  display: flex;
+}
+.asideCheckout .topAside {
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+}
+.asideCheckout .topAside .subject {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.asideCheckout .topAside .subject span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3a3a3a;
+}
+.asideCheckout .topAside .flightSelected {
+  margin-bottom: 10px;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 2px;
+}
+.asideCheckout .topAside .flightSelected > .date {
+  font-size: 12px;
+  font-weight: 400;
+  color: #3a3a3a;
+  margin-bottom: 20px;
+}
+.asideCheckout .topAside .flightSelected > .date svg {
+  transform: scaleX(-1);
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.asideCheckout .topAside .flightSelected > .carrierName {
+  background-color: #f0f3f5;
+  display: inline-block;
+  padding: 3px 5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 11px;
+}
+.asideCheckout .topAside .flightSelected > .seatNumber {
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #3a3a3a;
+}
+.asideCheckout .topAside .flightSelected > .seatNumber span b {
+  background-color: #f0f3f5;
+  padding: 2px;
+  margin: 0 5px;
+  border-radius: 8px;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .airLine {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .airLine img {
+  width: 40px;
+  height: 40px;
+  height: auto;
+  margin-left: 10px;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .airLine span {
+  font-size: 12px;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .origin {
+  text-align: center;
+  padding-left: 2px;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .origin .timeOrigin {
+  font-size: 10px;
+  letter-spacing: 0.2px;
+  color: #3a3a3a;
+  margin-top: 5px;
+  line-height: 13px;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .origin .textOrigin {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  font-size: 12px;
+  padding: 0px 3px;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: 600;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .destination {
+  text-align: center;
+  padding-right: 2px;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .destination .timeDestination {
+  font-size: 9px;
+  letter-spacing: 0.2px;
+  color: #3a3a3a;
+  margin-top: 5px;
+  line-height: 13px;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .destination .textDestination {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  font-size: 12px;
+  padding: 0px 3px;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: 600;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .symbolFlight {
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+  text-align: center;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .symbolFlight .typeFlight {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 12px;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .symbolFlight .typeFlight span {
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 400;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .symbolFlight img {
+  position: absolute;
+  width: 24px;
+  left: 0px;
+  margin: auto;
+  top: 1px;
+  bottom: 0px;
+  z-index: 1;
+  color: #dfdfdf;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .symbolFlight .dashedFlight {
+  position: absolute;
+  border-top: 1px dashed #dfdfdf;
+  top: 1px;
+  bottom: 0px;
+  width: 94%;
+  height: 0px;
+  margin: auto;
+}
+.asideCheckout .topAside .flightSelected .contentFlightSelected .symbolFlight .airlineType {
+  font-size: 12px;
+  font-weight: 400;
+  color: #777777;
+}
+.asideCheckout .topAside .flightSelected:first-of-type {
+  margin-bottom: 15px;
+}
+.asideCheckout .detailsAside {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 35%;
+}
+.asideCheckout .detailsAside .subject {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.asideCheckout .detailsAside .subject span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3a3a3a;
+}
+.asideCheckout .detailsAside .contentDetailsAside .passengerDetails {
+  margin-bottom: 10px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.asideCheckout .detailsAside .contentDetailsAside .passengerDetails span {
+  font-size: 12px;
+  font-weight: 400;
+}
+.asideCheckout .detailsAside .contentDetailsAside .passengerDetails b {
+  font-size: 12px;
+  color: #3a3a3a;
+  font-weight: 400;
+}
+.asideCheckout .detailsAside .contentDetailsAside .pricePay {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin-bottom: 10px;
+  border-top: 1px solid #cccccc;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+.asideCheckout .detailsAside .contentDetailsAside .pricePay span {
+  font-size: 12px;
+  color: #3a3a3a;
+  font-weight: 600;
+}
+.asideCheckout .detailsAside .contentDetailsAside .pricePay b {
+  font-size: 14px;
+  font-weight: 600;
+}
+.modalFlightDetails .btnFlightDetails {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #3665ac;
+  text-decoration: underline;
+}
+.contentModalFlightDetails {
+  padding-top: 5px;
+  direction: rtl;
+}
+.contentModalFlightDetails .paxHeader {
+  padding-top: 30px;
+}
+.contentModalFlightDetails .paxHeader .directionFlight {
+  display: inline-block;
+}
+.contentModalFlightDetails .paxHeader .directionFlight svg {
+  transform: scaleX(-1);
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+.contentModalFlightDetails .paxHeader .departureDetails {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #3a3a3a;
+}
+.contentModalFlightDetails .paxHeader .departureDetails b {
+  margin-right: 5px;
+}
+.contentModalFlightDetails .paxHeader .departureDetails svg {
+  margin: 0px 15px;
+  display: inline;
+  transform: rotate(-90deg);
+  vertical-align: middle;
+}
+.contentModalFlightDetails .paxHeader .moreDetailsPax {
+  font-size: 12px;
+  margin-top: 10px;
+}
+.contentModalFlightDetails .paxHeader .moreDetailsPax span {
+  margin-left: 25px;
+}
+.contentModalFlightDetails .paxHeader .moreDetailsPaxCip {
+  margin-top: 10px;
+  background-color: #f5f5f5;
+  padding: 15px 15px;
+  border-radius: 2px;
+  line-height: 32px;
+  font-size: 12px;
+}
+.contentModalFlightDetails .paxHeader .moreDetailsPaxCip .servicesPaxCip {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.contentModalFlightDetails .paxHeader .moreDetailsPaxCip .servicesPaxCip img {
+  width: 80px;
+  margin-left: 10px;
+}
+.contentModalFlightDetails .paxHeader .moreDetailsPaxCip .servicesPaxCip span svg {
+  margin-left: 10px;
+  position: relative;
+  top: 5px;
+}
+.contentModalFlightDetails .paxContent {
+  margin-top: 10px;
+  background-color: #f5f5f5;
+  padding: 20px 15px 5px;
+  border-radius: 2px;
+}
+.contentModalFlightDetails .paxContent .flightOrigin,
+.contentModalFlightDetails .paxContent .flightDestination {
+  display: flex;
+  background-color: #fafafa;
+  padding: 10px;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 2px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.contentModalFlightDetails .paxContent .flightOrigin svg,
+.contentModalFlightDetails .paxContent .flightDestination svg {
+  margin-left: 10px;
+  transform: scaleX(-1);
+  width: 20px;
+  height: 20px;
+}
+.contentModalFlightDetails .paxContent .flightOrigin b,
+.contentModalFlightDetails .paxContent .flightDestination b {
+  margin-left: 5px;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail {
+  display: flex;
+  margin-bottom: 20px;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .info {
+  flex: 0.9 1 0%;
+  padding-left: 20px;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .info .contentInfo {
+  display: flex;
+  align-items: flex-start;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .info .contentInfo img {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .info .contentInfo .airlineText {
+  font-size: 12px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .info .contentInfo .airlineNumber {
+  font-size: 12px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .info .contentInfo .aircraftTypeLabel {
+  font-size: 12px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .infoOrigin,
+.contentModalFlightDetails .paxContent .flightUpDetail .infoDestination {
+  flex: 0.9 1 0%;
+  padding-left: 20px;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .infoOrigin .departureTimeLabel,
+.contentModalFlightDetails .paxContent .flightUpDetail .infoDestination .departureTimeLabel {
+  font-size: 16px;
+  font-weight: normal;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .infoOrigin .departureTimeLabel .arrivalAirportLabel,
+.contentModalFlightDetails .paxContent .flightUpDetail .infoDestination .departureTimeLabel .arrivalAirportLabel {
+  font-size: 16px;
+  padding: 0px 3px;
+  border-radius: 2px;
+  text-align: center;
+  min-width: 36px;
+  font-weight: 600;
+  display: inline-block;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .infoOrigin .departureTimeLabel span,
+.contentModalFlightDetails .paxContent .flightUpDetail .infoDestination .departureTimeLabel span {
+  font-weight: bold;
+  margin-left: 5px;
+  font-size: 14px;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .infoOrigin .departureDateLabel,
+.contentModalFlightDetails .paxContent .flightUpDetail .infoDestination .departureDateLabel {
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.contentModalFlightDetails .paxContent .flightUpDetail .infoOrigin .airportLabel,
+.contentModalFlightDetails .paxContent .flightUpDetail .infoDestination .airportLabel {
+  font-size: 11px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 8px;
+}
+.contentCheckout {
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+.contentCheckout .warningfinalDestination {
+  border-radius: 8px;
+  background-color: #fff3e8;
+  margin-top: 15px;
+  padding: 18px 12px 14px;
+  border: 1px solid #ff8d19;
+  display: flex;
+  color: #ff8d19;
+  font-size: 11px;
+}
+.contentCheckout .warningfinalDestination span {
+  color: #ff8d19;
+  margin-left: 7px;
+}
+.contentCheckout .guestDetails {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cccccc;
+  border-image: initial;
+  padding: 20px;
+  border-radius: 2px;
+}
+.contentCheckout .guestDetails .cardTitle {
+  color: #3a3a3a;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.contentCheckout .guestDetails .cardTitleContent {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.contentCheckout .guestDetails .cardTitleContent .cardCount .cardEmptyCount {
+  background-color: #f0f3f5;
+  padding: 2px 10px;
+  border-radius: 8px;
+}
+.contentCheckout .guestDetails .cardTitleContent .cardCount .cardSelectCount {
+  background-color: #6599e633;
+  padding: 2px 10px;
+  border-radius: 8px;
+}
+.contentCheckout .guestDetails .cardBody .firstnameInput {
+  margin-top: 2px;
+}
+.contentCheckout .guestDetailsTravelo {
+  border-radius: 8px;
+}
+.contentCheckout .passengerTitle {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  border-radius: 2px;
+  margin-top: 35px;
+}
+.contentCheckout .passengerTitle .subjectPassengerTitle {
+  padding: 15px 20px 0;
+}
+.contentCheckout .passengerTitle .subjectPassengerTitle span {
+  font-weight: 600;
+}
+.contentCheckout .passengerTitle .subjectPassengerTitle span svg {
+  transform: scaleX(-1);
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.contentCheckout .passengerTitle .numberPassengerTitle {
+  display: flex;
+}
+.contentCheckout .passengerTitle .numberPassengerTitle .passengerCount {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #cccccc;
+  padding: 10px 25px 10px 15px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.contentCheckout .passengerTitle .numberPassengerTitle .passengerCount b {
+  margin-left: 5px;
+}
+.contentCheckout .passengerTitle .numberPassengerTitle .passengerCount .plusCount {
+  background-color: #5994e8;
+  color: #fff;
+  padding: 5px;
+  border-radius: 2px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+.contentCheckout .passengerTitle .numberPassengerTitle .passengerCount .plusCount svg {
+  vertical-align: middle;
+}
+.contentCheckout .passengerTitle .numberPassengerTitle .passengerCount .plusCount:hover {
+  opacity: 0.7;
+}
+.contentCheckout .passengerTitleTravelo {
+  border-radius: 8px;
+}
+.contentCheckout .btnContent {
+  display: flex;
+  justify-content: flex-end;
+}
+.contentCheckout .btnContent .loadingFlight {
+  color: white;
+  background: #e7412a;
+  border: none;
+  width: 310px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.contentCheckout .btnContent .loadingFlight svg {
+  width: 20px;
+  height: 20px;
+}
+.contentCheckout .btnContent button {
+  color: white;
+  background: #e7412a;
+  border: none;
+  width: 310px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+  display: flex;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.contentCheckout .btnContent button .btnText {
+  flex: 1 1 0%;
+}
+.contentCheckout .btnContent button svg {
+  justify-self: flex-end;
+  transform: rotate(90deg);
+  margin-left: 10px;
+  width: 16px;
+  height: 14px;
+  vertical-align: middle;
+}
+.passngerDetails {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cccccc;
+  border-image: initial;
+  border-radius: 2px;
+}
+.passngerDetails .subjectPassengerTitle {
+  padding: 15px 20px;
+}
+.passngerDetails .subjectPassengerTitle span {
+  font-weight: 600;
+}
+.passngerDetails .subjectPassengerTitle span svg {
+  transform: scaleX(-1);
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.passngerDetails .cardBody .adultPassenger .headerAdultPassneger {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-right: 3px solid #5993e8;
+  border-bottom: 1px solid #cccccc;
+}
+.passngerDetails .cardBody .adultPassenger .headerAdultPassneger .subjectAdultPassneger h4 {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.passngerDetails .cardBody .adultPassenger .headerAdultPassneger .removePassneger {
+  cursor: pointer;
+  padding: 6px 10px;
+  margin: -10px -16px -10px;
+  background-color: #ffe9e8;
+  border-radius: 2px;
+  transition: all 0.3s ease 0s;
+}
+.passngerDetails .cardBody .adultPassenger .headerAdultPassneger .removePassneger:hover {
+  opacity: 0.7;
+}
+.passngerDetails .cardBody .adultPassenger .headerAdultPassneger .removePassneger svg {
+  width: 12px;
+  vertical-align: middle;
+  color: #e7412a;
+}
+.passngerDetails .cardBody .adultPassenger .contentAdultPassneger {
+  padding: 20px;
+}
+.passngerDetails .cardBody .adultPassenger .headerBabyPassneger {
+  border-right: 3px solid #ff8d19;
+}
+.passngerDetails .cardBody .adultPassenger .headerInfantPassneger {
+  border-right: 3px solid #efe516;
+}
+.passngerDetailsTravelo {
+  border-radius: 8px;
+}
+.asideCheckoutFlightForeign {
+  display: block;
+  border: 1px dashed #cccccc;
+  border-radius: 2px;
+  padding-bottom: 20px;
+  margin-top: 25px;
+}
+.asideCheckoutFlightForeign .topAside {
+  border-bottom: 1px dashed #cccccc;
+}
+.asideCheckoutFlightForeign .topAside:before,
+.asideCheckoutFlightForeign .topAside:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 16px;
+  height: 10px;
+  background: #f0f3f5;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-width: 1px 1px 0px;
+  border-top-style: dashed;
+  border-right-style: dashed;
+  border-left-style: dashed;
+  border-top-color: #cccccc;
+  border-right-color: #cccccc;
+  border-left-color: #cccccc;
+  border-image: initial;
+  border-bottom-style: initial;
+  border-bottom-color: initial;
+  bottom: -5px;
+}
+.asideCheckoutFlightForeign .topAside:before {
+  transform: rotate(90deg);
+  left: -4px;
+}
+.asideCheckoutFlightForeign .topAside:after {
+  transform: rotate(-90deg);
+  right: -4px;
+}
+.asideCheckoutFlightForeign .topAside .subject {
+  margin-top: 15px;
+}
+.asideCheckoutFlightForeign .topAside .flightSelected {
+  background-color: transparent;
+}
+.asideCheckoutFlightForeign .detailsAside {
+  width: initial;
+}
+.asideCheckoutFlightForeign .detailsAside .subject {
+  margin-top: 15px;
+}
+.asideCheckoutFlightForeign .btnContent {
+  margin: 10px;
+}
+.asideCheckoutFlightForeign .btnContent .loadingFlight {
+  color: white;
+  background: #e7412a;
+  border: none;
+  width: 310px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.asideCheckoutFlightForeign .btnContent .loadingFlight svg {
+  width: 20px;
+  height: 20px;
+}
+.asideCheckoutFlightForeign .btnContent input {
+  margin-top: 20px;
+}
+.asideCheckoutFlightForeign .btnContent button {
+  color: white;
+  background: #e7412a;
+  border: none;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+  display: flex;
+  cursor: pointer;
+  border-radius: 2px;
+  height: auto;
+}
+.asideCheckoutFlightForeign .btnContent button .btnText {
+  flex: 1 1 0%;
+}
+.asideCheckoutFlightForeign .btnContent button svg {
+  justify-self: flex-end;
+  transform: rotate(90deg);
+  margin-left: 10px;
+  width: 16px;
+  height: 14px;
+  vertical-align: middle;
+}
+.asideCheckoutFlightForeign {
+  border-radius: 8px;
+}
+.searchBoxCity .content {
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0px 10px;
+  padding: 10px;
+}
+.searchBoxCity .content .icon,
+.searchBoxCity .content .tagBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchBoxCity .content .tag {
+  background-color: #5a5a5a;
+  color: #fff;
+  transition: none !important;
+}
+.searchBoxCity:last-child .content {
+  border: 0px;
+}
+.searchBoxCity:hover {
+  background-color: #222;
+  color: #fff;
+  cursor: pointer;
+}
+.searchBoxCity:hover .content {
+  border: 0px;
+}
+.searchBoxCity:hover .content .tag {
+  background-color: #fff;
+  color: #222;
+}
+/*=============
+*   00.Responsive
+===============*/
+@media (max-width: 991px) {
+  .flightList .filghtListFilter {
+    display: none;
+  }
+  .sidebarListFilter .filghtListFilter {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+  .sidebarListFilter .filghtListFilter .filterAirlineCount {
+    font-size: 10px;
+  }
+  .sidebarListFilter .filghtListFilter .filterAirlineLogo {
+    width: 20px;
+    height: 20px;
+  }
+  .flightListContent .sortFlightList .sortFlightListText {
+    display: none;
+  }
+  .flightListContent .sortFlightList .sortFlightListIcon {
+    display: initial;
+    padding-top: 8px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .textAirlineItinerary span {
+    font-weight: 200;
+    font-size: 10px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .airlineItineraryLabel {
+    font-weight: 200;
+    font-size: 10px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail .activeDetail .detailFlightPrice {
+    font-size: 11px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail .activeDetail .totalFlightPrice {
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .btnListFilterOpenSidebar {
+    display: flex;
+  }
+  .flightRound .availableFlightRound .roundDetail .mainDetail .city {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .flightRound .availableFlightRound .roundDetail .mainDetail .time {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  .flightRound .availableFlightRound .roundDetail .mainDetail .date {
+    font-size: 10px;
+  }
+  .flightRound .availableFlightRound button {
+    right: 15px;
+  }
+  .flightRound .availableFlightRound:first-of-type {
+    margin-left: 0;
+    margin-bottom: 45px;
+  }
+  .flightRound .availableFlightRound .dashedLine {
+    left: 24.7%;
+  }
+  .flightRound .emptyFlightRound:before,
+  .flightRound .availableFlightRound:before,
+  .flightRound .emptyFlightRound:after,
+  .flightRound .availableFlightRound:after {
+    left: 23.7%;
+  }
+  .flightRound .subjectFlightRound {
+    margin-top: 20px;
+  }
+  .infoFlight .contentInfoFlight .nameInfoFlight {
+    font-size: 14px;
+  }
+  .infoFlight .contentInfoFlight .timeInfoFlight span {
+    font-size: 14px;
+  }
+  .infoFlight .contentInfoFlight span {
+    font-size: 10px;
+  }
+  .infoFlight .rootInfoFlight span {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchOrigin .labelOrigin {
+    font-size: 12px;
+  }
+  .showMySearch .mySearchOrigin .citytOrigin {
+    font-size: 12px;
+  }
+  .showMySearch .middleIcon {
+    padding-top: 10px;
+  }
+  .showMySearch .mySearchDestination .labelDestination {
+    font-size: 12px;
+  }
+  .showMySearch .mySearchDestination .cityDestination {
+    font-size: 12px;
+  }
+  .showMySearch .mySearchDeparting .labelDeparting {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchDeparting .dateDeparting {
+    font-size: 12px;
+  }
+  .showMySearch .mySearchReturning .labelReturning {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchReturning .dateReturning {
+    font-size: 12px;
+  }
+  .showMySearch .mySearchPassenger .labelPassenger {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchPassenger .countPassenger {
+    font-size: 12px;
+  }
+  .showMySearch .mySearchCabin .labelCabin {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchCabin .typeCabin {
+    font-size: 12px;
+  }
+  .showMySearch .mySearchBtn button {
+    font-size: 12px;
+  }
+  .filterSortFlightList .filterTopResult .subject {
+    font-size: 12px;
+  }
+  .filterSortFlightList .filterTopResult .suggested button {
+    font-size: 11px;
+  }
+  .filterSortFlightList .nextBackDay .backDay,
+  .filterSortFlightList .nextBackDay .nowDay,
+  .filterSortFlightList .nextBackDay .nextDay {
+    font-size: 12px;
+  }
+}
+@media (max-width: 767px) {
+  .flightListContent .sortFlightList span {
+    font-size: 10px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard {
+    width: 100%;
+    display: block;
+    text-align: left;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .baggageIncludedIcon {
+    position: initial;
+    width: 80px;
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-left: 15px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .detailFlightBtn {
+    text-align: revert;
+    flex: initial;
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    text-align: center;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight {
+    min-width: initial;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight button {
+    font-size: 11px;
+    padding: 0 5px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight button svg {
+    margin-right: 0;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .remainingSeats {
+    font-size: 10px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .textPriceFlight h6 {
+    font-size: 16px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail {
+    margin-top: 30px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail .activeDetail .detailFlightPrice {
+    display: block;
+    line-height: 14px;
+    padding-bottom: 5px;
+    text-align: left;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail .activeDetail .detailFlightPrice small {
+    display: block;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail .activeDetail .totalFlightPrice {
+    display: block;
+    line-height: 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail .activeDetail .totalFlightPrice b {
+    display: block;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .flightCardButton {
+    text-align: left;
+  }
+  .flightListContent .flightResultList .flightCard .leftCardSelect {
+    width: 100%;
+    display: block;
+    text-align: left;
+    border-right: none;
+    padding: 0;
+  }
+  .flightListContent .flightResultList .flightCard .leftCardSelect > div {
+    height: initial;
+    border-top: 1px dashed #cccccc;
+    border-right: none;
+    max-width: 100%;
+    -webkit-box-align: initial;
+    margin-right: 0;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCardSelect > div .textPriceFlight {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+  .flightListContent .flightResultList .flightCard .leftCardSelect > div .textPriceFlight span {
+    margin-bottom: initial;
+    margin-right: 6px;
+    margin-top: 10px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCardSelect > div .textPriceFlight h6 {
+    margin-bottom: 0;
+    line-height: 32px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .textAirlineItinerary {
+    padding-bottom: 10px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .airlineItineraryLabel span {
+    padding: 2px 5px;
+    font-size: 9px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .departureTime .departureAirportLabel {
+    font-size: 14px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .departureTime .textDepartureTime {
+    font-size: 14px;
+  }
+  .flightRound .availableFlightRound .roundDetail {
+    padding: 10px;
+  }
+  .flightRound .availableFlightRound .dashedLine {
+    left: 24.7%;
+  }
+  .flightRound .emptyFlightRound:before,
+  .flightRound .availableFlightRound:before,
+  .flightRound .emptyFlightRound:after,
+  .flightRound .availableFlightRound:after {
+    left: 23.1%;
+  }
+  .loadingFlightSearch span {
+    font-size: 11px;
+    margin-bottom: 0px;
+  }
+  .showMySearch .mySearchOrigin {
+    margin-left: 10px;
+  }
+  .showMySearch .mySearchOrigin .labelOrigin {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchOrigin .citytOrigin {
+    font-size: 10px;
+  }
+  .showMySearch .middleIcon {
+    padding-top: 7px;
+  }
+  .showMySearch .mySearchDestination {
+    margin-right: 10px;
+    margin-left: 15px;
+  }
+  .showMySearch .mySearchDestination .labelDestination {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchDestination .cityDestination {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchDeparting {
+    padding-right: 15px;
+  }
+  .showMySearch .mySearchDeparting .labelDeparting {
+    font-size: 9px;
+  }
+  .showMySearch .mySearchDeparting .dateDeparting {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchReturning {
+    padding-right: 15px;
+  }
+  .showMySearch .mySearchReturning .labelReturning {
+    font-size: 9px;
+  }
+  .showMySearch .mySearchReturning .dateReturning {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchPassenger {
+    padding-right: 15px;
+  }
+  .showMySearch .mySearchPassenger .labelPassenger {
+    font-size: 9px;
+  }
+  .showMySearch .mySearchPassenger .countPassenger {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchCabin {
+    padding-right: 15px;
+  }
+  .showMySearch .mySearchCabin .labelCabin {
+    font-size: 9px;
+  }
+  .showMySearch .mySearchCabin .typeCabin {
+    font-size: 10px;
+  }
+  .showMySearch .mySearchBtn button {
+    font-size: 10px;
+    height: 30px;
+  }
+  .filterSortFlightList {
+    display: block;
+    margin-top: 20px;
+  }
+  .filterSortFlightList .sortAndDay {
+    margin-top: 20px;
+  }
+  .filterSortFlightList .sortAndDay .nextBackDay {
+    width: 100%;
+  }
+  .filterSortFlightList .sortAndDay .nowDay {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  .filterSortFlightList .sortAndDay .backDay,
+  .filterSortFlightList .sortAndDay .nextDay {
+    margin: 0 auto;
+  }
+  .asideCheckout {
+    display: block;
+    margin-top: 0;
+  }
+  .asideCheckout .topAside {
+    width: 100%;
+    border-left: none;
+  }
+  .asideCheckout .topAside:before {
+    top: initial;
+    left: initial;
+    transform: rotate(270deg);
+    right: -7px;
+    bottom: -7px;
+  }
+  .asideCheckout .topAside:after {
+    bottom: -7px;
+    transform: rotate(455deg);
+    left: -8px;
+  }
+  .asideCheckout .detailsAside {
+    width: 100%;
+  }
+  .contentModalFlightDetails .paxHeader .moreDetailsPax {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+  .contentModalFlightDetails .paxHeader .moreDetailsPax span {
+    margin-left: 20px;
+  }
+  .input95 {
+    width: 100% !important;
+  }
+  .contentCheckout .passengerTitle {
+    display: block;
+  }
+  .contentCheckout .passengerTitle .subjectPassengerTitle {
+    border-bottom: 1px solid #cccccc;
+  }
+  .contentCheckout .passengerTitle .numberPassengerTitle .passengerCount:first-of-type {
+    border-right: none;
+  }
+}
+@media (max-width: 575px) {
+  .sortFlightList .sortRadioGroup {
+    overflow: auto;
+    white-space: nowrap;
+    height: 41px;
+    padding-left: 4px;
+  }
+  .flightListContent .sortFlightList label {
+    padding: 0px 5px;
+    display: inline-table;
+    line-height: 26px;
+    height: 18px;
+    margin-top: 5px;
+  }
+  .flightListContent .sortFlightList .sortFlightListIcon {
+    padding-top: 0px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard {
+    margin: 0;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard {
+    padding-left: 0;
+    margin-left: -5px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineLogo {
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineLogo img {
+    width: 30px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineLogo .airlineName {
+    font-size: 9px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary {
+    margin-top: 0px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .textAirlineItinerary,
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .lineAirlineItinerary,
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary .airlineItineraryLabel {
+    display: none;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .airlineItinerary svg {
+    top: 35px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .departureTime {
+    text-align: center;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .departureTime .textDepartureTime {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 0;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .departureTime .departureAirportLabel {
+    font-size: 12px;
+    text-align: center;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .departureAirportLabel {
+    display: initial !important;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .arrivalTime {
+    text-align: center;
+    margin-top: 3px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .arrivalTime .arrivalTimeLabel {
+    font-size: 12px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .arrivalTime .arrivalAirportLabel {
+    font-size: 12px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .selectRadio {
+    position: relative;
+    left: 10px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .activeDetail .detailFlightBtn {
+    padding: 9px 10px 10px;
+    margin-top: 15px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .activeDetail .detailFlightBtn a {
+    font-size: 10px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .activeDetail .detailFlightBtn a svg {
+    width: 8px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .detailFlightBtn a {
+    font-size: 11px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight {
+    min-width: initial;
+    padding-left: 10px;
+    padding-top: 14px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .textPriceFlight span {
+    display: block;
+    margin-bottom: -5px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .textPriceFlight h6 {
+    font-size: 14px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .textPriceFlight .isAvailability {
+    font-size: 10px;
+    padding-top: 15px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .flightCardButton {
+    padding-right: 0;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .remainingSeats {
+    font-size: 8px;
+    margin-top: 5px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight button {
+    font-size: 11px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight button svg {
+    display: none;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail {
+    margin-top: 20px;
+  }
+  .flightListContent .flightResultList .flightCard .leftCard .priceFlight .pricingDetail .activeDetail .detailFlightPrice {
+    padding-bottom: 10px;
+  }
+  .flightListContent .flightResultList .flightCard .detailFlight {
+    margin-top: 15px;
+    padding: 10px 10px 0;
+  }
+  .flightListContent .flightResultList .flightCard .detailFlightBtnClose a {
+    font-size: 10px;
+    padding: 9px 10px 10px;
+  }
+  .flightListContent .flightResultList .flightCard .detailFlightBtnClose a svg {
+    width: 8px;
+  }
+  .flightRound .availableFlightRound .roundInfo {
+    padding-bottom: 20px;
+  }
+  .flightRound .availableFlightRound .roundInfo .airlineLogo {
+    margin-right: 5px;
+  }
+  .flightRound .availableFlightRound .roundInfo .airlineLogo img {
+    width: 30px;
+    margin-right: 0;
+  }
+  .flightRound .availableFlightRound .roundInfo .airlineLogo .airlineName {
+    font-size: 9px;
+  }
+  .flightRound .availableFlightRound .roundInfo .departureTime .textDepartureTime {
+    font-size: 14px;
+    margin-top: 0px;
+  }
+  .flightRound .availableFlightRound .roundInfo .departureTime .departureAirportLabel {
+    font-size: 12px;
+  }
+  .flightRound .availableFlightRound .roundInfo .airlineItinerary svg {
+    width: 18px;
+  }
+  .flightRound .availableFlightRound .roundInfo .arrivalTime .arrivalTimeLabel {
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+  .flightRound .availableFlightRound .roundInfo .arrivalTime .arrivalAirportLabel {
+    font-size: 12px;
+  }
+  .flightRound .availableFlightRound .roundDetail .mainDetail .city {
+    font-size: 12px;
+  }
+  .flightRound .availableFlightRound .roundDetail .mainDetail .time {
+    font-size: 11px;
+  }
+  .flightRound .availableFlightRound .roundDetail .footDetail span {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  .flightRound .availableFlightRound .roundFooter {
+    position: relative;
+  }
+  .flightRound .availableFlightRound .roundFooter .priceFlight .textPriceFlight span {
+    font-size: 8px;
+  }
+  .flightRound .availableFlightRound .roundFooter .priceFlight .textPriceFlight h6 {
+    font-size: 12px;
+  }
+  .flightRound .availableFlightRound .roundFooter .priceFlight a {
+    background-color: #f3f3f3;
+    border: none;
+    border-radius: 20px;
+  }
+  .flightRound .availableFlightRound .roundFooter .priceFlight a span:first-of-type {
+    display: none;
+  }
+  .flightRound .availableFlightRound .roundFooter .priceFlight a span svg {
+    display: inline-block;
+    margin-left: 0;
+    vertical-align: middle;
+  }
+  .flightRound .availableFlightRound .roundFooter .priceFlight .roundAmount {
+    padding-top: 30px;
+  }
+  .flightRound .availableFlightRound .roundFooter .priceFlight .roundAmount .passengerAmount {
+    display: block;
+    line-height: 12px;
+    text-align: center;
+    margin-bottom: 7px;
+  }
+  .flightRound .availableFlightRound .roundFooter .priceFlight .roundAmount .resultAmount {
+    display: block;
+    line-height: 16px;
+    text-align: center;
+  }
+  .flightRound .availableFlightRound .dashedLine {
+    left: 105px;
+  }
+  .flightRound .availableFlightRound:before,
+  .flightRound .availableFlightRound:after {
+    left: 95px;
+  }
+  .flightRound .emptyFlightRound span {
+    font-size: 10px;
+    margin-top: 46px;
+  }
+  .flightRound .emptyFlightRound:before,
+  .flightRound .emptyFlightRound:after {
+    left: 95px;
+  }
+  .infoFlight .contentInfoFlight .nameInfoFlight {
+    font-size: 12px;
+    margin-bottom: 0px;
+  }
+  .infoFlight .contentInfoFlight .timeInfoFlight span {
+    font-size: 12px;
+  }
+  .infoFlight .contentInfoFlight span {
+    font-size: 8px;
+    display: block;
+  }
+  .infoFlight .rootInfoFlight {
+    padding: 0px 5px;
+    margin-left: 5px;
+  }
+  .infoFlight .rootInfoFlight span {
+    font-size: 9px;
+  }
+  .collapseInfoFlight {
+    border-right: none;
+    border-top: 1px dashed #cccccc;
+    padding-top: 10px;
+    margin-top: 10px;
+    padding-right: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .showMySearch .middleIcon svg {
+    transform: rotate(180deg);
+    margin-right: 3px;
+  }
+  .showMySearch .mySearchDestination {
+    margin-right: 0px;
+  }
+  .showMySearch .mySearchDeparting {
+    border-right: none;
+    padding-bottom: 20px;
+    padding-right: 10px;
+  }
+  .showMySearch .mySearchReturning {
+    padding-right: 10px;
+  }
+  .showMySearch .mySearchPassenger {
+    padding-bottom: 20px;
+    padding-right: 10px;
+  }
+  .showMySearch .mySearchCabin {
+    padding-right: 10px;
+  }
+  .showMySearch .mySearchOD,
+  .showMySearch .mySearchDR,
+  .showMySearch .mySearchPC {
+    display: block;
+  }
+  .showMySearch .mySearchDR {
+    border-right: 1px solid #dfdfdf;
+    padding: 5px 0;
+    min-height: 94px;
+  }
+  .showMySearch .mySearchPC {
+    padding: 5px 0;
+  }
+  .flightCard .airlineSkeleton {
+    display: none;
+  }
+  .flightCard .citySkeleton {
+    margin-top: 32px;
+  }
+  .flightCard .airlineItinerarySkeleton {
+    margin-top: 28px;
+    margin-left: 10px;
+  }
+  .flightCard .buttonSkeleton {
+    margin-top: 26px;
+    margin-bottom: 10px;
+  }
+  .flightCard .buttonSkeleton .skeletonButtonFlightCard {
+    width: 50px;
+    height: 15px;
+  }
+  .flightCard .buttonSkeleton .skeletonInputFlightCard {
+    height: 25px;
+  }
+  .input95,
+  .input95Tablet {
+    width: 100% !important;
+  }
+  .input65 {
+    width: 70% !important;
+  }
+  .checkoutConfirmEmail {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .asideCheckout .topAside {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .asideCheckout .topAside .subject span {
+    font-size: 14px;
+  }
+  .asideCheckout .topAside .flightSelected .contentFlightSelected .airLine {
+    margin-bottom: 10px;
+  }
+  .asideCheckout .topAside .flightSelected .contentFlightSelected .airLine img {
+    width: 30px;
+  }
+  .asideCheckout .topAside .flightSelected .contentFlightSelected .airLine span {
+    font-size: 10px;
+  }
+  .asideCheckout .topAside .flightSelected .contentFlightSelected .origin {
+    text-align: right;
+    margin-top: 5px;
+  }
+  .asideCheckout .topAside .flightSelected .contentFlightSelected .origin .textOrigin {
+    -webkit-box-pack: start;
+    justify-content: start;
+    padding: 0px;
+    font-size: 12px;
+    text-align: right;
+  }
+  .asideCheckout .topAside .flightSelected .contentFlightSelected .destination {
+    text-align: left;
+    margin-top: 2px;
+  }
+  .asideCheckout .topAside .flightSelected .contentFlightSelected .destination .textDestination {
+    display: initial;
+    padding: 0px;
+    font-size: 12px;
+    text-align: left;
+  }
+  .asideCheckout .topAside .flightSelected .contentFlightSelected .symbolFlight .dashedFlight {
+    display: none;
+  }
+  .asideCheckout .topAside .flightSelected .contentFlightSelected .symbolFlight svg {
+    right: 0;
+  }
+  .asideCheckout .topAside .flightSelected .contentFlightSelected .symbolFlight .typeFlight span {
+    padding: 0;
+  }
+  .asideCheckout .topAside .flightSelected .contentFlightSelected .symbolFlight .airlineType {
+    font-size: 10px;
+  }
+  .asideCheckout .topAside .flightSelected > .date {
+    font-size: 11px;
+  }
+  .asideCheckout .detailsAside {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .asideCheckout .detailsAside .subject span {
+    font-size: 14px;
+  }
+  .asideCheckout .detailsAside .contentDetailsAside .passengerDetails span,
+  .asideCheckout .detailsAside .contentDetailsAside .passengerDetails b {
+    font-size: 11px;
+  }
+  .asideCheckout .detailsAside .contentDetailsAside .pricePay span {
+    font-size: 11px;
+  }
+  .asideCheckout .detailsAside .contentDetailsAside .pricePay b {
+    font-size: 14px;
+  }
+  .modalFlightDetails .btnFlightDetails {
+    font-size: 11px;
+  }
+  .contentModalFlightDetails .paxHeader .moreDetailsPax {
+    line-height: 20px;
+  }
+  .contentModalFlightDetails .paxHeader .moreDetailsPax span {
+    margin-left: 0;
+    display: block;
+  }
+  .contentModalFlightDetails .paxContent {
+    padding: 10px;
+  }
+  .contentModalFlightDetails .paxContent .flightUpDetail {
+    display: block;
+    margin-bottom: 0;
+  }
+  .contentModalFlightDetails .paxContent .flightUpDetail .info {
+    padding-left: 0;
+    margin-bottom: 10px;
+  }
+  .contentModalFlightDetails .paxContent .flightUpDetail .info .contentInfo img {
+    width: 30px;
+    height: 30px;
+  }
+  .contentModalFlightDetails .paxContent .flightUpDetail .info .contentInfo .airlineText,
+  .contentModalFlightDetails .paxContent .flightUpDetail .info .contentInfo .airlineNumber,
+  .contentModalFlightDetails .paxContent .flightUpDetail .info .contentInfo .aircraftTypeLabel {
+    font-size: 11px;
+  }
+  .contentModalFlightDetails .paxContent .flightUpDetail .infoOrigin {
+    flex: initial;
+    padding-left: 0;
+    width: 50%;
+    display: inline-block;
+  }
+  .contentModalFlightDetails .paxContent .flightUpDetail .infoOrigin .departureTimeLabel {
+    margin-right: 0;
+  }
+  .contentModalFlightDetails .paxContent .flightUpDetail .infoOrigin .departureTimeLabel .arrivalAirportLabel {
+    padding: 0;
+  }
+  .contentModalFlightDetails .paxContent .flightUpDetail .infoDestination {
+    flex: initial;
+    padding-left: 0;
+    width: 50%;
+    display: inline-block;
+    text-align: left;
+  }
+  .contentModalFlightDetails .paxContent .flightUpDetail .infoDestination .departureTimeLabel span {
+    margin-left: 0;
+  }
+  .contentCheckout .guestDetails {
+    padding: 20px 10px;
+  }
+  .contentCheckout .guestDetails .cardTitle {
+    font-size: 14px;
+  }
+  .contentCheckout .passengerTitle .subjectPassengerTitle {
+    padding: 10px;
+  }
+  .contentCheckout .passengerTitle .subjectPassengerTitle span {
+    font-size: 13px;
+  }
+  .contentCheckout .passengerTitle .numberPassengerTitle {
+    display: flex;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+  }
+  .contentCheckout .passengerTitle .numberPassengerTitle .passengerCount {
+    padding: 5px;
+    border-right: none;
+  }
+  .contentCheckout .passengerTitle .numberPassengerTitle .passengerCount .plusCount {
+    padding: 3px;
+    margin-right: 5px;
+  }
+  .passngerDetails .cardBody .adultPassenger .headerAdultPassneger {
+    padding: 10px;
+  }
+  .passngerDetails .cardBody .adultPassenger .headerAdultPassneger .removePassneger {
+    margin: -10px -6px -10px;
+  }
+  .passngerDetails .cardBody .adultPassenger .contentAdultPassneger {
+    padding: 20px 10px;
+  }
+  .showMySearch {
+    border: 1px solid #dfdfdf;
+    padding: 10px;
+    border-radius: 2px;
+  }
+  .showMySearch .mySearchBtn {
+    left: 10px;
+  }
+  .showMySearch .mySearchBtn button {
+    height: 95px;
+    width: 50px;
+    border-radius: 2px;
+  }
+  .searchBus > div > div .searchBusOrigin,
+  .searchBus > div > div .searchBusDestination {
+    margin-left: -4px;
+  }
+  .searchBus > div > div .searchBusBtn button {
+    width: 100% !important;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .companyLogo {
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .companyLogo img {
+    margin-left: 5px;
+  }
+  .flightListContent .flightResultList .flightCard .rightCard .contentRightCard .searchResultLegCard .companyLogo .companyName {
+    margin-left: 10px;
+    text-align: right;
+    font-size: 10px;
+  }
+  .flightCheckoutTravelo .contentCheckout .btnContent {
+    display: initial;
+  }
+  .flightCheckoutTravelo .contentCheckout .btnContent button {
+    width: 100%;
+  }
+}
+@media (max-width: 390px) {
+  .flightRound .availableFlightRound .dashedLine {
+    left: 75px;
+  }
+  .flightRound .availableFlightRound:before,
+  .flightRound .availableFlightRound:after {
+    left: 65px;
+  }
+  .flightRound .emptyFlightRound:before,
+  .flightRound .emptyFlightRound:after {
+    left: 65px;
+  }
+  .loadingFlightSearch span {
+    font-size: 10px;
+  }
+  .roundRight {
+    flex: 73%;
+  }
+  .roundLeft {
+    flex: 27%;
+  }
+}

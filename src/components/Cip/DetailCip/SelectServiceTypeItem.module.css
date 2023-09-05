@@ -1,0 +1,35 @@
+.transportItem{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.transportImage{
+    border: 1px solid #ddd;
+    width: 100px;
+}
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td{
+    padding: 10px 15px;
+    text-align: center;
+}
+.table td{
+    border-top: 1px solid #ddd;
+}
+.RowColumn{
+    width: 70px;
+}
+.cipItemFooter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.itemDescription{
+    color: rgb(255, 121, 31);
+    background-color: #fff0e7;
+    padding: 10px 15px;
+    border-radius: 4px;
+}

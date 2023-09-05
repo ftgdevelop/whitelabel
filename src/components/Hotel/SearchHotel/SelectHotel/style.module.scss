@@ -1,0 +1,204 @@
+.selectHotel {
+  position: relative;
+
+  &__inputContainer {
+    height: 46px;
+    position: relative;
+    border-radius: 3px;
+    & > svg {
+      width: 17px;
+      height: 17px;
+      color: rgb(158, 158, 158);
+      position: absolute;
+      z-index: 1;
+      top: 14px;
+      right: 10px;
+    }
+    &:before {
+      content: "";
+      background: url(data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20standalone%3D%22no%22%3F%3E%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%3Csvg%20class%3D%22icon%22%20width%3D%2217px%22%20height%3D%2217.00px%22%20viewBox%3D%220%200%201024%201024%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M755.26851%20745.604785a460.79208%20460.79208%200%200%200-51.583113%2066.142863%202210.426008%202210.426008%200%200%201-133.8217%20181.500881%2079.070641%2079.070641%200%200%201-61.470944%2030.751471%2077.822662%2077.822662%200%200%201-60.798955-30.463476c-2.399959-3.199945-122.269898-174.141007-185.59681-248.123736h3.199945l-3.359942-11.6158c-65.246879-73.598735-165.917148-220.796205-165.917148-323.418441A410.008953%20410.008953%200%200%201%20508.872745%200.0176%20415.448859%20415.448859%200%200%201%20928.06554%20410.474545c0.191997%20132.381725-155.101334%20314.77859-172.79703%20335.13024zM508.872745%2063.824503a350.777971%20350.777971%200%200%200-354.041915%20346.554044c0%2082.846576%2094.494376%20224.348144%20154.077352%20294.042946%2065.118881%2076.158691%20184.476829%20244.091805%20189.564742%20251.195682a12.991777%2012.991777%200%200%200%209.087844%204.575922%2014.303754%2014.303754%200%200%200%2010.43182-6.39989c93.822387-119.805941%20116.669995-155.165333%20130.33376-176.31697a516.471123%20516.471123%200%200%201%2057.119019-73.598735c75.870696-87.198501%20157.501293-216.316282%20157.501292-293.81895A350.745972%20350.745972%200%200%200%20508.872745%2063.824503z%20m0%20506.327298a190.716722%20190.716722%200%201%201%20194.780652-190.652724%20193.020682%20193.020682%200%200%201-194.780652%20190.620724z%20m0-317.466544a126.81382%20126.81382%200%201%200%20129.533774%20126.81382A128.381793%20128.381793%200%200%200%20508.872745%20252.813255z%22%20fill%3D%22%239e9e9e%22%20/%3E%3C/svg%3E)
+        no-repeat;
+      z-index: 1;
+      position: absolute;
+      top: 14px;
+      right: 15px;
+      width: 17px;
+      height: 17px;
+    }
+    &:focus-within {
+      &:before {
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20standalone%3D%22no%22%3F%3E%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%3Csvg%20class%3D%22icon%22%20width%3D%2217px%22%20height%3D%2217.00px%22%20viewBox%3D%220%200%201024%201024%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M334.224%20391.424c0-95.952%2079.728-173.968%20177.776-173.968%2098.048%200%20177.776%2078.016%20177.776%20173.968%200%2095.936-79.728%20173.968-177.776%20173.968-98.048%200-177.776-78.032-177.776-173.968M512.448%200h-0.896C291.232%200.224%20112%20175.744%20112%20391.424c0%20109.424%2088.928%20265.024%20176%20391.424a2759.648%202759.648%200%200%200%20161.824%20211.44A81.104%2081.104%200%200%200%20512.048%201024h0.128a80.512%2080.512%200%200%200%2061.824-29.488A2756.736%202756.736%200%200%200%20736%20782.832c87.072-126.384%20176-281.984%20176-391.408C912%20175.744%20732.752%200.224%20512.448%200%22%20fill%3D%22%232c2c2c%22%20/%3E%3C/svg%3E");
+      }
+    }
+    & > input {
+      padding-right: 42px;
+      border: 1px solid #ddd;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 46px;
+    border-radius: 3px !important;
+    border: none;
+    outline: none;
+  }
+
+  &__clear {
+    position: absolute;
+    left: 6px;
+    top: 12px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(158, 158, 158);
+
+    & > p {
+      margin-bottom: unset;
+      line-height: 29px;
+    }
+  }
+
+  &__tooltipMessage {
+    background-color: #fff;
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 12px;
+    color: #ff4d4f;
+    position: absolute;
+    min-width: 200px;
+    border-radius: 5px;
+    top: 55px;
+    right: 0;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #fff;
+      position: absolute;
+      top: -5px;
+    }
+  }
+
+  &__listContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 999;
+    background-color: #fff;
+    border-radius: 3px;
+    border: solid 1px #dcdcdc;
+  }
+
+  &__tabsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid 1px #dcdcdc;
+    padding: 0 15px;
+  }
+
+  &__tab {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ffffff;
+    &.active {
+      color: #3665ac;
+      border-bottom: 2px solid #3665ac;
+      font-weight: 600;
+    }
+  }
+
+  &__tabContent {
+    background-color: #fff;
+    height: 260px;
+    overflow-y: scroll;
+  }
+
+  &__loading {
+    // display: flex;
+    // justify-content: center;
+    // width: 100%;
+    // padding:30px;
+    &_skeleton {
+      padding: 15px 15px;
+      border-bottom: solid 1px #ececec;
+    }
+  }
+
+  &__list {
+    padding: 0;
+
+    &_item {
+      padding: 10px 15px 13px;
+      cursor: pointer;
+      border-bottom: 1px solid #f1f1f1;
+      display: flex;
+
+      &:hover {
+        // background-color: #f5f5f5;
+        background-color: #262626;
+        color: #fff;
+      }
+
+      & > p {
+        margin-bottom: unset;
+
+        font-size: 14px;
+      }
+
+      // &>p:last-of-type{
+      //   font-size: 12px;
+      //   margin-top: 5px;
+      // }
+
+      &_name {
+        font-size: 12px;
+        // margin-top: 5px;
+      }
+      &_small {
+        font-size: 10px;
+        font-weight: 200;
+      }
+      &_icon {
+        position: relative;
+        top: 4px;
+        margin-left: 6px;
+        width: 30px;
+        text-align: center;
+      }
+    }
+  }
+  .selectHotel_travelo__input {
+    border: 1px solid #848f99 !important;
+    border-radius: 8px !important;
+    padding-top: 20px;
+  }
+
+}
+
+.selectHotelTraveloInput {
+  border: 1px solid #848f99 !important;
+  border-radius: 8px !important;
+  padding-top: 20px;
+}
+
+@media (max-width: 991px) {
+  .selectHotel {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

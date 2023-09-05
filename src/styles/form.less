@@ -1,0 +1,88 @@
+@import './_variables.less';
+.body{
+
+    .link-style-btn{
+        color: @blue;
+        padding: 0;
+        border: 0 none !important;
+        background: transparent;
+        box-shadow: none;
+        text-shadow: none;
+        cursor: pointer;
+        &.gray{
+            color: #bbb;
+        }
+    }
+}
+.button{
+    height: 46px;
+    &.ant-btn-sm{
+        height: 30px;
+        font-size: 12px;
+        &.inline-btn{
+            min-width: 100px;
+        }
+    }
+    &.medium-button{
+        height: 35px;
+        font-size: 13px;
+    }
+    &.inline-btn{
+        min-width: 120px;
+    }
+    &:not(.inline-btn){
+        width: 100%;
+    }
+    .TRAVELO &{
+        border-radius: 8px;
+    }
+    &.blue-btn{
+        color: #fff;
+        background-color: @blue;
+        border-color: @blue;
+        cursor: pointer;
+        &:hover,&:focus{
+            background-color: @blueHover;
+            border-color: @blueHover;
+        }
+        &[disabled]{
+            background-color: #4e92e6;
+            border-color: #4e92e6;
+            opacity: 1;
+            filter: grayscale(0);
+            cursor: no-drop;
+        }
+    }
+    &.gray-btn{
+        color: #fff;
+        background-color: #eee;
+        border-color: #aaa;
+        color: #333;
+        &:hover,&:focus{
+            background-color: #e4e4e4;
+            border-color: #aaa;
+        }
+    }
+    &.red-btn{
+        color: #fff;
+        background-color: @red;
+        border-color: @red;
+        &:hover,&:focus{
+            background-color: @redHover;
+            border-color: @redHover;
+        }
+    }
+}
+.form-input{
+    height: 46px;
+    border-radius: 3px !important;
+    border: none;
+    outline: none;
+}
+@media (max-width: 767px) {
+    .button-v4 {
+        .TRAVELO & {
+            margin-top: 30px;
+        }
+    }
+}

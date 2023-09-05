@@ -1,0 +1,107 @@
+.modal_default {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_wrapper {
+  background-color: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  margin: 100px auto 0;
+  width: 1170px;
+  z-index: 9999;
+  position: absolute;
+  top: 20px;
+  }
+  
+  .modal_header {
+    position: relative;
+    z-index: 14;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    z-index: 151;
+    div {
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+    }
+  }
+    
+  .modal_body {
+    padding: 10px 15px;
+  }
+  
+  .modal_footer {
+    background: #263238;
+    height: 35px;
+    padding: 15px;
+  }
+  
+  .close_modal_btn {
+    background: none;
+    padding: 4px 60px;
+    color: white;
+    border: 1px solid white;
+    font-size: 14px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 600;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  
+  .close_modal_btn:hover {
+    
+  }
+  
+  .btn_cancel, .btn_continue {
+    background: coral;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    padding: 10px;
+  }
+  
+  .btn_cancel {
+    background-color: #b71c1c;
+    float: left;
+  }
+  
+  .btn_continue {
+    background-color: #1b5e20;
+    float: right;
+  }
+  
+  .back_drop {
+    position: fixed;
+    z-index: 150;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .open_modal_btn {
+    margin: 15px;
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  @media (max-width: 1199px) {
+    .modal_wrapper {
+      width: 100%;
+    }
+  }
+  

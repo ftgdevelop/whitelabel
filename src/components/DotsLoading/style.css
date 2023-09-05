@@ -1,0 +1,50 @@
+.dotsLoading {
+  position: relative;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #fff;
+  animation: flashing .5s infinite linear alternate;
+  animation-delay: .25s;
+  margin: 0 auto;
+}
+
+.dotsLoading::before, .dotsLoading::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.dotsLoading::before {
+  left: -8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #fff;
+  animation: flashing .5s infinite alternate;
+  animation-delay: 0s;
+}
+
+.dotsLoading::after {
+  left: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #fff;
+  animation: flashing .5s infinite alternate;
+  animation-delay: .5s;
+}
+
+@keyframes flashing {
+  0% {
+    background-color: #fff;
+  }
+  50%,
+  100% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}

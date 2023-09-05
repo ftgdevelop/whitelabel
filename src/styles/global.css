@@ -1,0 +1,347 @@
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.main-content-holder .full-width {
+  width: 100%;
+}
+.main-content-holder .blue {
+  color: #0d5ab9;
+}
+.main-content-holder .margin-top-5 {
+  margin-top: 5px;
+}
+.main-content-holder .margin-top-10 {
+  margin-top: 10px;
+}
+.main-content-holder .margin-top-15 {
+  margin-top: 15px;
+}
+.main-content-holder .margin-bottom-5 {
+  margin-bottom: 5px;
+}
+.main-content-holder .margin-bottom-10 {
+  margin-bottom: 10px;
+}
+.main-content-holder .margin-bottom-15 {
+  margin-bottom: 15px;
+}
+.main-content-holder .margin-top-30 {
+  margin-top: 30px;
+}
+.main-content-holder .margin-bottom-30 {
+  margin-bottom: 30px;
+}
+.main-content-holder .margin-top-35 {
+  margin-top: 35px;
+}
+.main-content-holder .margin-bottom-35 {
+  margin-bottom: 35px;
+}
+.main-content-holder .padding-top-20 {
+  padding-top: 20px;
+}
+.main-content-holder .padding-bottom-20 {
+  padding-bottom: 20px;
+}
+.main-content-holder .padding-x-10 {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.main-content-holder .padding-x-20 {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.main-content-holder .padding-y-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.main-content-holder .padding-y-20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.main-content-holder .padding-10 {
+  padding: 10px;
+}
+.main-content-holder .padding-bottom-1 {
+  padding-bottom: 1px;
+}
+.rtl .margin-start-5 {
+  margin-right: 5px;
+}
+.ltr .margin-start-5 {
+  margin-left: 5px;
+}
+.rtl .margin-start-10 {
+  margin-right: 10px;
+}
+.ltr .margin-start-10 {
+  margin-left: 10px;
+}
+.rtl .margin-start-20 {
+  margin-right: 20px;
+}
+.ltr .margin-start-20 {
+  margin-left: 20px;
+}
+.rtl .margin-start-30 {
+  margin-right: 30px;
+}
+.ltr .margin-start-30 {
+  margin-left: 30px;
+}
+.rtl .margin-end-5 {
+  margin-left: 5px;
+}
+.ltr .margin-end-5 {
+  margin-right: 5px;
+}
+.rtl .margin-end-10 {
+  margin-left: 10px;
+}
+.ltr .margin-end-10 {
+  margin-right: 10px;
+}
+.rtl .margin-end-20 {
+  margin-left: 20px;
+}
+.ltr .margin-end-20 {
+  margin-right: 20px;
+}
+.rtl .margin-end-30 {
+  margin-left: 30px;
+}
+.ltr .margin-end-30 {
+  margin-right: 30px;
+}
+.rtl .padding-start-5 {
+  padding-right: 5px;
+}
+.ltr .padding-start-5 {
+  padding-left: 5px;
+}
+.rtl .padding-start-10 {
+  padding-right: 10px;
+}
+.ltr .padding-start-10 {
+  padding-left: 10px;
+}
+.rtl .padding-start-30 {
+  padding-right: 30px;
+}
+.ltr .padding-start-30 {
+  padding-left: 30px;
+}
+.rtl .padding-end-5 {
+  padding-left: 5px;
+}
+.ltr .padding-end-5 {
+  padding-right: 5px;
+}
+.rtl .padding-end-10 {
+  padding-left: 10px;
+}
+.ltr .padding-end-10 {
+  padding-right: 10px;
+}
+.rtl .padding-end-30 {
+  padding-left: 30px;
+}
+.ltr .padding-end-30 {
+  padding-right: 30px;
+}
+.rtl .text-end {
+  text-align: left;
+}
+.ltr .text-end {
+  text-align: right;
+}
+.rtl .text-start {
+  text-align: right;
+}
+.ltr .text-start {
+  text-align: left;
+}
+.rtl .pull-end {
+  float: left;
+}
+.ltr .pull-end {
+  float: right;
+}
+.rtl .pull-start {
+  float: right;
+}
+.ltr .pull-start {
+  float: left;
+}
+@media (max-width: 767px) {
+  .hidden-xs {
+    display: none;
+  }
+  .margin-top-10-mobile {
+    margin-top: 10px;
+  }
+}
+.tag-list {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+.tag-list > li {
+  display: inline-block;
+  border-radius: 2px;
+  border: 1px solid #1dac08;
+  padding: 1px 5px;
+  height: 21px;
+  -webkit-box-align: center;
+  align-items: center;
+  color: #1dac08;
+  font-weight: 400;
+  font-size: 12px;
+  list-style: none;
+  margin-bottom: 5px;
+}
+.white {
+  color: #fff;
+}
+.ltr {
+  direction: ltr;
+}
+.ltr .mirror-ltr {
+  transform: scaleX(-1);
+}
+.rtl {
+  direction: rtl;
+}
+.rtl .mirror-rtl {
+  transform: scaleX(-1);
+}
+.png-icon {
+  width: 18px;
+}
+.align-middle {
+  vertical-align: middle;
+}
+.font-24 {
+  font-size: 24px;
+}
+.font-12 {
+  font-size: 12px;
+}
+.font-16 {
+  font-size: 16px;
+}
+.text-red {
+  color: red;
+}
+.text-green {
+  color: #1dac08;
+}
+.title-hr {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.title-hr span {
+  flex: 1;
+  display: block;
+  height: 1px;
+  background-color: #ddd;
+}
+.normal-title {
+  font-size: 18px;
+}
+.normal-title.font-inherit {
+  font-size: inherit;
+}
+body .ant-form-item-hidden {
+  display: none;
+}
+.card-style {
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+.card-style.card-rounded {
+  border-radius: 8px;
+}
+.bg-light-gray {
+  background-color: #f8f8f8;
+}
+.border-radius {
+  border-radius: 4px;
+}
+.label-input-wrapper {
+  position: relative;
+}
+.label-input-wrapper .label-input {
+  position: absolute;
+  top: 50%;
+}
+.label-input-wrapper .label-input.active {
+  top: -50%;
+}
+.ant-form-item.label-input .ant-form-item-row {
+  position: relative;
+}
+.ant-form-item.label-input .ant-form-item-label {
+  position: absolute;
+  height: 15px;
+  line-height: 15px;
+  transition: all 0.2s ease;
+  top: 50%;
+  pointer-events: none;
+  padding: 0 4px;
+  margin-right: 6px;
+}
+.ant-form-item.label-input .ant-form-item-label label {
+  color: #999;
+  height: 15px;
+}
+.ant-form-item.label-input .ant-form-item-label label::after {
+  display: none;
+}
+.ant-form-item.label-input .ant-form-item-label label::before {
+  color: inherit;
+  margin-left: 3px;
+  margin-right: 0;
+}
+.ant-form-item.label-input.active .ant-form-item-label {
+  top: -10px;
+  background: #fff;
+}
+.ant-form-item.label-input.active .ant-form-item-label label {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 12px;
+}
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+.pointer {
+  cursor: pointer;
+}
+@media (max-width: 575px) {
+  .hotel-select-room-subject {
+    font-size: 16px;
+    margin-bottom: 10px !important;
+  }
+  .button-aside-fixed {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    z-index: 2;
+    background-color: #ffffff;
+    border-top: 1px solid #cccccc;
+  }
+  .button-aside-fixed button {
+    font-size: 12px;
+  }
+}

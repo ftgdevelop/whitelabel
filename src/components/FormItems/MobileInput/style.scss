@@ -1,0 +1,71 @@
+.mobile-input{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding:2%;
+  height: 40px;
+  border:1px solid #e5e5e5;
+
+  .PhoneInput{
+    display: flex;
+    flex:1;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    direction: ltr;
+
+    .PhoneInputCountry{
+      display: flex;
+      border-right: 1px solid #e5e5e5;
+      padding: 8px 7px 8px 4px;
+      width: 105px;
+      position: relative;
+      height: 38px;
+
+      // >:after {
+      //   content: '';
+      //   background-color: red;
+      //   width: 10px;
+      //   height: 10px;
+      //   position: absolute;
+      //   right: 0;
+      //   top: 0;
+      // }
+    }
+
+    .PhoneInputCountryIconUnicode{
+      position: absolute;
+      top: 8px;
+      font-size: 18px;
+    }
+  }
+
+  .PhoneInputCountrySelect{
+    width: 70px;
+    border: none;
+    outline: none;
+    margin-left: 24px;
+    font-size: 11px;
+    margin-top: 2px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .PhoneInputInput{
+    flex: 1;
+    align-self: stretch;
+    border:none;
+    outline: none;
+    direction: ltr;
+    height: 38px;
+  }
+
+  .PhoneInputCountryIcon {
+    svg {
+      position: absolute;
+      left: 7px;
+      top: 12px;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.mobile-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2%;
+  height: 40px;
+  border: 1px solid #e5e5e5;
+}
+
+.mobile-input .PhoneInput {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  direction: ltr;
+}
+
+.mobile-input .PhoneInput .PhoneInputCountry {
+  display: flex;
+  border-right: 1px solid #e5e5e5;
+  padding: 8px 7px 8px 4px;
+  width: 105px;
+  position: relative;
+  height: 38px;
+}
+
+.mobile-input .PhoneInput .PhoneInputCountryIconUnicode {
+  position: absolute;
+  top: 8px;
+  font-size: 18px;
+}
+
+.mobile-input .PhoneInputCountrySelect {
+  width: 70px;
+  border: none;
+  outline: none;
+  margin-left: 24px;
+  font-size: 11px;
+  margin-top: 2px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.mobile-input .PhoneInputInput {
+  flex: 1;
+  align-self: stretch;
+  border: none;
+  outline: none;
+  direction: ltr;
+  height: 38px;
+}
+
+.mobile-input .PhoneInputCountryIcon svg {
+  position: absolute;
+  left: 7px;
+  top: 12px;
+}

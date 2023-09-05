@@ -1,0 +1,23 @@
+.reset-form{
+
+
+  &__error{
+    color: #f25033;
+    font-size: 12px;
+    height: 18px;
+  }
+
+  &__submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__success-message {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    left: 0;
+  }
+
+}

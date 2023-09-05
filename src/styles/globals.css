@@ -1,0 +1,339 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Iranyekan", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Iranyekan";
+  font-style: normal;
+  font-weight: 200;
+  font-display: fallback;
+  src: local("Iranyekan"), url(/fonts/iranyekanweblight.ttf) format("woff2");
+}
+
+@font-face {
+  font-family: "Iranyekan";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: local("Iranyekan"), url(/fonts/iranyekanregular.ttf) format("woff2");
+}
+
+@font-face {
+  font-family: "Iranyekan";
+  font-style: normal;
+  font-weight: 600;
+  font-display: fallback;
+  src: local("Iranyekan"), url(/fonts/iranyekanwebbold.ttf) format("woff2");
+}
+
+html,
+html body {
+  font-family: "Iranyekan" ;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-variant: tabular-nums;
+  list-style: none;
+  font-feature-settings: "tnum";
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  line-height: 1.5715;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  transition: all 0.3s;
+
+  padding: 6.5px 11px;
+  font-size: 16px;
+}
+
+
+
+.ui-progress-holder {
+  position: relative;
+  padding: 10px;
+  margin: 15px 0;
+}
+.ui-progress-holder .ui-progress-bar {
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(45deg,#3665ad,#5891e7);
+  transition: all 1s ease-in-out;
+  top: 0;
+  right: 0;
+}
+.ui-progress-holder .ui-progress-text {
+  position: relative;
+  color: #fff;
+}
+.ui-progress-holder.completing .ui-progress-bar {
+  transition: all .1s ease-in-out;
+}
+.ui-progress-holder.completed .ui-progress-bar {
+  transition: all .5s linear !important;
+  background: transparent;
+}
+.ui-progress-holder.completed .ui-progress-text {
+  color: #333;
+}
+.hotel-list-item {
+  margin-bottom: 10px;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  background: white;
+}
+.hotel-list-item .hotel-image {
+  min-height: 170px;
+  background-size: cover;
+  background-position: center;
+}
+.hotel-list-item .hotel-image.default-hotel-image {
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: whitesmoke;
+}
+.hotel-list-item .hotel-item-promotion {
+  background-color: #349b37;
+  border-radius: 25px;
+  color: #ffffff;
+  font-size: 10px;
+  margin: 12px;
+  padding: 2px 8px;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+}
+.hotel-list-item .hotel-item-content {
+  padding: 15px;
+}
+.hotel-list-item .hotel-item-footer {
+  padding: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  text-align: left;
+}
+.hotel-list-item .hotel-item-footer::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  right: 0;
+  background: #dfdfdf;
+}
+.hotel-list-item .hotel-item-footer .price-description {
+  font-size: 11px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+.hotel-list-item .hotel-item-footer-travelo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.hotel-list-item .hotel-item-footer-travelo::before {
+  display: none;
+}
+.hotel-list-item .hotel-name {
+  font-weight: bold;
+  color: #3a3a3a !important;
+  font-size: 16px;
+}
+.hotel-list-item .hotel-address {
+  font-size: 11px;
+  color: #aaa;
+}
+.hotel-list-item .hotel-address-travelo {
+  color: #505c66;
+  font-weight: 200;
+}
+.hotel-list-item .hotel-brief-description {
+  font-size: 11px;
+  color: #505c66;
+  font-weight: 200;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hotel-list-item-travelo {
+  border-radius: 8px;
+}
+.hotel-list-item-travelo .hotel-image {
+  border-radius: 0 8px 8px 0;
+}
+.start-rating {
+  color: #ffcf66;
+}
+.start-rating span {
+  vertical-align: middle;
+}
+.start-rating-travelo {
+  color: #697580;
+}
+.start-rating-svg {
+  direction: rtl;
+}
+.start-rating-svg img {
+  width: 16px;
+  display: inline-block;
+}
+
+
+.custom-img {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+.unset-img {
+  width: 100%;
+  position: relative;
+}
+.unset-img > span {
+  position: unset !important;
+}
+
+.switchAirportsButtonBus {
+  right: 48.2%;
+  top: 10px !important;
+  transform: rotate(90deg);
+}
+
+.switchAirportsButtonBus span svg {
+  fill: #505c66;
+}
+
+.verify-mobile-modal-content >div >div {
+  justify-content: center;
+}
+
+.verify-mobile-modal-content>div>div>div {
+  margin: 0 2px;
+}
+
+.verify-mobile-modal-content >div >div >div input {
+  width: 30px !important;
+  padding: 6px 0px;
+}
+
+.verify-mobile-modal-button {
+  background: #0d5ab9 !important;
+  border-color: #0d5ab9 !important;
+  border-radius: 8px !important;
+  color: #ffffff;
+  padding: 10px;
+  margin-top: 15px;
+  min-width: 240px;
+  border: none;
+}
+
+.verify-mobile-modal-button:hover {
+  background-color: #2a6ec1 !important;
+  border-color: #2a6ec1 !important;
+}
+
+.verify-mobile-modal-button span {
+  margin-bottom: 0 !important;
+}
+
+.modal-mobile-otp .modal-mobile-otp-content {
+  direction: ltr;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-mobile-otp .modal-mobile-otp-content div input {
+  width: 36px !important;
+  height: 42px;
+  margin: 0 5px;
+  border-radius: 8px;
+}
+
+.modal-mobile-otp-link {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.modal-mobile-otp-footer-link {
+  margin-top: 15px;
+}
+
+.ant-anchor-travelo {
+  background-color: #ffffff;
+}
+
+.ant-anchor-travelo .ant-anchor {
+  display: flex;
+}
+
+.ant-anchor-travelo .ant-anchor .ant-anchor-link a {
+  font-size: 13px;
+}
+
+.raychat_noselect,
+.raychat_automessage_date {
+  color: #202020;
+}
+
+@media (max-width:992px) {
+  .slick-dots li button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .slick-dots li button:before {
+    width: 0px;
+    height: 0px;
+    top: 15px;
+  }
+}
+
+@media (max-width:768px) {
+  .switchAirportsButtonBus {
+    right: 47.5%;
+  }
+}
+
+@media (max-width: 575px) {
+  .switchAirportsButtonBus {
+    right: initial;
+    left: 10px;
+    top: 39px;
+  }
+}

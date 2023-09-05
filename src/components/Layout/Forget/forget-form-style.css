@@ -1,0 +1,105 @@
+.forget-form {
+  position: relative;
+}
+
+.forget-form .forgetForm__tab {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.forget-form .forgetForm__tab .forgetForm__tab-item {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.forget-form .forgetForm__tab .forgetForm__tab-item.isActive {
+  border-bottom: 2px solid #e7412a;
+}
+
+.forget-form__tab-content {
+  padding: 10px 0;
+}
+
+.forget-form__error {
+  color: #f25033;
+  font-size: 12px;
+  height: 18px;
+}
+
+.forget-form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forget-form__verify-mobile__otp {
+  margin-bottom: 28px;
+}
+
+.forget-form__verify-mobile__otp-input {
+  justify-content: center;
+  direction: ltr;
+}
+
+.forget-form__verify-mobile__otp-input input::-webkit-outer-spin-button,
+.forget-form__verify-mobile__otp-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.forget-form__verify-mobile__otp-input input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.forget-form__verify-mobile__otp-input input {
+  border: 1px solid #a0a0a0;
+  width: 46px !important;
+  height: 46px;
+  margin: 0 5px;
+  text-align: center;
+  font-size: 24px;
+  color: #3c3c3c;
+}
+
+.forget-form__verify-mobile__otp-input input:focus, .forget-form__verify-mobile__otp-input input:active {
+  outline: none;
+}
+
+.forget-form__verify-mobile__otp-input.error input {
+  border-color: #f25033;
+}
+
+.forget-form__verify-mobile__resend-code {
+  color: #6698e6;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.forget-form__tab-content {
+  padding: 10px 0;
+}
+
+.forget-form__error {
+  color: #f25033;
+  font-size: 12px;
+  height: 18px;
+}
+
+.forget-form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

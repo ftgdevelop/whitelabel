@@ -1,0 +1,20 @@
+user-agent: *
+Disallow:
+Disallow: /bin/
+Disallow: /Errors/*
+Disallow: /errors/*
+Disallow: /*.html$
+Disallow: /flight/reserve
+Disallow: /Flight/Reserve
+Disallow: /flight/reserve/*
+Disallow: /Flight/Reserve/*
+Disallow: /blog/*amp$
+Disallow: /blog/*amp/$
+Disallow: /city/view/*/amp/$
+Disallow: /city/view/*/amp$
+Disallow: /city/tag/*/amp$
+Disallow: /hotel/reserveroom/*
+Disallow: /hotels/view/*/favicon.ico$
+Disallow: /city/tag/*/favicon.ico$
+Disallow: /hotels/group/*/favicon.ico$
+Sitemap:  https://www.safaraneh.com/sitemap.xml
