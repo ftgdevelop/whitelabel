@@ -49,7 +49,7 @@ class FaqCip extends React.Component {
                         </Panel>
                         <Panel header={<h2 className="cip-faq-header">آیا امکان رزرو خدمات CIP به تاریخ امروز وجود دارد؟</h2>} key="4" className={styles.collape}>
                             <div className={styles.paraghraphFaqCip}>
-                                <p>به طور کلی برای رزرو آنلاین خدمات CIP حداقل از 12 ساعت قبل بایستی اقدام شود؛ اما اگر به هر دلیلی موفق به انجام این امر نشدید و نیاز به رزرو خدمات CIP فوری داشتید با شماره 02179515000 تماس حاصل فرمایید.</p>
+                                <p>به طور کلی برای رزرو آنلاین خدمات CIP حداقل از 12 ساعت قبل بایستی اقدام شود؛ اما اگر به هر دلیلی موفق به انجام این امر نشدید و نیاز به رزرو خدمات CIP فوری داشتید با شماره 02126150051 تماس حاصل فرمایید.</p>
                             </div>
                         </Panel>
                         <Panel header={<h2 className="cip-faq-header">مدارک لازم برای رزرو خدمات CIP سفرانه چیست؟</h2>} key="5" className={styles.collape}>

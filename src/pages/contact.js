@@ -113,7 +113,7 @@ const AboutPage = props => {
                       </address>
                       <div className={styles.phone}>
                         <b>{t("tel")} : </b>
-                        <a href="tel:+982179515000">02179515000</a>
+                        <a href="tel:+982126150051">02126150051</a>
                       </div>
                       <div className={styles.phone}>
                         <b>{t("fax")} : </b>

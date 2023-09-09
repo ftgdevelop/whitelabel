@@ -356,7 +356,7 @@ const AsideV4 = (props) => {
                     <h4 className={styles.subjectBookingNeedHelp}>{t('need-help')}</h4>
                     <div className={styles.contentBookingNeedHelp}>
                         <span>{t('24hours-backup')}</span>
-                        <a href="tel:+982179515000"> 02179515000 </a>
+                        <a href="tel:+982126150051"> 02126150051 </a>
                         <a href="mailto:support@safaraneh.com"> support@safaraneh.com </a>
                     </div>
                 </div>

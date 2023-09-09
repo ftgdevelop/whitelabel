@@ -149,7 +149,7 @@ const HotelListCardItem = props => {
                     <ClockCircleOutlined className="alert-icon" />
                     {/* <div className="alert-text">
                         <h5 className="title">{t('There-is-no-price-for-this-hotel')}!</h5>
-                        <p className="description">جهت رزرو با شماره <a href="tel:+982179515000" title="telephone">02179515000</a> تماس بگیرید.</p>
+                        <p className="description">جهت رزرو با شماره <a href="tel:+982126150051" title="telephone">02126150051</a> تماس بگیرید.</p>
                     </div> */}
                     <div className="alert-text">
                         <h5 className="title">{t("you-missed-this-deal")}</h5>

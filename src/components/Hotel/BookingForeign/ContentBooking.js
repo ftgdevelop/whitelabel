@@ -160,7 +160,7 @@ class ContentBooking extends React.Component {
                             </div>
                             <div className={styles.contactSupport}>
                                 برای تماس با پشتیبانی با شماره
-                                <a href="tel:+982179515000"> 02179515000 </a>
+                                <a href="tel:+982126150051"> 02126150051 </a>
                                 تماس بگیرید.
                             </div>
                             </div>

@@ -141,7 +141,7 @@ const ContentBookingV4 = props => {
                                 </div>
                                 <div className={styles.contactSupport}>
                                     برای تماس با پشتیبانی با شماره
-                                    <a href="tel:+982179515000"> 02179515000 </a>
+                                    <a href="tel:+982126150051"> 02126150051 </a>
                                     تماس بگیرید.
                                 </div>
                                 </div>
@@ -262,7 +262,7 @@ const ContentBookingV4 = props => {
                             {t('for-clarity-email')} 
                             <a href="mailto:support@safaraneh.com"> support@safaraneh.com </a>
                             {t('or-phone-number')}
-                            <a href="tel:+982179515000"> 02179515000 </a>
+                            <a href="tel:+982126150051"> 02126150051 </a>
                             {t('call-24hours')}
                         </div>
                     </div>

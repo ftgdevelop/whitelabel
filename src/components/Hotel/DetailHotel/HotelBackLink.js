@@ -92,9 +92,9 @@ const HotelName = (props) => {
               </span>
               <span>
                 جهت رزرو با شماره <a
-                  href="tel:+982179515000"
+                  href="tel:+982126150051"
                   style={{ color: "#ffffff", fontWeight: 700, fontSize: 14, textDecoration: "underline" }}
-                >02179515000</a> تماس بگیرید.
+                >02126150051</a> تماس بگیرید.
               </span>
               {/* <span>
                 این هتل اقدامات احتیاطی کووید-۱۹ را برای اطمینان از سلامت و
@@ -118,7 +118,7 @@ const HotelName = (props) => {
               </Link>
               {/* <div className={styles.callPhoneNumber}>
                 <span>شماره تلفن رزرو : </span>
-                <a href="tel:+982179515000">02179515000</a>
+                <a href="tel:+982126150051">02126150051</a>
               </div> */}
             </>
           ) : (

@@ -490,7 +490,7 @@ const DetailCip = props => {
                     </Link>
                     <div className={styles.callPhoneNumber}>
                         <span>شماره تلفن رزرو : </span>
-                        <a href="tel:+982179515000">02179515000</a>
+                        <a href="tel:+982126150051">02126150051</a>
                     </div>
                 </>
             </div>

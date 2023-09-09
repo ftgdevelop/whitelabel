@@ -90,7 +90,7 @@ class HotelVoucher extends React.Component {
                         <div className={styles.footerHotelVoucher}>
                             <div className={styles.content}>
                                 <div className={styles.support}>
-                                    <span>{t("backup")} : 02179515000</span>
+                                    <span>{t("backup")} : 02126150051</span>
                                     <span> {t("website")} : safaraneh.com</span>
                                     <span>{t('email')} : support@safaraneh.com</span>
                                 </div>
