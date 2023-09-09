@@ -5,7 +5,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 const localeSubpaths = {
   fa: 'fa',
   ar: 'ar',
-  us: 'us',
+  // us: 'us',
 }
 
 const withSass = require('@zeit/next-sass')
