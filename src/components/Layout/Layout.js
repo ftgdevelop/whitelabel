@@ -45,9 +45,9 @@ const Layout = (props) => {
         //   localStorage.setItem('whiteLabelTelNumber', telNumberArray.Value);
         // }
 
-        const portalApiKey = response.data['Apikeys'][0]['ApiKey']
-        localStorage.setItem('portalApiKey', portalApiKey)
-
+        // const portalApiKey = response.data['Apikeys'][0]['ApiKey']
+        // localStorage.setItem('portalApiKey', portalApiKey)
+        
         if (typeof Storage !== 'undefined') {
           const telNumberArray = getPortalValue(
             response.data.Phrases,

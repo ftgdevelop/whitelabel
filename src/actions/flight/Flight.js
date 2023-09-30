@@ -26,7 +26,7 @@ export const GetAirports = async (value) => {
         accept: "text/plain",
         "Accept-Language": "fa-IR",
         TenantId: process.env.ABP_TENANT_ID,
-        apikey: process.env.BS_TERMINAL,
+        apikey: process.env.API_KEY,
       },
     });
     return res;

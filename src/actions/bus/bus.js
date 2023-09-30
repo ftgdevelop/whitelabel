@@ -27,7 +27,7 @@ export const FetchSearchTerminal = async (value) => {
           accept: 'text/plain',
           'Accept-Language': 'fa-IR',
           TenantId: 7,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -152,7 +152,7 @@ export const FetchPreReserve = async (value) => {
           accept: 'text/plain',
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       }
     )
@@ -173,7 +173,7 @@ export const GetReserveBus = async (id, username) => {
           accept: 'text/plain',
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       }
     )
@@ -195,7 +195,7 @@ export const GetConfirm = async (value) => {
           accept: 'text/plain',
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       }
     )
@@ -207,7 +207,7 @@ export const GetConfirm = async (value) => {
 }
 
 export const GetVoucherBusPdf = async (id, username) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     const res = await axios.get(
@@ -219,7 +219,7 @@ export const GetVoucherBusPdf = async (id, username) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
         },
       },
     )

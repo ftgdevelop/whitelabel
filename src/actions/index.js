@@ -46,7 +46,7 @@ export const Register = (data, currentLang = 'fa') => {
         {
           headers: {
             TenantId: process.env.ABP_TENANT_ID,
-            apikey: process.env.BS_TERMINAL,
+            apikey: process.env.API_KEY,
             'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           },
         },
@@ -78,7 +78,7 @@ export const SignIn = (data, currentLang = 'fa') => {
         {
           headers: {
             TenantId: process.env.ABP_TENANT_ID,
-            apikey: process.env.BS_TERMINAL,
+            apikey: process.env.API_KEY,
             'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           },
         },
@@ -268,7 +268,6 @@ export const GetDomesticHotelDetails = async (param) => {
   }
 }
 export const GetDomesticHotelRooms = async (param) => {
-  const portalApiKey = window.localStorage.portalApiKey
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
@@ -280,7 +279,7 @@ export const GetDomesticHotelRooms = async (param) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
           currency: 'EUR',
         },
       },
@@ -400,7 +399,7 @@ export const GetAllFaqById = async (id, currentLang = 'fa') => {
 }
 
 export const HotelDomesticSearchList2 = async (param) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
@@ -412,7 +411,7 @@ export const HotelDomesticSearchList2 = async (param) => {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
           currency: 'EUR',
         },
       },
@@ -426,7 +425,7 @@ export const HotelDomesticSearchList2 = async (param) => {
 
 
 export const HotelDomesticPreReserve = async (param) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
@@ -438,7 +437,7 @@ export const HotelDomesticPreReserve = async (param) => {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
           currency: 'EUR',
         },
       },
@@ -450,7 +449,7 @@ export const HotelDomesticPreReserve = async (param) => {
 }
 
 export const GetPreReserve = async (param) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.get(
@@ -461,7 +460,7 @@ export const GetPreReserve = async (param) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
           currency: 'EUR',
         },
       },
@@ -473,7 +472,7 @@ export const GetPreReserve = async (param) => {
 }
 
 export const HotelDomesticReserve = async (param) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
@@ -486,7 +485,7 @@ export const HotelDomesticReserve = async (param) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
           currency: 'EUR',
         },
       },
@@ -498,7 +497,7 @@ export const HotelDomesticReserve = async (param) => {
 }
 
 export const HotelDomesticGetReserve = async (reserveId, userName) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.get(
@@ -512,7 +511,7 @@ export const HotelDomesticGetReserve = async (reserveId, userName) => {
           // 'bs.currency': 'EUR',
           // tenantId: 7
           //'bs.terminal': '02839414-2997-4050-97B6-149F1AF9D67E',
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -523,7 +522,7 @@ export const HotelDomesticGetReserve = async (reserveId, userName) => {
 }
 
 export const getConfirmHotelDomestic = async (reserveId, username) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     const res = await axios.post(
@@ -539,7 +538,7 @@ export const getConfirmHotelDomestic = async (reserveId, username) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -551,7 +550,7 @@ export const getConfirmHotelDomestic = async (reserveId, username) => {
 }
 
 export const GetVoucherHotelDomesticPdf = async (id, username) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     const res = await axios.get(
@@ -563,7 +562,7 @@ export const GetVoucherHotelDomesticPdf = async (id, username) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -592,7 +591,7 @@ export const GetGateways = async (reserveId, currentLang = 'fa') => {
 }
 
 export const MakeToken = async (param) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   try {
     let response = await axios.post(
       `https://paymentv1.safaraneh.com/api/v1/Reserves/Gateway/MakeToken`,
@@ -603,7 +602,7 @@ export const MakeToken = async (param) => {
           'Content-Type': 'application/json',
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
           currency: 'EUR',
         },
       },
@@ -665,7 +664,7 @@ export const GetForeignHotelById = async (param) => {
           'Accept-Language': 'en-US',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
           currency: 'IRR',
         },
       },
@@ -689,7 +688,7 @@ export const GetCancellationPolicy = async (param) => {
           'Accept-Language': 'en-US',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
           currency: 'IRR',
         },
       },
@@ -701,7 +700,7 @@ export const GetCancellationPolicy = async (param) => {
 }
 
 export const foreignPreReserve = async (param) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
@@ -714,7 +713,7 @@ export const foreignPreReserve = async (param) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
           currency: 'EUR',
         },
       },
@@ -738,7 +737,7 @@ export const foreignPreReserveKey = async (param) => {
           'Accept-Language': 'en-US',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
           currency: 'IRR',
         },
       },
@@ -750,7 +749,7 @@ export const foreignPreReserveKey = async (param) => {
 }
 
 export const foreignHotelReserve = async (param) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
@@ -763,7 +762,7 @@ export const foreignHotelReserve = async (param) => {
           'Accept-Language': 'en-US',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
           currency: 'IRR',
         },
       },
@@ -776,7 +775,7 @@ export const foreignHotelReserve = async (param) => {
 }
 
 export const foreignHotelGetReserveById = async (id, username) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.get(
@@ -787,7 +786,7 @@ export const foreignHotelGetReserveById = async (id, username) => {
           'Accept-Language': 'en-US',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
           currency: 'IRR',
         },
       },
@@ -818,14 +817,14 @@ export const getAllNationalities = async (param) => {
 }
 
 export const GetCipAirPortListPrice = async () => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   try {
     let response = await axios.get(
       `https://api.safaraneh.com/v2/Cip/GetCipAirPortList`,
       {
         headers: {
           'Accept-Language': 'fa-IR',
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -870,7 +869,7 @@ export const GetCipAirPortDetailsByUrl = async (cipUrl) => {
 }
 
 // export const GetCipServicesInfo = async (param) => {
-//   const portalApiKey = window.localStorage.portalApiKey;
+//   ;
 //   try {
 //     let response = await axios.post(
 //       `https://hotelapi.safaraneh.com/V1/Cip/Advance/Services`,
@@ -878,7 +877,7 @@ export const GetCipAirPortDetailsByUrl = async (cipUrl) => {
 //       {
 //         headers: {
 //           accept: "text/plain",
-//           apikey: portalApiKey,
+//           apikey: process.env.API_KEY,
 //           "Accept-Language": "fa-IR",
 //         },
 //       }
@@ -891,17 +890,15 @@ export const GetCipAirPortDetailsByUrl = async (cipUrl) => {
 // };
 
 export const CipServicesInfoSubmit = async (param) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   try {
     let response = await axios.post(
       `https://hotelapi.safaraneh.com/V1/Cip/Advance/Reserve2`,
       param,
       {
         headers: {
-          //%
-          key: portalApiKey,
-          Accept:
-            'application/json, application/xml, text/json, text/x-json, text/javascript, text/xml',
+          apikey: process.env.API_KEY,
+          Accept: 'application/json, application/xml, text/json, text/x-json, text/javascript, text/xml',
           'Content-Type': 'Application/json',
           TenantId: process.env.ABP_TENANT_ID,
           apikey: 'ACE01BF4-AAEE-45D6-ABE7-F3FF519052DB',
@@ -916,7 +913,7 @@ export const CipServicesInfoSubmit = async (param) => {
 }
 
 export const CipGetInformation = async (reserveId, userName) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   try {
     let response = await axios.get(
       `https://cip.safaraneh.com/api/services/app/Reserve/Get?ReserveId=${reserveId}&Username=${userName}`,
@@ -930,7 +927,7 @@ export const CipGetInformation = async (reserveId, userName) => {
 }
 
 export const CipConfirm = async (reserveId, userName) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   try {
     let response = await axios.post(
       `https://hotelapi.safaraneh.com//V1/Cip/Advance/Confirm`,
@@ -1092,7 +1089,7 @@ export const CipGetVoucher = async (reserveId, userName) => {
 }
 
 // export const  = async (id,username) => {
-//   const portalApiKey = window.localStorage.portalApiKey;
+//   ;
 //   try {
 //     let response = await axios.post(
 
@@ -1269,7 +1266,7 @@ export const getPathFlight = async (params) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1291,7 +1288,7 @@ export const GetKeyFlights = async (params) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1312,7 +1309,7 @@ export const FlightSearchList = async (key) => {
           accept: 'text/plain',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
           Currency: 'IRR'
         },
       },
@@ -1336,7 +1333,7 @@ export const FlightGetValidate = async (key) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1360,7 +1357,7 @@ export const setFlightsSearchForm = async (cityName, currentLang = 'fa') => {
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1384,7 +1381,7 @@ export const validateFlights = async (params) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1408,7 +1405,7 @@ export const sendPassenger = async (params) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1453,7 +1450,7 @@ export const getReserve = async (id, username) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1476,7 +1473,7 @@ export const GetVoucherPdf = async (id, username) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1522,7 +1519,7 @@ export const getAllCountries = async () => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1617,7 +1614,7 @@ export const getConfirmFlight = async (id, username) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )

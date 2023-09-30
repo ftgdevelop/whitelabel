@@ -33,7 +33,7 @@ export function login(data) {
       headers: {
         Accept: 'application/json;charset=UTF-8',
         TenantId: process.env.ABP_TENANT_ID,
-        apikey: process.env.BS_TERMINAL,
+        apikey: process.env.API_KEY,
       },
     }
     return async (dispatch) => {
@@ -65,7 +65,7 @@ export function userProfile() {
       Accept: 'application/json;charset=UTF-8',
       Authorization: `Bearer ${token}`,
       TenantId: process.env.ABP_TENANT_ID,
-      apikey: process.env.BS_TERMINAL,
+      apikey: process.env.API_KEY,
     },
   }
   return async (dispatch) => {
@@ -101,7 +101,7 @@ export const updateProfile = async (data, currentLang = 'fa') => {
       Accept: 'application/json;charset=UTF-8',
       Authorization: `Bearer ${token}`,
       TenantId: process.env.ABP_TENANT_ID,
-      apikey: process.env.BS_TERMINAL,
+      apikey: process.env.API_KEY,
       'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
     },
   }
@@ -138,7 +138,7 @@ export const loginUser = (params, currentLang = 'fa') => {
           headers: {
             Accept: 'application/json;charset=UTF-8',
             TenantId: process.env.ABP_TENANT_ID,
-            apikey: process.env.BS_TERMINAL,
+            apikey: process.env.API_KEY,
             'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           },
         },
@@ -171,7 +171,7 @@ export const registerUser = (params, currentLang = 'fa') => {
           headers: {
             'Accept-Language': 'fa-IR',
             TenantId: process.env.ABP_TENANT_ID,
-            apikey: process.env.BS_TERMINAL,
+            apikey: process.env.API_KEY,
             'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           },
         },
@@ -199,7 +199,7 @@ export const verifyPhone = (params, currentLang = 'fa') => {
           headers: {
             Authorization: `Bearer ${token}`,
             TenantId: process.env.ABP_TENANT_ID,
-            apikey: process.env.BS_TERMINAL,
+            apikey: process.env.API_KEY,
             'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           },
         },
@@ -224,7 +224,7 @@ export const VerifyForgetPassword = (params, currentLang = 'fa') => {
         {
           headers: {
             TenantId: process.env.ABP_TENANT_ID,
-            apikey: process.env.BS_TERMINAL,
+            apikey: process.env.API_KEY,
             'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           },
         },
@@ -250,7 +250,7 @@ export const changePassword = async (params) => {
         headers: {
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -270,7 +270,7 @@ export const activateEmail = async (params) => {
         headers: {
           Authorization: '',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -293,7 +293,7 @@ export const sendVerificationCode = (params, currentLang = 'fa') => {
           headers: {
             Authorization: `Bearer ${token}`,
             TenantId: process.env.ABP_TENANT_ID,
-            apikey: process.env.BS_TERMINAL,
+            apikey: process.env.API_KEY,
             'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           },
         },
@@ -339,7 +339,7 @@ export const forgetPasswordByEmail = (params, currentLang = 'fa') => {
           headers: {
             'Accept-Language': 'fa-IR',
             TenantId: process.env.ABP_TENANT_ID,
-            apikey: process.env.BS_TERMINAL,
+            apikey: process.env.API_KEY,
             'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           },
         },
@@ -367,7 +367,7 @@ export const forgetPasswordByPhoneNumber = (params, currentLang = 'fa') => {
           headers: {
             'Accept-Language': 'fa-IR',
             TenantId: process.env.ABP_TENANT_ID,
-            apikey: process.env.BS_TERMINAL,
+            apikey: process.env.API_KEY,
             'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           },
         },
@@ -394,7 +394,7 @@ export const setNewPassword = (params, currentLang = 'fa') => {
         {
           headers: {
             TenantId: process.env.ABP_TENANT_ID,
-            apikey: process.env.BS_TERMINAL,
+            apikey: process.env.API_KEY,
             'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           },
         },
@@ -421,7 +421,7 @@ export const updateProfileEmail = async (params, currentLang = 'fa') => {
         headers: {
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
         },
       },
@@ -442,7 +442,7 @@ export const UpdateNewsletterUserProfile = async (params) => {
         headers: {
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -463,7 +463,7 @@ export const updateProfileMobile = async (params) => {
         headers: {
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -485,7 +485,7 @@ export const sendEmailActivation = async (email) => {
         headers: {
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -619,7 +619,7 @@ export const sendOtp = async (params, currentLang = 'fa') => {
         headers: {
           Accept: 'application/json;charset=UTF-8',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.BS_TERMINAL,
+          apikey: process.env.API_KEY,
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
         },
       },
@@ -640,7 +640,7 @@ export const registerOrLoginOtp = (params, currentLang = 'fa') => {
           headers: {
             Accept: 'application/json;charset=UTF-8',
             TenantId: process.env.ABP_TENANT_ID,
-            apikey: process.env.BS_TERMINAL,
+            apikey: process.env.API_KEY,
             'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           },
         },

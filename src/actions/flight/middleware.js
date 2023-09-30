@@ -37,7 +37,7 @@ const apiMiddleware = (store) => (next) => (action) => {
         accept: 'text/plain',
         'Accept-Language': 'fa-IR',
         TenantId: process.env.ABP_TENANT_ID,
-        apikey: process.env.BS_TERMINAL,
+        apikey: process.env.API_KEY,
         Authorization: `Bearer ${token}`,
       },
     })

@@ -54,7 +54,7 @@ export const getHotelDetails = (params, currentLang = "fa") => {
         apikey: process.env.API_KEY,
         "Accept-Language": `${currentLang === "fa" ? "fa-IR" : "ar-AE"}`,
         TenantId: process.env.ABP_TENANT_ID,
-        apikey: process.env.BS_TERMINAL,
+        apikey: process.env.API_KEY,
         currency: "EUR",
       }
     );
@@ -68,7 +68,7 @@ export const getHotelDetails = (params, currentLang = "fa") => {
 };
 
 export const DomesticHotelV4Search = async (param) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   try {
     let response = await axios.post(
       `https://hotelv4.safaraneh.com/api/services/app/Booking/AvailabilityByHotelId`,
@@ -78,7 +78,7 @@ export const DomesticHotelV4Search = async (param) => {
           accept: 'text/plain',
           'Content-Type': 'application/json',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -107,7 +107,7 @@ export const DomesticHotelV4GetRooms = async (params, currentLang = 'fa') => {
 }
 
 export const DomesticHotelV4Validate = async (param, currentLang = 'fa') => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   try {
     let response = await axios.post(
       "https://hotelv4.safaraneh.com/api/services/app/Booking/Validate",
@@ -117,7 +117,7 @@ export const DomesticHotelV4Validate = async (param, currentLang = 'fa') => {
           accept: 'text/plain',
           'Content-Type': 'application/json',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
         },
       },
@@ -132,7 +132,7 @@ export const DomesticHotelV4Validate = async (param, currentLang = 'fa') => {
 
 
 export const DomesticHotelV4GetValidate = async (key, currentLang = 'fa') => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   try {
     let response = await axios.get(
       `https://hotelv4.safaraneh.com/api/services/app/Booking/GetValidate?Id=${key}`,
@@ -141,7 +141,7 @@ export const DomesticHotelV4GetValidate = async (key, currentLang = 'fa') => {
           'Content-Type': 'application/json',
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -152,7 +152,7 @@ export const DomesticHotelV4GetValidate = async (key, currentLang = 'fa') => {
 }
 
 export const DomesticHotelV4PreReserve = async (param, currentLang = 'fa') => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   try {
     let response = await axios.post(
       "https://hotelv4.safaraneh.com/api/services/app/Booking/PreReserve",
@@ -162,7 +162,7 @@ export const DomesticHotelV4PreReserve = async (param, currentLang = 'fa') => {
           accept: 'text/plain',
           'Content-Type': 'application/json',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
         },
       },
@@ -174,7 +174,7 @@ export const DomesticHotelV4PreReserve = async (param, currentLang = 'fa') => {
 }
 
 export const HotelV4DomesticGetReserve = async (reserveId, userName, currentLang = 'fa') => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   try {
     let response = await axios.get(`https://hotelv4.safaraneh.com/api/services/app/Reserve/Get?ReserveId=${reserveId}&Username=${userName}`,
       {
@@ -182,7 +182,7 @@ export const HotelV4DomesticGetReserve = async (reserveId, userName, currentLang
           accept: 'text/plain',
           'Content-Type': 'application/json',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`
         },
       },
@@ -194,7 +194,7 @@ export const HotelV4DomesticGetReserve = async (reserveId, userName, currentLang
 }
 
 export const getConfirmHotelV4Domestic = async (reserveId, username) => {
-  const portalApiKey = window.localStorage.portalApiKey
+  
   const token = localStorage.getItem('Token')
   try {
     const res = await axios.post(
@@ -210,7 +210,7 @@ export const getConfirmHotelV4Domestic = async (reserveId, username) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: portalApiKey,
+          apikey: process.env.API_KEY,
         },
       },
     )
