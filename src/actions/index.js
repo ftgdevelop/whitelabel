@@ -906,7 +906,6 @@ export const CipServicesInfoSubmit = async (param) => {
           Accept: 'application/json, application/xml, text/json, text/x-json, text/javascript, text/xml',
           'Content-Type': 'Application/json',
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: 'ACE01BF4-AAEE-45D6-ABE7-F3FF519052DB',
         },
       },
     )
