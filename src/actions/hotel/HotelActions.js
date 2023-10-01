@@ -10,7 +10,8 @@ export const getInteriorHotels = (params, currentLang = "fa") => {
       "https://api.safaraneh.com/v2/Entity/Autocomplete2",
       params,
       {
-        key: "63627a81755443e89bcca3aa73044e60",
+        // key: "63627a81755443e89bcca3aa73044e60",
+        apikey: process.env.GET_PORTAL_API_KEY,
         "Accept-Language": `${currentLang === "fa" ? "fa-IR" : "ar-AE"}`,
       }
     );
@@ -51,10 +52,9 @@ export const getHotelDetails = (params, currentLang = "fa") => {
       params,
       {
         "Content-Type": "application/json",
-        apikey: process.env.API_KEY,
         "Accept-Language": `${currentLang === "fa" ? "fa-IR" : "ar-AE"}`,
         TenantId: process.env.ABP_TENANT_ID,
-        apikey: process.env.API_KEY,
+        apikey: process.env.GET_PORTAL_API_KEY,
         currency: "EUR",
       }
     );

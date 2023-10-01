@@ -121,7 +121,7 @@ export const HotelList = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            apikey: process.env.API_KEY,
+            apikey: process.env.GET_PORTAL_API_KEY,
           },
         },
       )
@@ -145,6 +145,7 @@ export const HotelInteriorSearchList = (data) => {
           headers: {
             'Content-Type': 'application/json',
             key: '63627a81755443e89bcca3aa73044e60',
+            apikey: process.env.API_KEY,
           },
         },
       )
@@ -188,7 +189,7 @@ export const HotelDomesticSearchList = async (param, currentLang = 'fa') => {
       {
         headers: {
           'Content-Type': 'application/json',
-          apikey: process.env.API_KEY,
+          apikey: process.env.GET_PORTAL_API_KEY,
           // "Accept-Language": "ar-AE",
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
         },
@@ -207,6 +208,7 @@ export const GetEntityNameByLocation = async (id, currentLang = 'fa') => {
         headers: {
           'Content-Type': 'application/json',
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
+          apikey: process.env.GET_PORTAL_API_KEY,
         },
       },
     )
@@ -223,6 +225,7 @@ export const GetHotelRate = async (param) => {
         headers: {
           'Content-Type': 'application/json',
           'Accept-Language': 'fa-IR',
+          apikey: process.env.GET_PORTAL_API_KEY,
         },
       },
     )
@@ -241,6 +244,7 @@ export const HotelRate = async (param) => {
         headers: {
           'Content-Type': 'application/json',
           'Accept-Language': 'fa-IR',
+          apikey: process.env.GET_PORTAL_API_KEY,
         },
       },
     )
@@ -257,7 +261,7 @@ export const GetDomesticHotelDetails = async (param) => {
       {
         headers: {
           'Content-Type': 'application/json',
-          apikey: process.env.API_KEY,
+          apikey: process.env.GET_PORTAL_API_KEY,
           'Accept-Language': 'fa-IR',
         },
       },
@@ -298,7 +302,7 @@ export const GetpageByUrl = async (param, currentLang = 'fa') => {
       {
         headers: {
           'Content-Type': 'application/json',
-          apikey: process.env.API_KEY,
+          apikey: process.env.GET_PORTAL_API_KEY,
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
         },
       },
@@ -315,7 +319,7 @@ export const GetComments = async (param) => {
       {
         headers: {
           'Content-Type': 'application/json',
-          apikey: process.env.API_KEY,
+          apikey: process.env.GET_PORTAL_API_KEY,
           'Accept-Language': 'fa-IR',
         },
       },
@@ -332,7 +336,7 @@ export const GetScore = async (param, currentLang = 'fa') => {
       {
         headers: {
           'Content-Type': 'application/json',
-          apikey: process.env.API_KEY,
+          apikey: process.env.GET_PORTAL_API_KEY,
           // "Accept-Language": "fa-IR",
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
         },
@@ -351,7 +355,8 @@ export const InsertComment = async (param) => {
       {
         headers: {
           'Content-Type': 'application/json',
-          apiKey: '88a146de-fca0-4bdf-9899-9d41fdad3a44',
+          // apiKey: '88a146de-fca0-4bdf-9899-9d41fdad3a44',
+          apikey: process.env.GET_PORTAL_API_KEY,
           'Accept-Language': 'fa-IR',
         },
       },
@@ -621,7 +626,7 @@ export const GetHotelById = async (param, currentLang = 'fa') => {
       {
         headers: {
           'Content-Type': 'application/json',
-          apikey: process.env.API_KEY,
+          apikey: process.env.GET_PORTAL_API_KEY,
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           TenantId: process.env.ABP_TENANT_ID,
           currency: 'EUR',
@@ -641,7 +646,7 @@ export const GetPortal = async () => {
       {
         headers: {
           'Content-Type': 'application/json',
-          apiKey: process.env.GET_PORTAL_API_KEY,
+          apikey: process.env.GET_PORTAL_API_KEY,
           'Accept-Language': 'fa-IR',
         },
       },
@@ -824,7 +829,7 @@ export const GetCipAirPortListPrice = async () => {
       {
         headers: {
           'Accept-Language': 'fa-IR',
-          apikey: process.env.API_KEY,
+          apikey: process.env.GET_PORTAL_API_KEY,
         },
       },
     )
@@ -877,7 +882,7 @@ export const GetCipAirPortDetailsByUrl = async (cipUrl) => {
 //       {
 //         headers: {
 //           accept: "text/plain",
-//           apikey: process.env.API_KEY,
+//           apikey: process.env.GET_PORTAL_API_KEY,
 //           "Accept-Language": "fa-IR",
 //         },
 //       }
