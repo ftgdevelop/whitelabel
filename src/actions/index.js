@@ -172,6 +172,7 @@ export const HotelForeignSearchList = async (param) => {
           Pragma: 'no-cache',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -669,7 +670,6 @@ export const GetForeignHotelById = async (param) => {
           'Accept-Language': 'en-US',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.API_KEY,
           currency: 'IRR',
         },
       },
@@ -693,7 +693,6 @@ export const GetCancellationPolicy = async (param) => {
           'Accept-Language': 'en-US',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.API_KEY,
           currency: 'IRR',
         },
       },
@@ -742,7 +741,6 @@ export const foreignPreReserveKey = async (param) => {
           'Accept-Language': 'en-US',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
-          apikey: process.env.API_KEY,
           currency: 'IRR',
         },
       },
@@ -812,6 +810,7 @@ export const getAllNationalities = async (param) => {
           'Accept-Language': 'fa-IR',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -847,6 +846,7 @@ export const GetCipAirPortList = async () => {
         headers: {
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -864,6 +864,7 @@ export const GetCipAirPortDetailsByUrl = async (cipUrl) => {
         headers: {
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -921,7 +922,11 @@ export const CipGetInformation = async (reserveId, userName) => {
   try {
     let response = await axios.get(
       `https://cip.safaraneh.com/api/services/app/Reserve/Get?ReserveId=${reserveId}&Username=${userName}`,
-      {},
+      {
+        headers: {
+          apikey: process.env.API_KEY,
+        },
+      },
     )
     return response
   } catch (error) {
@@ -959,6 +964,7 @@ export const CipAirPortAvailability = async (param) => {
         headers: {
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -977,6 +983,7 @@ export const AvailabilityByIataCode = async (param) => {
         headers: {
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -995,6 +1002,7 @@ export const CipBookingValidate = async (param) => {
         headers: {
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1012,6 +1020,7 @@ export const CipGetValidate = async (key) => {
         headers: {
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1030,6 +1039,7 @@ export const CipPreReserve = async (param) => {
         headers: {
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1047,6 +1057,7 @@ export const CipGetReserveId = async (reserveId, userName) => {
         headers: {
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1066,6 +1077,7 @@ export const CipPostConfirm = async (param) => {
           'Accept-Language': 'fa-IR',
           'Content-Type': 'Application/json',
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1083,6 +1095,7 @@ export const CipGetVoucher = async (reserveId, userName) => {
         headers: {
           'Accept-Language': 'fa-IR',
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )
@@ -1127,6 +1140,7 @@ export const BookingHotelInternationalBook = async (param) => {
           'Accept-Language': 'en-US',
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
         },
       },
     )

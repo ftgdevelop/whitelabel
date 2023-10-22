@@ -32,6 +32,7 @@ export const getExteriorHotels = (params) => {
       params,
       {
         TenantId: process.env.ABP_TENANT_ID,
+        apikey: process.env.API_KEY,
       }
     );
 

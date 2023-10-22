@@ -86,6 +86,7 @@ module.exports = withPWA({
       'trustseal.enamad.ir',
       'logo.samandehi.ir',
       'www.facebook.com',
+      'cdn.mehrbooking.net'
     ],
     formats: ['image/avif', 'image/webp'],
   },
