@@ -93,7 +93,7 @@ module.exports = withPWA({
   env: {
     SITE_NAME: 'https://www.safaraneh.com',
     ABP_TENANT_ID: 1040,
-    API_KEY: 'ACE01BF4-AAEE-45D6-ABE7-F3FF519052DB',
+    API_KEY: 'e8fad1497a1244f29f15cde4a242baf0',
     GET_PORTAL_API_KEY: 'b4fa99cc-3dfd-40a5-8bcf-53acdc2dbd84',
     GOOGLE_TAG_MANAGER_ID: 'GTM-MJQWGBV',
     BLOG_URL_PANEL: 'https://panel.safaraneh.com/',
