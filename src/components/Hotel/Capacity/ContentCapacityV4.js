@@ -1,163 +1,147 @@
-import React,{useState,useEffect} from 'react'
-import PropTypes from 'prop-types'
-import { withTranslation, Router, Link, i18n } from '../../../../i18n'
-import {withRouter} from "next/router";
-import dynamic from 'next/dynamic'
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { withTranslation, Router, Link, i18n } from '../../../../i18n';
+import { withRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+import { Spin } from 'antd';
+import { HotelV4DomesticGetReserve } from '../../../actions';
+import styles from '../../../styles/Home.module.css';
+import { HostelIcon, RemoveOutlineIcon, SupportIcon } from '../../UI/Icons';
 
-import {Spin} from 'antd';
-import {HotelV4DomesticGetReserve} from '../../../actions';
-import styles from '../../../styles/Home.module.css'
-import { HostelIcon, RemoveOutlineIcon, SupportIcon } from '../../UI/Icons'
+const CountDown = dynamic(() => import('../../UI/CountDown/CountDown'));
+const SimilarHotels = dynamic(() => import('./SimilarHotels'));
 
-const CountDown = dynamic(() => import('../../UI/CountDown/CountDown'))
-const SimilarHotels = dynamic(() => import('./SimilarHotels'))
+const ContentCapacityV4 = ({ t, router }) => {
+  const [reserveInfo, setReserveInfo] = useState(undefined);
+  const [remainedSeconds, setRemainedSeconds] = useState(600);
 
-class ContentCapacityV4 extends React.Component{
-    state = { 
-        reserveInfo: undefined,
-        remainedSeconds: 600
-     };
+  const fetchData = async () => {
+    const path = router.asPath;
+    const reserveId = router.query.reserveId;
+    const username = path.split('username=')[1].split('&')[0].split('#')[0];
+    const response = await HotelV4DomesticGetReserve(reserveId, username);
 
-    fetchData = async () => {
-        const path = this.props.router.asPath;
-        const reserveId = this.props.router.query.reserveId;
-        const username = path.split("username=")[1].split("&")[0].split("#")[0];
-        const response = await HotelV4DomesticGetReserve(reserveId,username);
-
-        if (response.data) {
-            if (!this.state.reserveInfo){
-                this.setState({reserveInfo:response.data.result});
-            }else{
-                if (response.data.result.reserveStatus !== this.state.reserveInfo.reserveStatus ){
-                    this.setState({reserveInfo:response.data.result});
-                }
-            }
-            if (response.data.result.status === "Pending"){
-                Router.push(`/payment?reserveId=${reserveId}&username=${username}`);
-            }
+    if (response.data) {
+      if (!reserveInfo) {
+        setReserveInfo(response.data.result);
+      } else {
+        if (response.data.result.reserveStatus !== reserveInfo.reserveStatus) {
+          setReserveInfo(response.data.result);
         }
-    };
-
-    countDownTimer = () =>{
-        if (this.state.remainedSeconds>0){
-            this.setState({remainedSeconds:this.state.remainedSeconds-1})
-        }else{
-            console.log("time is up");
-            clearInterval(this.timerInterval);
-        }
+      }
+      if (response.data.result.status === 'Pending') {
+        Router.push(`/payment?reserveId=${reserveId}&username=${username}`);
+      }
     }
-    timerInterval = setInterval(() => {            
-        this.countDownTimer();
+  };
+
+  const countDownTimer = () => {
+    if (remainedSeconds > 0) {
+      setRemainedSeconds((prevSeconds) => prevSeconds - 1);
+    } else {
+      clearInterval(timerInterval);
+    }
+  };
+
+  useEffect(() => {
+    const timerInterval = setInterval(() => {
+      countDownTimer();
     }, 1000);
-    componentDidMount = ()=> {
-        this.fetchData();
-        const interval = setInterval(() => {
-            this.fetchData();
-        }, 3000);
 
-        // this.setState({hotelReserveInfo:this.state.reserveInfo})
+    fetchData();
 
-        return () => {
-            clearInterval(this.timerInterval);
-            clearInterval(interval);
-        }
+    const interval = setInterval(() => {
+      fetchData();
+    }, 3000);
+
+    return () => {
+      clearInterval(timerInterval);
+      clearInterval(interval);
     };
-    
-    render(){
-        const { t } = this.props;
-        return (
-            <>
-                <div className={styles.contentCapacity}>
-                    
-                    {(this.state.reserveInfo && (this.state.reserveInfo.reserveStatus === 13 || this.state.reserveInfo.reserveStatus === 8)) ?
-                        null : <CountDown seconds={this.state.remainedSeconds} />
-                    }
-                    
-                    <br/>
-                    {(this.state.remainedSeconds > 0 )?
-                        (this.state.reserveInfo && (this.state.reserveInfo.reserveStatus === 13 || this.state.reserveInfo.reserveStatus === 8)) ?
-                        <div className={styles.textStatusTop}>
-                            {t('capacity-full-desc')}
-                        </div>
-                        :<div className={styles.textStatusBottom}>
-                            {t('capacity-checking-desc')}
-                        </div>
-                    :
-                        <div className={styles.textStatusTop}>
-                            {t('capacity-sorry-waiting')}
-                        </div>
-                    }
+  }, []);
 
-                    <div className={styles.statusCapacity}>
-                        {(this.state.reserveInfo && (this.state.reserveInfo.reserveStatus === 13 || this.state.reserveInfo.reserveStatus === 8))?<div className={styles.loading}>
-                            <div className={styles.brand}>
-                                <SupportIcon/>
-                            </div>
-                            <div className={styles.dot}>
-                                <div className={styles.outIcon}>
-                                    <RemoveOutlineIcon/>
-                                </div>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <div className={styles.icon}>
-                                <HostelIcon/>
-                            </div>
-                        </div>:
-                        <div className={styles.loading}>
-                            <div className={styles.brand}>
-                                <SupportIcon/>
-                            </div>
-                            <div className={styles.dot}>
-                                <div className={styles.redDot}></div>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <div className={styles.icon}>
-                                <HostelIcon/>
-                            </div>
-                        </div>
-                        }                
-                    </div>
+  return (
+    <>
+      <div className={styles.contentCapacity}>
+        {reserveInfo && (reserveInfo.reserveStatus === 13 || reserveInfo.reserveStatus === 8) ? null : (
+          <CountDown seconds={remainedSeconds} />
+        )}
 
+        <br />
+        {remainedSeconds > 0 ? (
+          reserveInfo && (reserveInfo.reserveStatus === 13 || reserveInfo.reserveStatus === 8) ? (
+            <div className={styles.textStatusTop}>{t('capacity-full-desc')}</div>
+          ) : (
+            <div className={styles.textStatusBottom}>{t('capacity-checking-desc')}</div>
+          )
+        ) : (
+          <div className={styles.textStatusTop}>{t('capacity-sorry-waiting')}</div>
+        )}
 
-                    <div className={styles.reserveCode}>
-                        <span>{t('with-this-code')}</span>
-                        <div className={styles.myCode}>
-                            <span>
-                                {t('tracking-code')} :{this.state.reserveInfo?<b> {this.state.reserveInfo.id} </b>:<Spin/>}
-                            </span>
-                        </div>
-                    </div>
-
+        <div className={styles.statusCapacity}>
+          {reserveInfo && (reserveInfo.reserveStatus === 13 || reserveInfo.reserveStatus === 8) ? (
+            <div className={styles.loading}>
+              <div className={styles.brand}>
+                <SupportIcon />
+              </div>
+              <div className={styles.dot}>
+                <div className={styles.outIcon}>
+                  <RemoveOutlineIcon />
                 </div>
-                {(this.state.reserveInfo && (this.state.reserveInfo.reserveStatus === 13)) ?
-                    <SimilarHotels hotelReserveInfo={this.state.reserveInfo} /> : null
-                }
-            </>
-        )
-    }
-    
-}
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div className={styles.icon}>
+                <HostelIcon />
+              </div>
+            </div>
+          ) : (
+            <div className={styles.loading}>
+              <div className={styles.brand}>
+                <SupportIcon />
+              </div>
+              <div className={styles.dot}>
+                <div className={styles.redDot}></div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div className={styles.icon}>
+                <HostelIcon />
+              </div>
+            </div>
+          )}
+        </div>
 
-ContentCapacityV4.getInitialProps = async () => ({
-    namespacesRequired: ['common'],
-})
+        <div className={styles.reserveCode}>
+          <span>{t('with-this-code')}</span>
+          <div className={styles.myCode}>
+            <span>
+              {t('tracking-code')} :{reserveInfo ? <b> {reserveInfo.id} </b> : <Spin />}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {reserveInfo && reserveInfo.reserveStatus === 13 ? <SimilarHotels hotelReserveInfo={reserveInfo} /> : null}
+    </>
+  );
+};
 
 ContentCapacityV4.propTypes = {
-t: PropTypes.func.isRequired,
-}
-  
-export default withRouter(withTranslation('common')(ContentCapacityV4))
+  t: PropTypes.func.isRequired,
+  router: PropTypes.object.isRequired
+};
+
+export default withRouter(withTranslation('common')(ContentCapacityV4));
