@@ -85,7 +85,7 @@ const Payment = (props) => {
 
     if (type === "HotelDomestic"){
       
-      if(process.env.DomesticHotelV4){
+      if(process.env.DomesticHotelV4) {
 
         const fetchData = async () => {
           const response = await HotelV4DomesticGetReserve(reserveId,username);
@@ -112,11 +112,9 @@ const Payment = (props) => {
           }
         };
 
-
         fetchData();
 
-      }else{
-
+      } else {
         const getReserveHotelDomestic = async () => {
           const res = await HotelDomesticGetReserve(reserveId, username);
           if (res?.status == 200) {
@@ -129,7 +127,6 @@ const Payment = (props) => {
     }
     
   }, [type]);
-
 
   useEffect(()=>{
     const getOrderType = async () => {

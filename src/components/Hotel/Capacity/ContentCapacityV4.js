@@ -137,7 +137,6 @@ class ContentCapacityV4 extends React.Component{
                         <span>{t('with-this-code')}</span>
                         <div className={styles.myCode}>
                             <span>
-                                {console.log("this.state", this.state)}
                                 {t('tracking-code')} :{this.state.reserveInfo?<b> {this.state.reserveInfo.id} </b>:<Spin/>}
                             </span>
                         </div>

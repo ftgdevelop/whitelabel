@@ -70,6 +70,7 @@ export const getHotelDetails = (params, currentLang = "fa") => {
 
 export const DomesticHotelV4Search = async (param) => {
   
+  const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
       `https://hotelv4.safaraneh.com/api/services/app/Booking/AvailabilityByHotelId`,
@@ -80,6 +81,8 @@ export const DomesticHotelV4Search = async (param) => {
           'Content-Type': 'application/json',
           TenantId: process.env.ABP_TENANT_ID,
           apikey: process.env.API_KEY,
+          Authorization: `Bearer ${token}`,
+          Currency: 'IRR'
         },
       },
     )
@@ -90,6 +93,8 @@ export const DomesticHotelV4Search = async (param) => {
 }
 
 export const DomesticHotelV4GetRooms = async (params, currentLang = 'fa') => {
+
+  const token = localStorage.getItem('Token')
   try {
     let response = await axios.get(
       `https://hotelv4.safaraneh.com/api/services/app/Booking/GetRoom?Id=${params.hotelId}&CheckIn=${params.checkin}&CheckOut=${params.checkout}`,
@@ -98,6 +103,8 @@ export const DomesticHotelV4GetRooms = async (params, currentLang = 'fa') => {
           'Content-Type': 'application/json',
           apikey: process.env.API_KEY,
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
+          Authorization: `Bearer ${token}`,
+          Currency: 'IRR'
         },
       },
     )
@@ -109,6 +116,7 @@ export const DomesticHotelV4GetRooms = async (params, currentLang = 'fa') => {
 
 export const DomesticHotelV4Validate = async (param, currentLang = 'fa') => {
   
+  const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
       "https://hotelv4.safaraneh.com/api/services/app/Booking/Validate",
@@ -120,6 +128,8 @@ export const DomesticHotelV4Validate = async (param, currentLang = 'fa') => {
           TenantId: process.env.ABP_TENANT_ID,
           apikey: process.env.API_KEY,
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
+          Authorization: `Bearer ${token}`,
+          Currency: 'IRR'
         },
       },
     )
@@ -134,6 +144,7 @@ export const DomesticHotelV4Validate = async (param, currentLang = 'fa') => {
 
 export const DomesticHotelV4GetValidate = async (key, currentLang = 'fa') => {
   
+  const token = localStorage.getItem('Token')
   try {
     let response = await axios.get(
       `https://hotelv4.safaraneh.com/api/services/app/Booking/GetValidate?Id=${key}`,
@@ -143,6 +154,8 @@ export const DomesticHotelV4GetValidate = async (key, currentLang = 'fa') => {
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           TenantId: process.env.ABP_TENANT_ID,
           apikey: process.env.API_KEY,
+          Authorization: `Bearer ${token}`,
+          Currency: 'IRR'
         },
       },
     )
@@ -153,7 +166,8 @@ export const DomesticHotelV4GetValidate = async (key, currentLang = 'fa') => {
 }
 
 export const DomesticHotelV4PreReserve = async (param, currentLang = 'fa') => {
-  
+
+  const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
       "https://hotelv4.safaraneh.com/api/services/app/Booking/PreReserve",
@@ -165,6 +179,8 @@ export const DomesticHotelV4PreReserve = async (param, currentLang = 'fa') => {
           TenantId: process.env.ABP_TENANT_ID,
           apikey: process.env.API_KEY,
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
+          Authorization: `Bearer ${token}`,
+          Currency: 'IRR'
         },
       },
     )
@@ -176,6 +192,7 @@ export const DomesticHotelV4PreReserve = async (param, currentLang = 'fa') => {
 
 export const HotelV4DomesticGetReserve = async (reserveId, userName, currentLang = 'fa') => {
   
+  const token = localStorage.getItem('Token')
   try {
     let response = await axios.get(`https://hotelv4.safaraneh.com/api/services/app/Reserve/Get?ReserveId=${reserveId}&Username=${userName}`,
       {
@@ -184,7 +201,9 @@ export const HotelV4DomesticGetReserve = async (reserveId, userName, currentLang
           'Content-Type': 'application/json',
           TenantId: process.env.ABP_TENANT_ID,
           apikey: process.env.API_KEY,
-          'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`
+          'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
+          Authorization: `Bearer ${token}`,
+          Currency: 'IRR'
         },
       },
     )
@@ -212,6 +231,7 @@ export const getConfirmHotelV4Domestic = async (reserveId, username) => {
           Authorization: `Bearer ${token}`,
           TenantId: process.env.ABP_TENANT_ID,
           apikey: process.env.API_KEY,
+          Currency: 'IRR'
         },
       },
     )
