@@ -262,3 +262,28 @@ export const getInteriorHotelsV4 = (params, currentLang = "fa") => {
     return response;
   };
 };
+
+export const getReserveV4Domestic = async (reserveId, username) => {
+  
+  const token = localStorage.getItem('Token')
+  try {
+    const res = await axios.get(
+      `https://hotelv4.safaraneh.com/api/services/app/Reserve/Get?ReserveId=${reserveId}&Username=${username}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          accept: 'text/plain',
+          'Accept-Language': 'fa-IR',
+          Authorization: `Bearer ${token}`,
+          TenantId: process.env.ABP_TENANT_ID,
+          apikey: process.env.API_KEY,
+          Currency: 'IRR'
+        },
+      },
+    )
+    return res
+  } catch (error) {
+    console.log('error', error)
+    return error.response
+  }
+}

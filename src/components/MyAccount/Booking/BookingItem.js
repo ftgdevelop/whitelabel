@@ -24,12 +24,14 @@ import {
   CancelCircleIcon,
   WaitingIcon,
   BusIcon,
+  CreditIcon
 } from '../../UI/Icons'
 
 import Time from '../../UI/Time/Time'
 
 import DatePersion from '../../UI/DatePersion/DatePersion'
 import { UpOutlined, DownOutlined, LoadingOutlined } from '@ant-design/icons'
+import { getReserveV4Domestic } from '../../../actions/hotel/HotelActions'
 
 const BookingItem = (props) => {
   const [detailHotel, setDetailHotel] = useState()
@@ -58,69 +60,94 @@ const BookingItem = (props) => {
   //     }, []);
   // }
 
-  const handleClick = async () => {
+  const handleClick = async (reserveType) => {
     setClickStatus('loading')
 
-    let params = {
-      reserveId: props.order.id,
-      Username: props.order.username,
-      LanguageId: 1,
-    }
-    const res = await HotelDomesticReserveDetail(params)
-    if (res.status === 200) {
-      setClickStatus('success')
-      setDetailHotel(res.data)
-    } else {
-      console.log('error')
-    }
-
-    const res2 = await getReserve(props.order.id, props.order.username)
-    if (res2.status == 200) {
-      setClickStatus('success')
-      const data = res2.data.result
-      setDetailFlight(data)
-    } else {
-      console.log('error')
+    // let params = {
+    //   reserveId: props.order.id,
+    //   Username: props.order.username,
+    //   LanguageId: 1,
+    // }
+    
+    if (reserveType === "HotelDomestic") {
+      const reserveId = props.order.id;
+      const username = props.order.username;
+      const response = await getReserveV4Domestic(reserveId, username)
+      if (response.status === 200) {
+        setClickStatus('success')
+        const data = response.data.result
+        setDetailHotel(data)
+      } else {
+        console.log('error')
+      }
     }
 
-    const res3 = await foreignHotelGetReserveById(
-      props.order.id,
-      props.order.username,
-    )
-    if (res3.status == 200) {
-      setClickStatus('success')
-      const data = res3.data.result
-      setDetailHotelForeign(data)
-    } else {
-      console.log('error')
+    // const res = await HotelDomesticReserveDetail(params)
+    // if (res.status === 200) {
+    //   setClickStatus('success')
+    //   setDetailHotel(res.data)
+    // } else {
+    //   console.log('error')
+    // }
+
+    if (reserveType === "FlightDomestic") {
+      const res2 = await getReserve(props.order.id, props.order.username)
+      if (res2.status == 200) {
+        setClickStatus('success')
+        const data = res2.data.result
+        setDetailFlight(data)
+      } else {
+        console.log('error')
+      }
     }
 
-    const res4 = await CipGetInformation(props.order.id, props.order.username)
-    if (res4.status == 200) {
-      setClickStatus('success')
-      const data = res4.data
-      setDetailCip(data)
-    } else {
-      console.log('error')
+    if (reserveType === "Hotel") {
+      const res3 = await foreignHotelGetReserveById(
+        props.order.id,
+        props.order.username,
+      )
+      if (res3.status == 200) {
+        setClickStatus('success')
+        const data = res3.data.result
+        setDetailHotelForeign(data)
+      } else {
+        console.log('error')
+      }
     }
 
-    const res5 = await GetReserve(props.order.id, props.order.username)
-    if (res5.status == 200) {
-      setClickStatus('success')
-      const data = res5.data.result
-      setDetailFlightForeign(data)
-    } else {
-      console.log('error')
+    if (reserveType === "Cip") {
+      const res4 = await CipGetInformation(props.order.id, props.order.username)
+      if (res4.status == 200) {
+        setClickStatus('success')
+        const data = res4.data
+        setDetailCip(data)
+      } else {
+        console.log('error')
+      }
     }
 
-    const resBus = await GetReserveBus(props.order.id, props.order.username);
-    if (resBus.status == 200) {
-      setClickStatus('success')
-      const data = resBus.data.result;
-      setDetailBus(data)
-    } else {
-      console.log('error')
+    if (reserveType === "Flight") {
+      const res5 = await GetReserve(props.order.id, props.order.username)
+      if (res5.status == 200) {
+        setClickStatus('success')
+        const data = res5.data.result
+        setDetailFlightForeign(data)
+      } else {
+        console.log('error')
+      }
     }
+
+    if (reserveType === "Bus") {
+      const resBus = await GetReserveBus(props.order.id, props.order.username);
+      if (resBus.status == 200) {
+        setClickStatus('success')
+        const data = resBus.data.result;
+        setDetailBus(data)
+      } else {
+        console.log('error')
+      }
+    }
+
 
     setClickStatus('pending')
   }
@@ -136,10 +163,10 @@ const BookingItem = (props) => {
               <UpOutlined />
             </>
           ) : (
-            <>
-              <span onClick={handleClick}>جزئیات</span>
+            <div onClick={() => handleClick(props.order.type)}>
+              <span>جزئیات</span>
               <DownOutlined />
-            </>
+            </div>
           )
         }
         speed={0}
@@ -280,6 +307,12 @@ const BookingItem = (props) => {
               <span>در حال صدور</span>
             </div>
           )}
+          {props.order.status === 'OnCredit' && (
+            <div className={`${styles.item} ${styles.itemWaiting}`}>
+              <CreditIcon />
+              <span>علی الحساب</span>
+            </div>
+          )}
         </div>
         <div className={styles.moreItemMybook}>
           <div className={styles.headMyBook}>
@@ -306,13 +339,16 @@ const BookingItem = (props) => {
               {props.order.type === 'Bus' && <span>ساعت حرکت</span>}
             </div>
           </div>
+          
           {clickStatus === 'pending' ? (
             <div className={styles.contentMyBook}>
               <div className={styles.item}>
                 {props.order.type === 'HotelDomestic' && (
                   <>
                     {props.order && detailHotel ? (
-                      <img src={detailHotel.HotelImage} />
+                      <>
+                        <img src={detailHotel.accommodation.filePath} />
+                      </>
                     ) : null}
                   </>
                 )}
@@ -383,7 +419,7 @@ const BookingItem = (props) => {
                 {props.order.type === 'HotelDomestic' && (
                   <>
                     {props.order && detailHotel ? (
-                      <span>هتل {detailHotel.HotelName}</span>
+                      <span>هتل {detailHotel.accommodation.displayName}</span>
                     ) : null}
                   </>
                 )}
@@ -441,7 +477,7 @@ const BookingItem = (props) => {
                     <DatePersion
                       date={
                         props.order && detailHotel
-                          ? detailHotel.ReserveStartDate
+                          ? detailHotel.checkin
                           : null
                       }
                     />
@@ -515,7 +551,8 @@ const BookingItem = (props) => {
                   props.order.status !== 'WebServiceUnsuccessful' && (
                     <>
                       <Link
-                        as={`/payment/reserveId-${props.order.id}/referenceId-${props.order.reference}`}
+                        // as={`/payment/reserveId-${props.order.id}/referenceId-${props.order.reference}`}
+                        as={`/payment?username=${props.order.username}&reserveId=${props.order.id}`}
                         href={`/payment?username=${props.order.username}&reserveId=${props.order.id}`}
                       >
                         <a className={styles.payBtn}>
