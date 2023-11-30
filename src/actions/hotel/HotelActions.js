@@ -102,6 +102,7 @@ export const DomesticHotelV4GetRooms = async (params, currentLang = 'fa') => {
         headers: {
           'Content-Type': 'application/json',
           apikey: process.env.API_KEY,
+          TenantId: process.env.ABP_TENANT_ID,
           'Accept-Language': `${currentLang === 'fa' ? 'fa-IR' : 'ar-AE'}`,
           Authorization: `Bearer ${token}`,
           Currency: 'IRR'
