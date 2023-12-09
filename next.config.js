@@ -113,7 +113,7 @@ module.exports = withPWA({
     ],
     Languages: [
       { title: 'فارسی', value: 'fa' },
-      // { title: 'العربية', value: 'ar' },
+      // { title: 'العربية', value: 'ar' }
       // ,{title:"English",value:"us"}
     ],
     //CALENDAR_LOCALES:['en']
