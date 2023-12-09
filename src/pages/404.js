@@ -8,7 +8,7 @@ function Custom404() {
   return (
     <>
       <Head>
-        <title>خطای ۴۰۴</title>
+        <title> خطای ۴۰۴ </title>
       </Head>
       <div className={styles.error404}>
         <img src="/images/passenger.png" />
