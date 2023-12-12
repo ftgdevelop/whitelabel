@@ -52,7 +52,11 @@ const AboutSummary = dynamic(() =>
   import('../components/Home/AboutSummary/AboutSummary'),
 )
 
-const Homepage = ({ t, data }) => {
+const Homepage = ({ t, data ,host}) => {
+
+  if (host){
+    console.log("host",host);
+  }
 
   return (
     <Layout>
@@ -277,10 +281,12 @@ export const getServerSideProps = async ({ req }) => {
   const locale = req.url.split('/')[1]
   const url = encodeURI(`/${locale}`)
   const res = await GetpageByUrl(url)
+  const host = req.headers.host;
 
   return {
     props: {
       data: JSON.parse(JSON.stringify(res.data)),
+      host : host
     },
   }
 }
