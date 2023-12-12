@@ -25,6 +25,15 @@ const withPWA = require('next-pwa')({
 
 module.exports = withPWA({
   rewrites: async () => nextI18NextRewrites(localeSubpaths),
+  redirects : async() => {
+    return [
+      {
+        source: '/fa/fa:path*',
+        destination: '/',
+        permanent: true,
+      }
+    ]
+  },
   publicRuntimeConfig: {
     localeSubpaths,
   },
