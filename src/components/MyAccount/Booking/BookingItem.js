@@ -567,7 +567,7 @@ const BookingItem = (props) => {
                   detailHotel && (
                     <>
                       <a
-                        href={`http://voucher.safaraneh.com/fa/safaraneh/Reserve/hotel/voucher?reserveId=${detailHotel.ReserveId}&username=${detailHotel.PhoneNumber}`}
+                        href={`http://voucher.safaraneh.com/fa/safaraneh/Reserve/hotel/voucher?reserveId=${detailHotel.id}&username=${detailHotel.reserver?.userName}`}
                         target="_blank"
                         className={styles.voucherBtn}
                       >

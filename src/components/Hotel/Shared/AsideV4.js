@@ -9,6 +9,7 @@ import defaultImage from '../../../assets/defaultHotel.svg';
 import styles from '../../../styles/Home.module.css'
 import { Row, Col, Button, Typography, Skeleton } from 'antd';
 import moment from 'moment-jalaali';
+import { connect } from 'react-redux'
  
 const Rating = dynamic(() => import('../../UI/Rating/Rating'))
 
@@ -67,6 +68,24 @@ const AsideV4 = (props) => {
         childPrice = roomChildAndExtraBed.reduce((total,item) => item.selectedChild ? (total + item.childFee) : total ,0);
         extraBedCount = roomChildAndExtraBed.reduce((total,item) => total + item.selectedExtraBed , 0);
         extraBedPrice = roomChildAndExtraBed.reduce((total,item) => total + (item.selectedExtraBed * item.extraBedFee) , 0 );
+    }
+
+    let safaranehEmailAddress = "support@safaraneh.com";
+    let safaranehPhoneNumber = "02126150051"
+    let safaranehPhoneLink = "+982126150051";
+
+    let portalEmailAddress;
+    let portalPhoneNumber;
+    let portalPhoneLink;
+    
+    if(props.portalInfo?.Phrases){
+        portalEmailAddress = props.portalInfo.Phrases.find(item=> item.Keyword === "Email")?.Value;
+        portalPhoneNumber = props.portalInfo.Phrases.find(item=> item.Keyword === "TelNumber")?.Value;
+
+        if (portalPhoneNumber && portalPhoneNumber[0] === "0"){
+            portalPhoneLink = portalPhoneNumber.substring(1);
+            portalPhoneLink = "+98" + portalPhoneLink;
+        }
     }
 
     return (
@@ -225,7 +244,7 @@ const AsideV4 = (props) => {
                                     {t("sum")}
                                 </Col>
                                 <Col span={12} className="text-end">
-                                    {reserveInformation.salePrice && numberWithCommas(reserveInformation.salePrice)} {t('rial')}
+                                    {reserveInformation.salePrice && numberWithCommas(reserveInformation.boardPrice)} {t('rial')}
                                 </Col>
                         </Row>}
 
@@ -279,7 +298,7 @@ const AsideV4 = (props) => {
                                 {t("price-paid")}
                             </Col>
                             <Col span={12} className="text-end bold">
-                                {reserveInformation.salePrice && numberWithCommas(reserveInformation.salePrice + (extraBedPrice && extraBedPrice))} {t('rial')}
+                                {reserveInformation.salePrice && numberWithCommas(reserveInformation.salePrice + (extraBedPrice || 0))} {t('rial')}
                                 {/* {coordinatorPrice && numberWithCommas(coordinatorPrice)} {t('rial')} */}
                             </Col>
                         </Row>}
@@ -356,8 +375,8 @@ const AsideV4 = (props) => {
                     <h4 className={styles.subjectBookingNeedHelp}>{t('need-help')}</h4>
                     <div className={styles.contentBookingNeedHelp}>
                         <span>{t('24hours-backup')}</span>
-                        <a href="tel:+982126150051"> 02126150051 </a>
-                        <a href="mailto:support@safaraneh.com"> support@safaraneh.com </a>
+                        <a href={`tel:${portalPhoneLink || safaranehPhoneLink}`}> {portalPhoneNumber || safaranehPhoneNumber} </a>
+                        <a href={`mailto:${portalEmailAddress || safaranehEmailAddress}`}> {portalEmailAddress || safaranehEmailAddress} </a>
                     </div>
                 </div>
                 :
@@ -413,4 +432,9 @@ AsideV4.propTypes = {
     t: PropTypes.func.isRequired,
 }
   
-export default withTranslation('common')(AsideV4)
+function mapStateToProps(state) {
+    return {
+        portalInfo: state.portal.portalData
+    }
+}
+export default withTranslation('common')(connect(mapStateToProps)(AsideV4))
