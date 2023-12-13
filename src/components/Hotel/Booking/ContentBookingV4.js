@@ -7,6 +7,7 @@ import { GetVoucherHotelDomesticPdf } from '../../../actions'
 
 import styles from '../../../styles/Home.module.css'
 import { CheckIcon, CheckCircleIcon, BookingTicketIcon, WarningIcon, UserIcon, ErrorIcon, BedIcon } from '../../UI/Icons'
+import { connect } from "react-redux";
 
 const antIcon = <LoadingOutlined style={{ 'font-size': '18px', 'margin-right': '5px', 'position': 'relative','top': '3px' }} spin />
 
@@ -64,6 +65,23 @@ const ContentBookingV4 = props => {
         }
     }
 
+    let safaranehEmailAddress = "support@safaraneh.com";
+    let safaranehPhoneNumber = "02126150051"
+    let safaranehPhoneLink = "+982126150051";
+
+    let portalEmailAddress;
+    let portalPhoneNumber;
+    let portalPhoneLink;
+    
+    if(props.portalInfo?.Phrases){
+        portalEmailAddress = props.portalInfo.Phrases.find(item=> item.Keyword === "Email")?.Value;
+        portalPhoneNumber = props.portalInfo.Phrases.find(item=> item.Keyword === "TelNumber")?.Value;
+
+        if (portalPhoneNumber && portalPhoneNumber[0] === "0"){
+            portalPhoneLink = portalPhoneNumber.substring(1);
+            portalPhoneLink = "+98" + portalPhoneLink;
+        }
+    }
 
     return (
         <div className={styles.contentBooking}>
@@ -260,9 +278,9 @@ const ContentBookingV4 = props => {
                         </div>
                         <div className={styles.contactBookingInto}>
                             {t('for-clarity-email')} 
-                            <a href="mailto:support@safaraneh.com"> support@safaraneh.com </a>
+                            <a href={`mailto:${portalEmailAddress || safaranehEmailAddress}`}> {portalEmailAddress || safaranehEmailAddress} </a>
                             {t('or-phone-number')}
-                            <a href="tel:+982126150051"> 02126150051 </a>
+                            <a href={`tel:${portalPhoneLink || safaranehPhoneLink}`}> {portalPhoneNumber || safaranehPhoneNumber} </a>
                             {t('call-24hours')}
                         </div>
                     </div>
@@ -343,4 +361,10 @@ ContentBookingV4.propTypes = {
 t: PropTypes.func.isRequired,
 }
   
-export default withTranslation('common')(ContentBookingV4)
+function mapStateToProps(state) {
+    return {
+        portalInfo: state.portal.portalData
+    }
+}
+
+export default withTranslation('common')(connect(mapStateToProps)(ContentBookingV4))
