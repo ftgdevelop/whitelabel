@@ -10,7 +10,6 @@ import styles from "../../styles/Flight.module.css";
 import CheckoutSteps from "./CheckoutSteps";
 import AsidePaymentFlight from "./AsidePaymentFlight";
 import AsidePaymentHotel from "./AsidePaymentHotel";
-import PaymentAsideV4 from "../Hotel/Shared/PaymentAsideV4";
 import AsidePaymentCip from "./AsidePaymentCip";
 import AsidePaymentHotelDomestic from "./AsidePaymentHotelDomestic";
 import AsidePaymentFlightForeign from "./AsidePaymentFlightForeign";
@@ -20,6 +19,7 @@ import CardToCard from "./CardToCard";
 import { CheckCircleIcon } from '../UI/Icons'
 import Wallet from "./Wallet";
 import AsidePaymentBus from "./AsidePaymentBus";
+import AsideV4 from "../Hotel/Shared/AsideV4";
 
 const { TabPane } = Tabs;
 
@@ -188,22 +188,64 @@ const Payment = (props) => {
           CityId:domesticHotelInfo.CityId
       }
   }
-  if(domesticHotelReserveInfo){
+  if (domesticHotelReserveInfo) {
+
     DomesticHotelV4ReserveInformation = {
-          reserveId:domesticHotelReserveInfo.id,
-          checkin:domesticHotelReserveInfo.checkin,
-          checkout:domesticHotelReserveInfo.checkout,
-          duration:moment(domesticHotelReserveInfo.checkout).diff(moment(domesticHotelReserveInfo.checkin),'days'),
-          rooms : domesticHotelReserveInfo.rooms.map(roomItem =>({
-              name:roomItem.name,
-              board:roomItem.boardCode,
-              cancellationPolicyStatus:roomItem.cancellationPolicyStatus,
-              bed:roomItem.bed
-          })),
-          // salePrice:domesticHotelReserveInfo.totalPrice,
-          salePrice: coordinatorPrice,
-          boardPrice:domesticHotelReserveInfo.totalBoardPrice || 0,
-      }   
+      reserveId: domesticHotelReserveInfo.id,
+      checkin: domesticHotelReserveInfo.checkin,
+      checkout: domesticHotelReserveInfo.checkout,
+      duration: moment(domesticHotelReserveInfo.checkout).diff(moment(domesticHotelReserveInfo.checkin), 'days'),
+      rooms: domesticHotelReserveInfo.rooms.map(roomItem => ({
+        name: roomItem.name,
+        board: roomItem.boardCode,
+        cancellationPolicyStatus: roomItem.cancellationPolicyStatus,
+        bed: roomItem.bed
+      })),
+      // salePrice:domesticHotelReserveInfo.totalPrice,
+      selectedExtraBed: domesticHotelReserveInfo.rooms.reduce((totalExtraBeds, roomItem) => totalExtraBeds + (roomItem.extraBed), 0),
+      extraBedPrice: domesticHotelReserveInfo.rooms.reduce((totalPrice, roomItem) => {
+        const roomItemPrice = roomItem.pricing.find(
+          item => item.type === "ExtraBed" && item.ageCategoryType === "ADL"
+        )?.amount;
+        if (roomItemPrice) {
+          return totalPrice + (roomItem.extraBed * +roomItemPrice)
+        } else {
+          return null;
+        }
+      }, 0),
+      salePrice__: coordinatorPrice,
+      salePrice: domesticHotelReserveInfo.rooms.reduce((totalPrice, roomItem) => {
+        const roomItemPrice = roomItem.pricing.find(
+          item => item.type === "Room" && item.ageCategoryType === "ADL"
+        )?.amount;
+        if (roomItemPrice) {
+          return totalPrice + +roomItemPrice
+        } else {
+          return null;
+        }
+      }, 0),
+      boardPrice___: domesticHotelReserveInfo.totalBoardPrice || 0,
+      boardPrice: domesticHotelReserveInfo.rooms.reduce((totalPrice, roomItem) => {
+        const roomItemPrice = roomItem.pricing.find(
+          item => item.type === "RoomBoard" && item.ageCategoryType === "ADL"
+        )?.amount;
+        if (roomItemPrice) {
+          return totalPrice + +roomItemPrice
+        } else {
+          return null;
+        }
+      }, 0),
+      promoCodePrice: domesticHotelReserveInfo.rooms.reduce((totalPrice, roomItem) => {
+        const itemPrice = roomItem.pricing.find(
+          item => item.type === "PromoCode" && item.ageCategoryType === "ADL"
+        )?.amount;
+        if (itemPrice) {
+          return totalPrice - +itemPrice
+        } else {
+          return null;
+        }
+      }, 0)
+    }
   }
 
   return (
@@ -273,10 +315,9 @@ const Payment = (props) => {
               ) : type === "HotelDomestic" ? (
                 
                 process.env.DomesticHotelV4 ? (
-                  <PaymentAsideV4
+                  <AsideV4 
                     hotelInformation={DomesticHotelV4Information}
-                    reserveInformation={DomesticHotelV4ReserveInformation}
-                    // coordinatorPrice={coordinatorPrice}
+                    reserveInformation={DomesticHotelV4ReserveInformation}                  
                   />
                 ) : (
                   <AsidePaymentHotelDomestic getPrice={getPrice} />

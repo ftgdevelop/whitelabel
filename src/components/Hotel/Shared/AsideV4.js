@@ -239,12 +239,12 @@ const AsideV4 = (props) => {
                             </>
                         :null} */}
 
-                        {(hasDiscount || !!childCount || !!extraBedCount) && <Row className='margin-bottom-5'>
+                        {reserveInformation.boardPrice && (hasDiscount || !!childCount || !!extraBedCount || !!reserveInformation.extraBedPrice || !!reserveInformation.promoCodePrice ) && <Row className='margin-bottom-5'>
                                 <Col span={12} className="font-12">
                                     {t("sum")}
                                 </Col>
                                 <Col span={12} className="text-end">
-                                    {reserveInformation.salePrice && numberWithCommas(reserveInformation.boardPrice)} {t('rial')}
+                                    {numberWithCommas(reserveInformation.boardPrice)} {t('rial')}
                                 </Col>
                         </Row>}
 
@@ -266,6 +266,15 @@ const AsideV4 = (props) => {
                                 </Col>
                         </Row>}
 
+                        {!!reserveInformation.extraBedPrice && !!reserveInformation.selectedExtraBed && <Row className='margin-bottom-5'>
+                                <Col span={12} className="font-12">
+                                    {t("extra-bed")} (x{reserveInformation.selectedExtraBed})
+                                </Col>
+                                <Col span={12} className="text-end">
+                                    {numberWithCommas(reserveInformation.extraBedPrice)} {t('rial')}
+                                </Col>
+                        </Row>}
+
                         { hasDiscount && <Row className='margin-bottom-5'>
                             <Col span={12} className='font-12'>
                                 {t("site-discount")}
@@ -275,31 +284,25 @@ const AsideV4 = (props) => {
                             </Col>
                         </Row>}
 
-                        {discountResponse ? <Row>
+                        {discountResponse || !!reserveInformation.promoCodePrice ? <Row className='margin-bottom-5'>
                             <Col span={12} className='font-12'>
                                     کد تخفیف
                             </Col>
                             <Col span={12} className="text-end">
-                                <span>{numberWithCommas(discountResponse.discountPrice)} {t('rial')}</span>
+                                <span>{numberWithCommas(discountResponse?.discountPrice || reserveInformation.promoCodePrice)} {t('rial')}</span>
                             </Col>
                         </Row> : null}
                         
-                        {discountResponse ? <Row className='margin-bottom-5'>
+                        {!!reserveInformation.salePrice && <Row className='margin-bottom-5'>
                             <Col span={12} className="font-12">
                                 {t("price-paid")}
                             </Col>
                             <Col span={12} className="text-end bold">
-                                {discountResponse.orderSubTotalDiscount >= 10000 ?
-                                    <span>{numberWithCommas(discountResponse.orderSubTotalDiscount)} {t('rial')}</span>
-                                    : <span>-</span>}
-                            </Col>
-                        </Row> : <Row className='margin-bottom-5'>
-                            <Col span={12} className="font-12">
-                                {t("price-paid")}
-                            </Col>
-                            <Col span={12} className="text-end bold">
-                                {reserveInformation.salePrice && numberWithCommas(reserveInformation.salePrice + (extraBedPrice || 0))} {t('rial')}
-                                {/* {coordinatorPrice && numberWithCommas(coordinatorPrice)} {t('rial')} */}
+                                {!!discountResponse && discountResponse.orderSubTotalDiscount >= 10000 ?
+                                    numberWithCommas(discountResponse.orderSubTotalDiscount + (extraBedPrice || 0)) + " " + t('rial')
+                                    :
+                                    numberWithCommas(reserveInformation.salePrice + (extraBedPrice || 0) - (reserveInformation.promoCodePrice || 0) ) + " " +  t('rial')
+                                }
                             </Col>
                         </Row>}
 

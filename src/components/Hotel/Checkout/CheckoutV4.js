@@ -86,6 +86,9 @@ const CheckoutV4 = props =>{
             CityId:hotelInfo.CityId
         }
     }
+    
+    let needToInquire = false;
+
     if(reserveInfo){
         reserveInformation = {
             checkin:reserveInfo.checkin,
@@ -101,6 +104,7 @@ const CheckoutV4 = props =>{
                 maxChildAge:roomItem.maxChildAge,
                 maxInfantAge:roomItem.maxInfantAge
             })),
+
             salePrice : reserveInfo.rooms.reduce((totalPrice,roomItem)=>{
                 const roomItemPrice = roomItem.pricing.find(
                     item => item.type === "Room" && item.ageCategoryType === "ADL"
@@ -108,6 +112,7 @@ const CheckoutV4 = props =>{
                 if (roomItemPrice){
                     return totalPrice + +roomItemPrice
                 }else{
+                    needToInquire = true;
                     return null;
                 }
             },0),
@@ -118,9 +123,11 @@ const CheckoutV4 = props =>{
                 if (roomItemPrice){
                     return totalPrice + +roomItemPrice
                 }else{
+                    needToInquire = true;
                     return null;
                 }
             },0)
+
         }   
     }
 
