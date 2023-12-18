@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import { Link, withTranslation,Router } from '../../../../i18n'
-import { Collapse, Row, Col, Modal,Spin,Tag } from 'antd'
+import { Link, withTranslation,Router,i18n } from '../../../../i18n'
+import { Row, Col, Modal,Spin,Tag } from 'antd'
 import {CopyToClipboard} from 'react-copy-to-clipboard'
 import moment from 'moment-jalaali'
 import dynamic from 'next/dynamic';
@@ -11,18 +11,13 @@ import {useRouter} from 'next/router';
 import styles from '../../../styles/Home.module.css'
 import { BedBookIcon, UserIcon, LockSuccessIcon, LocationIcon, DirectionIcon, PhoneIcon, EmailIcon, CheckIcon, UserOutlineIcon, PhoneGrayIcon,WhatsappGrayIcon, EmailGrayIcon, BookingTicketIcon } from '../../UI/Icons'
 import AsideMyAccount from '../AsideMyAccount'
-import DomesticHotelReserveStatus from '../../UI/ReserveStatus/DomesticHotelReserveStatus'
 import Rating from '../../UI/Rating/Rating'
-import { RightOutlined, StarFilled, LoadingOutlined } from '@ant-design/icons'
-import {HotelDomesticReserveDetail} from '../../../actions'
-import { GetVoucherHotelDomesticPdf } from '../../../actions'
+import { RightOutlined } from '@ant-design/icons'
+import {GetHotelById, HotelV4DomesticGetReserve} from '../../../actions'
 
 const MapWithNoSSR = dynamic(() => import('../../UI/LeafletMap/LeafletMap'), {
     ssr: false
   });
-
-
-const { Panel } = Collapse;
 
 const Hotel = props => {
     // constructor(props) {
@@ -42,42 +37,42 @@ const Hotel = props => {
     moment.loadPersian();
     const router = useRouter();
     const [copied,setCopied] = useState(false);
+    
     const [reserveInfo,setReserveInfo] = useState();
-    const [reserveUserName,setUserName] = useState();
-    const [guestQ,setGuestQ] = useState();
+    const [hotelInfo,setHotelInfo] = useState();  
+    const [hasError,setError] = useState(false);    
+
     const [mapVisibility,setMapVisibility] = useState(false);
 
     const [sessionStorageTelNumber,setSessionStorageTelNumber] = useState();
     const [sessionStorageEmail,setSessionStorageEmail] = useState();
     const [sessionStorageWhatsapp,setSessionStorageWhatsapp] = useState();
-    const [voucherStatus,setVoucherStatus] = useState("pending");
-
-    const reserveId = router.query.reserveId;
-    const username = router.query.username;
     
+    const reserveId = router.query.reserveId;
+
     useEffect (()=>{
         setSessionStorageTelNumber(window.sessionStorage.getItem("whiteLabelTelNumber"));
         setSessionStorageEmail(window.sessionStorage.getItem("whiteLabelEmail"));
         setSessionStorageWhatsapp(window.sessionStorage.getItem("whiteLabelWhatsapp"));
 
-        const reserveId = router.query.reserveId;
         let username = router.query.username.trim();
         const firstCharacter = username.toString().substring(0, 1);
         if (!isNaN(firstCharacter)){
             username = "+"+username;
         }
-        setUserName(username);
+
         const fetchData = async () => {
-            let params = {"reserveId":reserveId,"Username":username,"LanguageId":1};
-            const response = await HotelDomesticReserveDetail(params);
-            if (response.data) {  
-                setReserveInfo(response.data);
-                const roomsInfo = response.data.Rooms;
-                let guests=0;
-                for(let i=0 ; i<roomsInfo.length ; i++ ){
-                    guests += (roomsInfo[i].AdultOnBed+roomsInfo[i].ChildrenOnBed)
+            const response = await HotelV4DomesticGetReserve(reserveId,username);
+            if (response?.data?.result) {  
+                setReserveInfo(response.data.result);
+
+                const HotelId = response.data.result.accommodationId;
+                const HotelInfoResponse = await GetHotelById(HotelId,i18n.language);
+                if (HotelInfoResponse.data){
+                  setHotelInfo(HotelInfoResponse.data);
                 }
-                setGuestQ(guests);
+            }else{
+                setError(true);
             }
 
           };
@@ -120,21 +115,86 @@ const Hotel = props => {
         email=getPortalValue(props.portalInfo.Phrases,"Email") && getPortalValue(props.portalInfo.Phrases,"Email")['Value']; 
     }
 
-    const handleClick = async () => {
-        setVoucherStatus("loading");
-        const res = await GetVoucherHotelDomesticPdf(reserveId, username);
-        if(res.data.result){
-          setVoucherStatus("success");
-          let url = `https://hotelv2.safaraneh.com/File/DownloadTempFile?filename=${res.data.result.fileName}.pdf&fileType=${res.data.result.fileType}&fileToken=${res.data.result.fileToken}`;
-          let a = document.createElement('a');
-          a.href = url;
-          a.click();
-        } else {
-          setVoucherStatus("error");
-        }
-        setVoucherStatus("pending");
+
+    let guests;
+    let price;
+
+    if (reserveInfo?.rooms){
+        guests = reserveInfo.rooms.reduce((sum,room) => (sum + room.bed) , 0);
+        price = reserveInfo.rooms.reduce((sum,room) => {
+            const roomPrice = room.pricing?.find(x => x.ageCategoryType==="ADL" && x.type==="Room")?.amount;
+            return((sum + roomPrice))
+        } , 0);
     }
-    
+
+    let status = null;
+
+    let paymentLink = null;
+
+    if(reserveInfo){
+
+        let StatusColor = null;
+        switch(reserveInfo.status){
+            
+            case "Pending":
+            case "Registered":
+            case "OnCredit":
+            case "InProgress":
+                StatusColor = "#52c41a";
+                break;
+
+            case "ContactProvider":
+            case "Unavailable":
+                StatusColor = "#e7412a";
+                break;
+
+            case "Canceled":
+            case "PaymentSuccessful":
+            case "WebServiceUnsuccessful":
+                StatusColor = "#ffb6ab";
+                break;
+        
+            case "Issued":
+                StatusColor = "#1dac08";
+                break;
+
+            default:
+                StatusColor = "#dddddd"
+
+            //what about these status?
+            // "Undefined, Issued, WebServiceCancel, PriceChange, Refunded, Voided, InProgress, PaidBack, RefundInProgress, Changed"
+        };
+
+        status = <Tag color={StatusColor} > {t(`${reserveInfo.status}`)} </Tag>
+
+        paymentLink = (
+            <Link
+                as={`/payment?username=${reserveInfo.username}&reserveId=${reserveInfo.id}`}
+                href={`/payment?username=${reserveInfo.username}&reserveId=${reserveInfo.id}`}
+            >
+                <a className={styles.goBooking}>
+                    <button className={styles.btnGoBooking}>
+                        <LockSuccessIcon/>
+                        <span>{t("pay-rial", {number: numberWithCommas(price)})}</span>
+                    </button>
+                </a>
+          </Link>
+        );
+
+        if(
+            reserveInfo.status === "Canceled" 
+            || reserveInfo.status === "Issued" 
+            || reserveInfo.status === "Registered" 
+            || reserveInfo.status === "Unavailable" 
+            || reserveInfo.status === "PaymentSuccessful" 
+            || reserveInfo.status === "WebServiceUnsuccessful" 
+        ){
+            paymentLink = null; 
+        }
+
+    }
+
+
     return (
         <>
             <Row>
@@ -145,7 +205,35 @@ const Hotel = props => {
                 </Col>
                 <Col xs={24} sm={24} md={24} lg={17} xl={16}>
                     <div className={styles.managePage}>
-                        { reserveInfo ?<>
+                        {hasError ? (
+                            <div className={styles.needHelpBook}>
+                                <div className={styles.helpBook}>
+                                    متاسفانه دریافت اطلاعات این رزرو با خطا روبرو شد. لطفا برای اطلاعات بیشتر با پشتیبانی تماس بگیرید.
+                                </div>
+                                <br />
+                                <div className={styles.reserveIdCopy}>
+                                    <div className={styles.content}>
+                                        <div className={styles.contentIdCopy}>
+                                            {t("tracking-code")}
+                                            <div className={styles.copyCode}>
+                                                <span>{reserveId}</span>
+                                                <CopyToClipboard
+                                                    text={reserveId}
+                                                    onCopy={() => setCopied( true)}>
+                                                    { 
+                                                        copied ?
+                                                            <span className={styles.successCopyCode}><CheckIcon/> {t('copied')}</span> :
+                                                            <span className={styles.spanCopyCode}>{t('copy')}</span>
+                                                    }
+                                                </CopyToClipboard>
+                                            </div>
+                                            <span>{t("use-this-code")}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        ): (reserveInfo && hotelInfo) ? <>
                         <div className={styles.detailBook}>
                             <div className={styles.headDetailBook}>
                                 <div className={styles.headBookMore}>
@@ -155,13 +243,13 @@ const Hotel = props => {
                                             {t("return-reserv-list")}
                                         </a>
                                     {/* </Link> */}
-                                    <div className={styles.cityNameBooking}>{reserveInfo.CityName}</div>
+                                    <div className={styles.cityNameBooking}>{hotelInfo.CityName}</div>
                                     <div className={styles.iconBooking}>
                                         <BedBookIcon/>
                                     </div>
                                 </div>
                                 <div className={styles.imageBooking}>
-                                    <img src={reserveInfo.HotelImage?reserveInfo.HotelImage:"https://cdn.safaraneh.com/Images/Accommodations/fa/evinhotel.jpg"} alt="" />
+                                    <img src={hotelInfo.ImageUrl || "https://cdn.safaraneh.com/Images/Accommodations/fa/evinhotel.jpg"} alt="" />
                                 </div>
                             </div>
                             <div className={styles.contentDetailBook}>
@@ -234,62 +322,42 @@ const Hotel = props => {
 
                                     </div>
                                 </Modal> */}
-                                <h1>{`${reserveInfo.HotelTypeName} ${reserveInfo.HotelName} ${reserveInfo.CityName}`}</h1>
+                                <h1>{`${hotelInfo.HotelCategoryName} ${hotelInfo.HotelName} ${hotelInfo.CityName}`}</h1>
                                 <div className={styles.dateDetailBook}>
-                                    <span>{guestQ && guestQ}</span>
-                                    <UserIcon/>
+                                    {!!guests && <><span>{guests}</span> <UserIcon/></>}
+                                    
                                     <span>
-                                        {moment(reserveInfo.ReserveStartDate).format("jDD jMMMM jYYYY")} - {moment(reserveInfo.ReserveEndDate).format("jDD jMMMM jYYYY")}
+                                        {moment(reserveInfo.checkin).format("jDD jMMMM jYYYY")} - {moment(reserveInfo.checkout).format("jDD jMMMM jYYYY")}
                                     </span>
                                 </div>
-                                <div>
-                                    <DomesticHotelReserveStatus StatusId={reserveInfo.StatusId} StatusName={reserveInfo.StatusName}/>
-                                </div>
+
+                                {status}
+
                                 <br/>
-                                {
-                                    (reserveInfo.StatusId === 4)?
-                                        <Link as={`/hotel/payment/reserveId-${reserveInfo.ReserveId}/referenceId-${reserveInfo.UserId}`} href={`/hotel/payment/reserveId-${reserveInfo.ReserveId}/referenceId-${reserveInfo.UserId}`}>
-                                            <a className={styles.goBooking}>
-                                                <button className={styles.btnGoBooking}>
-                                                    <LockSuccessIcon/>
-                                                    <span>{t("pay-rial", {number: numberWithCommas(reserveInfo.Payable)})}</span>
-                                                </button>
-                                            </a>
-                                        </Link>
-                                    :(reserveInfo.StatusId === 11 || reserveInfo.StatusId === 17)?
-                                        
-                                        // <a href={`http://voucher.safaraneh.com/fa/safaraneh/Reserve/hotel/voucher?reserveId=${reserveInfo.ReserveId}&username=${reserveUserName}`} target="_blank" className={styles.goBooking}>
-                                        //     <button className={styles.btnGoBooking}>
-                                        //         <span>{t("view-voucher")}</span>
-                                        //     </button>
-                                        // </a>
-                                        <div className={styles.downloadVoucher}>
-                                            <a onClick={handleClick} disabled={voucherStatus === "pending" ? null : "disabled"}>
-                                            {voucherStatus === "pending" ?
-                                                <><BookingTicketIcon/>{t("recieve-voucher")}</> :
-                                                <><LoadingOutlined spin /> {t("loading-recieve-voucher")}</>}
-                                            </a>
-                                        </div>
-                                        
-                                    :(reserveInfo.StatusId === 2)?
-                                    <Link as={`/hotel/capacity?reserveId=${reserveInfo.ReserveId}&username=${reserveUserName}`} href={`/hotel/capacity?reserveId=${reserveInfo.ReserveId}&username=${reserveUserName}`}>
-                                       <a target="_blank" className={styles.goBooking}>
-                                            <button className={styles.btnGoBooking}>
-                                                <span>{t("checking-capacity")}</span>
-                                            </button>
+                                <br/>
+
+                                {paymentLink}
+
+
+                                { reserveInfo.status === 'Issued' && hotelInfo && (
+                                    <div className={styles.downloadVoucher}>
+                                        <a
+                                            href={`http://voucher.safaraneh.com/fa/safaraneh/Reserve/hotel/voucher?reserveId=${reserveInfo.id}&username=${reserveInfo.username}`}
+                                            target="_blank"
+                                        >
+                                            <BookingTicketIcon/> {t("recieve-voucher")}
                                         </a>
-                                    </Link>
-                                    :null
-                                }
+                                    </div>
+                                )}
                                                                                
                                 <div className={styles.reserveIdCopy}>
                                     <div className={styles.content}>
                                         <div className={styles.contentIdCopy}>
                                             {t("tracking-code")}
                                             <div className={styles.copyCode}>
-                                                <span>{reserveInfo.ReserveId}</span>
+                                                <span>{reserveInfo.id}</span>
                                                 <CopyToClipboard
-                                                    text={reserveInfo.ReserveId}
+                                                    text={reserveInfo.id}
                                                     onCopy={() => setCopied( true)}>
                                                     { 
                                                         copied ?
@@ -306,25 +374,25 @@ const Hotel = props => {
                         </div>
                         <div className={styles.infoHotelBook}>
                             <div className={styles.nameInfo}>
-                                <h2>{`${reserveInfo.HotelTypeName} ${reserveInfo.HotelName} ${reserveInfo.CityName}`}</h2>
-                                <Rating rate={reserveInfo.HotelRating} />
+                                <h2>{`${hotelInfo.HotelCategoryName} ${hotelInfo.HotelName} ${hotelInfo.CityName}`}</h2>
+                                <Rating rate={hotelInfo.HotelRating} />
                                 <div className={styles.address}>
                                     <LocationIcon />
-                                    <span> {reserveInfo.HotelAddress}</span>
+                                    <span> {hotelInfo.Address}</span>
                                 </div>
                                 <div className={styles.contactHotelBook}>
-                                    {reserveInfo.HotelLatitude && reserveInfo.HotelLongitude &&                                    
+                                    {hotelInfo.Latitude && hotelInfo.Longitude &&                                    
                                     <div>
                                         <DirectionIcon/>
                                         <span onClick={()=>{setMapVisibility(true)}} >{t("hotel-on-map")}</span>
                                         <Modal
-                                            title={`${reserveInfo.HotelTypeName} ${reserveInfo.HotelName} ${reserveInfo.CityName} ${t("on-map")}`}
+                                            title={`${hotelInfo.HotelCategoryName} ${hotelInfo.HotelName} ${hotelInfo.CityName} ${t("on-map")}`}
                                             open={mapVisibility}
                                             onCancel={()=>{setMapVisibility(false)}}
                                             footer={null}
                                         >
                                             <div className="mapModal">
-                                                <MapWithNoSSR mapInfo={{"lat":reserveInfo.HotelLatitude,"lang":reserveInfo.HotelLongitude,"zoom":14}}/>
+                                                <MapWithNoSSR mapInfo={{"lat":hotelInfo.Latitude,"lang":hotelInfo.Longitude,"zoom":14}}/>
                                             </div>
                                         </Modal>
                                     </div>
@@ -342,39 +410,42 @@ const Hotel = props => {
                             <div className={styles.bookInfo}>
                                 <div className={styles.rowBookInfo}>
                                     <span>{t("night-number")}</span>
-                                    <span>{moment(reserveInfo.ReserveEndDate).diff(moment(reserveInfo.ReserveStartDate), 'days')} {t("night")}</span>
+                                    <span>{moment(reserveInfo.checkout).diff(moment(reserveInfo.checkin), 'days')} {t("night")}</span>
                                 </div>
                                 <div className={styles.rowBookInfo}>
                                     <span>{t("enter-date")}</span>
-                                    <span> {moment(reserveInfo.ReserveStartDate).format("jDD jMMMM jYYYY")}</span>
+                                    <span> {moment(reserveInfo.checkin).format("jDD jMMMM jYYYY")}</span> 
                                 </div>
                                 <div className={styles.rowBookInfo}>
                                     <span>{t("exit-date")}</span>
-                                    <span> {moment(reserveInfo.ReserveEndDate).format("jDD jMMMM jYYYY")} </span>
+                                    <span> {moment(reserveInfo.checkout).format("jDD jMMMM jYYYY")} </span>
                                 </div>
                                 <div className={styles.rowBookInfo}>
                                     <span>{t("guest-name")}</span>
-                                    <span>{reserveInfo.ReserveName}</span>
-                                    </div>
-                                    {console.log("reserveInfo", reserveInfo)}
+                                    <span>{reserveInfo.reserver?.firstName} {reserveInfo.reserver?.lastName}</span>
+                                </div>
                             </div>
                             <div className={`${styles.roomDetails} ${styles.noBorderBottom}`}>
                                 <div className={styles.subjectRoomDetails}>{t("reserve-details")}</div>
-                                {reserveInfo.Rooms.map(roomItem => <div key={roomItem.RoomId} className={styles.contentRoomDetails}>
+                                {reserveInfo.rooms.map(roomItem => <div key={roomItem.roomId} className={styles.contentRoomDetails}>
                                     <div className={styles.nameRoomDetailsContent}>
                                         <div>
                                             <div className={styles.nameRoomDetails}>
                                                 <BedBookIcon/>
-                                                <span>{roomItem.Name}</span>
+                                                <span>{roomItem.name}</span>
                                             </div>
                                             <div className={styles.moreRoomDetails}>
                                                 <UserOutlineIcon/>
-                                                <span>{roomItem.AdultOnBed} {t('adult')}</span> {(roomItem.ChildrenOnBed>0)&& <span> و  {roomItem.ChildrenOnBed} {t('child')}</span>}
+                                                <span>{roomItem.bed} {t('adult')}</span>
                                             </div>
                                         </div>
                                         
                                         <div className={styles.moreRoomDetails}>
-                                            <span>{roomItem.PassengerName}</span>
+                                            {roomItem.passengers?.map((passengerItem,passengerIndex) => (
+                                                <div key={passengerIndex}>
+                                                    {passengerItem.firstName} {passengerItem.lastName}
+                                                </div>
+                                            ))}
                                         </div>
 
                                         {/* <ul>
