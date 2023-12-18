@@ -202,17 +202,6 @@ const Payment = (props) => {
         bed: roomItem.bed
       })),
       // salePrice:domesticHotelReserveInfo.totalPrice,
-      selectedExtraBed: domesticHotelReserveInfo.rooms.reduce((totalExtraBeds, roomItem) => totalExtraBeds + (roomItem.extraBed), 0),
-      extraBedPrice: domesticHotelReserveInfo.rooms.reduce((totalPrice, roomItem) => {
-        const roomItemPrice = roomItem.pricing.find(
-          item => item.type === "ExtraBed" && item.ageCategoryType === "ADL"
-        )?.amount;
-        if (roomItemPrice) {
-          return totalPrice + (roomItem.extraBed * +roomItemPrice)
-        } else {
-          return null;
-        }
-      }, 0),
       salePrice__: coordinatorPrice,
       salePrice: domesticHotelReserveInfo.rooms.reduce((totalPrice, roomItem) => {
         const roomItemPrice = roomItem.pricing.find(

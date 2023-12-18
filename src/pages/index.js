@@ -57,6 +57,15 @@ const Homepage = ({ t,host, portalData}) => {
   const portalKeywords = portalData?.MetaTags?.find(item => item.Name === "keywords")?.Content || "";
   const portalDescription = portalData?.MetaTags?.find(item => item.Name === "description")?.Content || "";
 
+  let metaCanonicalUrl = host;
+
+  if(!host){
+    metaCanonicalUrl = "https://www.safaraneh.com/fa";
+  }else if (host.includes("ww.")){
+    metaCanonicalUrl = "https://www." + host.split("ww.")[1];
+  }else if (host.includes("https://")){
+    metaCanonicalUrl = "https://www." + host.split("https://")[1];
+  }
 
   return (
     <Layout>
@@ -68,8 +77,8 @@ const Homepage = ({ t,host, portalData}) => {
 
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=5,viewport-fit=cover" />
         
-        {!!host && (
-          <link rel="canonical" href={"https://www."+host} />
+        {!!metaCanonicalUrl && (
+          <link rel="canonical" href={metaCanonicalUrl} />
         )}
 
         {/* 
