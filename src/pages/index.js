@@ -69,7 +69,7 @@ const Homepage = ({ t,host, portalData}) => {
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=5,viewport-fit=cover" />
         
         {!!host && (
-          <link rel="canonical" href={host} />
+          <link rel="canonical" href={"https://www."+host} />
         )}
 
         {/* 
