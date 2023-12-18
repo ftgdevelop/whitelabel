@@ -316,7 +316,7 @@
   "q9": "What is the difference between a double room and a twin room?",
   "q9p1": "The twin room has two single beds, while the double bed is a large double bed. Couples will stay in a double room, while if two friends travel together, they will book a twin room.",
   "q10": "Can I book an extra bed for my room?",
-  "q10p1": "If the hotel you want or the room you want to book can add extra service, in front of the number of people under the room type, the option "1 extra bed" along with the amount for each extra bed per night on your bill See will be added. If the hotel does not offer extra service, the phrase "no extra beds" will appear.",
+  "q10p1": "If the hotel you want or the room you want to book can add extra service, in front of the number of people under the room type, the option \"1 extra bed\" along with the amount for each extra bed per night on your bill See will be added. If the hotel does not offer extra service, the phrase \"no extra beds\" will appear.",
   "q10p2": "Keep in mind that whenever you have a question during your booking process, you can contact travel experts and get the information you want in detail.",
   "q11": "How do I know how many bedrooms there are in each accommodation unit?",
   "q11p1": "All facilities of the room must be clearly marked in the description of the room marked in orange, or in the name of the room or in the description at the bottom of the page about the hotel rooms.",
@@ -905,6 +905,25 @@
     "pq5": "What kind of fees can I pay to use the wallet privileges?",
     "pq5-desc": "On the web and schedule, all flight and hotel bookings paid immediately are eligible. Wallet points can not be purchased for holiday packages and Pay Later hotel reservations.If you use a website or app, please make sure you have the UAE as your country of choice.",
     "pq6": "Can I use a coupon code or any other discount when repaying my wallet points?",
-    "pq6-desc": "No, wallet points are not used in connection with coupon codes or automatic discounts."
+    "pq6-desc": "No, wallet points are not used in connection with coupon codes or automatic discounts.",
+
+    "Issued": "Issued",
+    "Pending": "Pending",
+    "Canceled": "cancel",
+    "Registered": "Registered",
+    "Unavailable": "Unavailable",
+    "ContactProvider": "Contact Provider",
+    "PaymentSuccessful": "Error in ticket issuance",
+    "WebServiceUnsuccessful": "Error in ticket issuance",
+    "OnCredit": "On Credit",
+    "InProgress": "Issuing",
+    "Undefined": "Undefined",
+    "WebServiceCancel": "WebServiceCancel",
+    "PriceChange": "Price Change",
+    "Refunded": "Refunded",
+    "Voided": "Voided",
+    "PaidBack": "Paid Back",
+    "RefundInProgress": "Refund In Progress",
+    "Changed": "Changed"
   
 }
