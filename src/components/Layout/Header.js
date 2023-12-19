@@ -100,15 +100,14 @@ class Header extends React.Component {
                 content="text/html; charset=UTF-8"
               />
 
-              {typeof router !== 'undefined' &&
-              (router.route !== '/hotels/[...hotelList]' && router.route !== "/") ? (
+              {typeof router !== 'undefined' && router.route !== '/hotels/[...hotelList]' &&  (
                 <link
                   rel="canonical"
                   href={
                     process.env.SITE_NAME + router.asPath.split('/location-')[0]
                   }
                 />
-              ) : null}
+              )}
 
               <link
                 rel="preload"

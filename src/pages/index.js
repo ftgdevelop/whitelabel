@@ -51,21 +51,11 @@ const AboutSummary = dynamic(() =>
   import('../components/Home/AboutSummary/AboutSummary'),
 )
 
-const Homepage = ({ t,host, portalData}) => {
+const Homepage = ({ t, portalData}) => {
 
   const portalTitle = portalData?.MetaTags?.find(item => item.Name === "title")?.Content || "";
   const portalKeywords = portalData?.MetaTags?.find(item => item.Name === "keywords")?.Content || "";
   const portalDescription = portalData?.MetaTags?.find(item => item.Name === "description")?.Content || "";
-
-  let metaCanonicalUrl = host;
-
-  if(!host){
-    metaCanonicalUrl = "https://www.safaraneh.com/fa";
-  }else if (host.includes("ww.")){
-    metaCanonicalUrl = "https://www." + host.split("ww.")[1];
-  }else if (host.includes("https://")){
-    metaCanonicalUrl = "https://www." + host.split("https://")[1];
-  }
 
   return (
     <Layout>
@@ -77,10 +67,6 @@ const Homepage = ({ t,host, portalData}) => {
 
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=5,viewport-fit=cover" />
         
-        {!!metaCanonicalUrl && (
-          <link rel="canonical" href={metaCanonicalUrl} />
-        )}
-
         {/* 
         <meta property="og:site_name" content={pageData? pageData.pageTitle: t("title")} key="site_name"/>
         <meta property="og:title" content={pageData? pageData.pageTitle: t("title")} key="title"></meta>
@@ -286,19 +272,11 @@ Homepage.propTypes = {
   t: PropTypes.func.isRequired,
 }
 export const getServerSideProps = async ({ req }) => {
-  
-  let hostName = req.headers.host;
-  const host = req.headers.host;
-  if (host.includes("www")){
-    const domainName = host.split("www.")[1]; 
-    hostName = `https://www.${domainName}/fa`;
-  }
 
   const portalData = await GetPortal();
 
   return {
     props: {
-      host : hostName,
       portalData: portalData?.data || null
     },
   }
