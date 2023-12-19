@@ -91,7 +91,7 @@ module.exports = withPWA({
     formats: ['image/avif', 'image/webp'],
   },
   env: {
-    SITE_NAME: 'https://www.safaraneh.com',
+    SITE_NAME: 'https://www.mrbilet.ir',
     ABP_TENANT_ID: 1040,
     API_KEY: '602d3109-6e40-4653-42a4-08dbc10a4f4a',
     GET_PORTAL_API_KEY: '92ba7928-ab01-4011-be49-5bed7556ae2a',
