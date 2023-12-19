@@ -8,6 +8,7 @@ import {
   getReserve,
   foreignHotelGetReserveById,
   CipGetInformation,
+  GetVoucherHotelDomesticPdf,
 } from '../../../actions'
 import {
   GetReserveBus
@@ -41,6 +42,7 @@ const BookingItem = (props) => {
   const [detailCip, setDetailCip] = useState()
   const [detailBus, setDetailBus] = useState()
   const [clickStatus, setClickStatus] = useState('pending')
+  const [voucherStatus,setVoucherStatus] = useState("pending");
 
   const { t } = props
 
@@ -151,6 +153,24 @@ const BookingItem = (props) => {
 
     setClickStatus('pending')
   }
+
+
+  const handleDownloadPdfVoucher = async (reserveId, username) => {
+
+    setVoucherStatus("loading");
+    const res = await GetVoucherHotelDomesticPdf(reserveId, username);
+    if(res.data.result){
+      setVoucherStatus("success");
+      let url = `https://hotelv2.safaraneh.com/File/DownloadTempFile?filename=${res.data.result.fileName}.pdf&fileType=${res.data.result.fileType}&fileToken=${res.data.result.fileToken}`;
+      let a = document.createElement('a');
+      a.href = url;
+      a.click();
+    } else {
+      setVoucherStatus("error");
+    }
+    setVoucherStatus("pending");
+}
+
 
   return (
     <div className={styles.coverMyBook}>
@@ -565,15 +585,17 @@ const BookingItem = (props) => {
                   props.order.type === 'HotelDomestic' &&
                   props.order.status === 'Issued' &&
                   detailHotel && (
-                    <>
-                      <a
-                        href={`http://voucher.safaraneh.com/fa/safaraneh/Reserve/hotel/voucher?reserveId=${detailHotel.id}&username=${detailHotel.reserver?.userName}`}
-                        target="_blank"
+                    
+                      <a 
+                        onClick={() => {handleDownloadPdfVoucher(props.order.id, props.order.username)}} 
+                        disabled={voucherStatus === "pending" ? null : "disabled"}
                         className={styles.voucherBtn}
                       >
-                        <span>دریافت واچر</span>
+                          {voucherStatus === "pending" ?
+                              t("recieve-voucher") :
+                              <>{t("recieve-voucher")}...</>}
                       </a>
-                    </>
+
                   )}
                 {props.order.type === 'Hotel' &&
                   props.order.status !== 'Canceled' &&

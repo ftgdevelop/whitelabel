@@ -9,11 +9,11 @@ import dynamic from 'next/dynamic';
 import {useRouter} from 'next/router';
 
 import styles from '../../../styles/Home.module.css'
-import { BedBookIcon, UserIcon, LockSuccessIcon, LocationIcon, DirectionIcon, PhoneIcon, EmailIcon, CheckIcon, UserOutlineIcon, PhoneGrayIcon,WhatsappGrayIcon, EmailGrayIcon, BookingTicketIcon } from '../../UI/Icons'
+import { BedBookIcon, UserIcon, LockSuccessIcon, LocationIcon, DirectionIcon,PhoneIcon, EmailIcon, CheckIcon, UserOutlineIcon, PhoneGrayIcon,WhatsappGrayIcon, EmailGrayIcon, BookingTicketIcon } from '../../UI/Icons'
 import AsideMyAccount from '../AsideMyAccount'
 import Rating from '../../UI/Rating/Rating'
-import { RightOutlined } from '@ant-design/icons'
-import {GetHotelById, HotelV4DomesticGetReserve} from '../../../actions'
+import { RightOutlined, LoadingOutlined } from '@ant-design/icons'
+import {GetHotelById, GetVoucherHotelDomesticPdf, HotelV4DomesticGetReserve} from '../../../actions'
 
 const MapWithNoSSR = dynamic(() => import('../../UI/LeafletMap/LeafletMap'), {
     ssr: false
@@ -47,6 +47,7 @@ const Hotel = props => {
     const [sessionStorageTelNumber,setSessionStorageTelNumber] = useState();
     const [sessionStorageEmail,setSessionStorageEmail] = useState();
     const [sessionStorageWhatsapp,setSessionStorageWhatsapp] = useState();
+    const [voucherStatus,setVoucherStatus] = useState("pending");
     
     const reserveId = router.query.reserveId;
 
@@ -192,6 +193,23 @@ const Hotel = props => {
             paymentLink = null; 
         }
 
+    }
+
+
+    const handleClick = async (reserveId, username) => {
+
+        setVoucherStatus("loading");
+        const res = await GetVoucherHotelDomesticPdf(reserveId, username);
+        if(res.data.result){
+          setVoucherStatus("success");
+          let url = `https://hotelv2.safaraneh.com/File/DownloadTempFile?filename=${res.data.result.fileName}.pdf&fileType=${res.data.result.fileType}&fileToken=${res.data.result.fileToken}`;
+          let a = document.createElement('a');
+          a.href = url;
+          a.click();
+        } else {
+          setVoucherStatus("error");
+        }
+        setVoucherStatus("pending");
     }
 
 
@@ -341,12 +359,13 @@ const Hotel = props => {
 
                                 { reserveInfo.status === 'Issued' && hotelInfo && (
                                     <div className={styles.downloadVoucher}>
-                                        <a
-                                            href={`http://voucher.safaraneh.com/fa/safaraneh/Reserve/hotel/voucher?reserveId=${reserveInfo.id}&username=${reserveInfo.username}`}
-                                            target="_blank"
-                                        >
-                                            <BookingTicketIcon/> {t("recieve-voucher")}
+
+                                        <a onClick={() => {handleClick(reserveInfo.id, reserveInfo.username)}} disabled={voucherStatus === "pending" ? null : "disabled"}>
+                                            {voucherStatus === "pending" ?
+                                                <><BookingTicketIcon/>{t("recieve-voucher")}</> :
+                                                <><LoadingOutlined spin /> {t("loading-recieve-voucher")}</>}
                                         </a>
+
                                     </div>
                                 )}
                                                                                
@@ -421,7 +440,7 @@ const Hotel = props => {
                                     <span> {moment(reserveInfo.checkout).format("jDD jMMMM jYYYY")} </span>
                                 </div>
                                 <div className={styles.rowBookInfo}>
-                                    <span>{t("guest-name")}</span>
+                                    <span>{t("reserver-name")}</span>
                                     <span>{reserveInfo.reserver?.firstName} {reserveInfo.reserver?.lastName}</span>
                                 </div>
                             </div>
