@@ -213,6 +213,24 @@ const Payment = (props) => {
           return null;
         }
       }, 0),
+      selectedExtraBedCount: domesticHotelReserveInfo.rooms.reduce((totalSelectedExtraBeds, roomItem) => {
+        const thisRoomHasExtraBed = roomItem.pricing.find(item => item.type === "ExtraBed" && item.ageCategoryType === "ADL" && item.isSelected);
+        if (thisRoomHasExtraBed) {
+          return totalSelectedExtraBeds + 1
+        } else {
+          return null;
+        }
+      }, 0), 
+      selectedExtraBedPrice: domesticHotelReserveInfo.rooms.reduce((totalPrice, roomItem) => {
+        const roomItemPrice = roomItem.pricing.find(
+          item => item.type === "ExtraBed" && item.ageCategoryType === "ADL" && item.isSelected
+        )?.amount;
+        if (roomItemPrice) {
+          return totalPrice + +roomItemPrice
+        } else {
+          return null;
+        }
+      }, 0),
       boardPrice___: domesticHotelReserveInfo.totalBoardPrice || 0,
       boardPrice: domesticHotelReserveInfo.rooms.reduce((totalPrice, roomItem) => {
         const roomItemPrice = roomItem.pricing.find(
