@@ -70,6 +70,17 @@ const AsideV4 = (props) => {
         extraBedPrice = roomChildAndExtraBed.reduce((total,item) => total + (item.selectedExtraBed * item.extraBedFee) , 0 );
     }
 
+    let activeExtraBedPrice;
+    let activeExtraBedCount;
+
+    if(props.reserveInformation?.selectedExtraBedPrice){
+        activeExtraBedPrice = props.reserveInformation?.selectedExtraBedPrice;
+        activeExtraBedCount = props.reserveInformation?.selectedExtraBedCount;
+    }else{
+        activeExtraBedPrice = extraBedPrice;
+        activeExtraBedCount = extraBedCount;
+    }
+
     let safaranehEmailAddress = "support@safaraneh.com";
     let safaranehPhoneNumber = "02126150051"
     let safaranehPhoneLink = "+982126150051";
@@ -239,7 +250,7 @@ const AsideV4 = (props) => {
                             </>
                         :null} */}
 
-                        {reserveInformation.boardPrice && (hasDiscount || !!childCount || !!extraBedCount || !!reserveInformation.extraBedPrice || !!reserveInformation.promoCodePrice ) && <Row className='margin-bottom-5'>
+                        {reserveInformation.boardPrice && (hasDiscount || !!childCount || !!activeExtraBedPrice || !!reserveInformation.promoCodePrice ) && <Row className='margin-bottom-5'>
                                 <Col span={12} className="font-12">
                                     {t("sum")}
                                 </Col>
@@ -257,21 +268,12 @@ const AsideV4 = (props) => {
                                 </Col>
                         </Row>}
 
-                        {!!extraBedCount && <Row className='margin-bottom-5'>
+                        {!!activeExtraBedPrice && <Row className='margin-bottom-5'>
                                 <Col span={12} className="font-12">
-                                    {t("extra-bed")} (x{extraBedCount})
+                                    {t("extra-bed")} (x{activeExtraBedCount})
                                 </Col>
                                 <Col span={12} className="text-end">
-                                    {numberWithCommas(extraBedPrice)} {t('rial')}
-                                </Col>
-                        </Row>}
-
-                        {!!reserveInformation.extraBedPrice && !!reserveInformation.selectedExtraBed && <Row className='margin-bottom-5'>
-                                <Col span={12} className="font-12">
-                                    {t("extra-bed")} (x{reserveInformation.selectedExtraBed})
-                                </Col>
-                                <Col span={12} className="text-end">
-                                    {numberWithCommas(reserveInformation.extraBedPrice)} {t('rial')}
+                                    {numberWithCommas(activeExtraBedPrice)} {t('rial')}
                                 </Col>
                         </Row>}
 
@@ -299,9 +301,9 @@ const AsideV4 = (props) => {
                             </Col>
                             <Col span={12} className="text-end bold">
                                 {!!discountResponse && discountResponse.orderSubTotalDiscount >= 10000 ?
-                                    numberWithCommas(discountResponse.orderSubTotalDiscount + (extraBedPrice || 0)) + " " + t('rial')
+                                    numberWithCommas(discountResponse.orderSubTotalDiscount + (activeExtraBedPrice || 0)) + " " + t('rial')
                                     :
-                                    numberWithCommas(reserveInformation.salePrice + (extraBedPrice || 0) - (reserveInformation.promoCodePrice || 0) ) + " " +  t('rial')
+                                    numberWithCommas(reserveInformation.salePrice + (activeExtraBedPrice || 0) - (reserveInformation.promoCodePrice || 0) ) + " " +  t('rial')
                                 }
                             </Col>
                         </Row>}
