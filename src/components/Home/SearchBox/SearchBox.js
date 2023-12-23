@@ -12,11 +12,9 @@ const TabSearchTravelo = dynamic(() => import('./TabSearch/TabSearchTravelo'))
 
 class SearchBox extends React.Component {
     render() {
-        const { t } = this.props;
+        const name = process.env.COMPANY_NAME;
         return (
-            <div 
-                className={`${styles.searchBox} ${process.env.THEME_NAME === "TRAVELO" && styles.searchBoxTravelo}`}
-                >
+            <div className={`${styles.searchBox} ${process.env.THEME_NAME === "TRAVELO" && styles.searchBoxTravelo}`} >
 
                 <Title/>
 
@@ -26,8 +24,8 @@ class SearchBox extends React.Component {
                 <div className={styles.searchBoxBackground}>
                     <Image
                         layout="fill"
-                        title="سفرانه"
-                        alt="سفرانه"
+                        title={name}
+                        alt={name}
                         src="https://cdn2.safaraneh.com/images/home/balon.jpg"
                     />
                 </div>
