@@ -5,7 +5,8 @@ import styles from '../../styles/Home.module.css'
 import { Link } from '../../../i18n'
 
 const Logo = (props) => {
-  const [logoUrl, setLogoUrl] = useState()
+  const [logoUrl, setLogoUrl] = useState();
+  const logoAlt = process.env.COMPANY_NAME;
   useEffect(() => {
     let localStorageLogo = window.localStorage.whiteLabelLogo
     setLogoUrl(localStorageLogo)
@@ -28,8 +29,8 @@ const Logo = (props) => {
           layout="fill"
           className="custom-img"
           src={imgArray.ImageUrl}
-          alt="سفرانه"
-          title="سفرانه"
+          alt={logoAlt}
+          title={logoAlt}
         />
       )
     }
@@ -44,7 +45,7 @@ const Logo = (props) => {
       <Link as="/" href="/">
         <a
           href="/"
-          title="سفرانه"
+          title={logoAlt}
           onContextMenu={(e) => e.preventDefault()}
           className="unset-img"
         >
@@ -53,8 +54,8 @@ const Logo = (props) => {
             layout="fill"
             className="custom-img"
             src={logoUrl}
-            alt="سفرانه"
-            title="سفرانه"
+            alt={logoAlt}
+            title={logoAlt}
           />
           ) : (
            ''
