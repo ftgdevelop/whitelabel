@@ -100,15 +100,14 @@ class Header extends React.Component {
                 content="text/html; charset=UTF-8"
               />
 
-              {typeof router !== 'undefined' &&
-              router.route !== '/hotels/[...hotelList]' ? (
+              {typeof router !== 'undefined' && router.route !== '/hotels/[...hotelList]' &&  (
                 <link
                   rel="canonical"
                   href={
                     process.env.SITE_NAME + router.asPath.split('/location-')[0]
                   }
                 />
-              ) : null}
+              )}
 
               <link
                 rel="preload"
@@ -231,7 +230,7 @@ class Header extends React.Component {
                           <img src="https://cdn2.safaraneh.com/images/icon/sabze.png" width={52} alt="رزرو هتل نوروز ۱۴۰۲" title="رزرو هتل نوروز ۱۴۰۲" style={{width: "52px", position: "absolute", right: "-53px", top: "-20px"}} />
                           <span style={{ color: "#0b5bb9" }}>رزرو هتل نوروز ۱۴۰۲</span>
                       </a> */}
-                    <RetrieveMyBooking />
+                    {!isAuthenticated && <RetrieveMyBooking />}
                     {isAuthenticated ? <ModalAccount /> : <ModalLogin />}
                   </Col>
                 </Row>

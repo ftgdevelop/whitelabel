@@ -1,14 +1,13 @@
 import React from 'react'
 import Head from 'next/head'
-import Script from 'next/script'
 import PropTypes from 'prop-types'
 import { withTranslation } from '../../i18n'
-import { GetpageByUrl } from '../actions/index'
 import dynamic from 'next/dynamic'
 import { Spin } from 'antd'
 import { LoadingOutlined } from '@ant-design/icons'
 import styles from '../styles/Home.module.css'
 import PopularCities from '../components/Home/PopularCities/PopularCities'
+import { GetPortal } from '../actions/index'
 
 const loadingIcon = (
   <LoadingOutlined style={{ fontSize: 32, color: '#0a438b' }} spin />
@@ -52,22 +51,22 @@ const AboutSummary = dynamic(() =>
   import('../components/Home/AboutSummary/AboutSummary'),
 )
 
-const Homepage = ({ t, data }) => {
+const Homepage = ({ t, portalData}) => {
+
+  const portalTitle = portalData?.MetaTags?.find(item => item.Name === "title")?.Content || "";
+  const portalKeywords = portalData?.MetaTags?.find(item => item.Name === "keywords")?.Content || "";
+  const portalDescription = portalData?.MetaTags?.find(item => item.Name === "description")?.Content || "";
 
   return (
     <Layout>
       <Head>
-        {data && <title>{data.PageTitle}</title>}
-        {data && data.MetaTags ? data.MetaTags.map((item) => (
-          <meta
-            name={item.Name}
-            content={item.Content}
-            key={item.Name} />            
-        )) : null}
+
+        {!!portalTitle && <title>{portalTitle}</title>}
+        {!!portalKeywords && <meta name="keywords" content={portalKeywords} />  }
+        {!!portalDescription && <meta name="description" content={portalDescription} />  }
+
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=5,viewport-fit=cover" />
-        {/* {data && data.Url ? (
-          <link rel="canonical" href={process.env.SITE_NAME + data.Url} />
-        ) : null} */}
+        
         {/* 
         <meta property="og:site_name" content={pageData? pageData.pageTitle: t("title")} key="site_name"/>
         <meta property="og:title" content={pageData? pageData.pageTitle: t("title")} key="title"></meta>
@@ -273,14 +272,12 @@ Homepage.propTypes = {
   t: PropTypes.func.isRequired,
 }
 export const getServerSideProps = async ({ req }) => {
-  // const locale = req.cookies['next-i18next']
-  const locale = req.url.split('/')[1]
-  const url = encodeURI(`/${locale}`)
-  const res = await GetpageByUrl(url)
+
+  const portalData = await GetPortal();
 
   return {
     props: {
-      data: JSON.parse(JSON.stringify(res.data)),
+      portalData: portalData?.data || null
     },
   }
 }

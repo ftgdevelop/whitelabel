@@ -8,6 +8,7 @@ import styles from "../../../styles/Home.module.css";
 import { CheckIcon, CheckCircleIcon, UserIcon, ErrorIcon, BookingTicketIcon, WarningIcon } from "../../UI/Icons";
 import AsidePaymentFlight from "../../Payment/AsidePaymentFlight";
 import { GetVoucherPdf } from "../../../actions";
+import { connect } from "react-redux";
 
 const ContentBooking = (props) => {
   const [voucherStatus,setVoucherStatus] = useState("pending");
@@ -48,6 +49,26 @@ const ContentBooking = (props) => {
     }
     setVoucherStatus("pending");
   }
+
+  let safaranehEmailAddress = "support@safaraneh.com";
+  let safaranehPhoneNumber = "02126150051"
+  let safaranehPhoneLink = "+982126150051";
+
+  let portalEmailAddress;
+  let portalPhoneNumber;
+  let portalPhoneLink;
+  
+  if(props.portalInfo?.Phrases){
+      portalEmailAddress = props.portalInfo.Phrases.find(item=> item.Keyword === "Email")?.Value;
+      portalPhoneNumber = props.portalInfo.Phrases.find(item=> item.Keyword === "TelNumber")?.Value;
+
+      if (portalPhoneNumber && portalPhoneNumber[0] === "0"){
+          portalPhoneLink = portalPhoneNumber.substring(1);
+          portalPhoneLink = "+98" + portalPhoneLink;
+      }
+  }
+
+
 
   const { Text } = Typography;
   return (
@@ -190,9 +211,9 @@ const ContentBooking = (props) => {
           </div>
           <div className={styles.contactBookingInto}>
             {t("for-clarity-email")}
-            <a href="mailto:support@safaraneh.com"> support@safaraneh.com </a>
-            {t("or-phone-number")}
-            <a href="tel:+982126150051"> 02126150051 </a>
+              <a href={`mailto:${portalEmailAddress || safaranehEmailAddress}`}> {portalEmailAddress || safaranehEmailAddress} </a>
+              {t('or-phone-number')}
+              <a href={`tel:${portalPhoneLink || safaranehPhoneLink}`}> {portalPhoneNumber || safaranehPhoneNumber} </a>
             {t("call-24hours")}
           </div>
         </div>
@@ -209,4 +230,10 @@ ContentBooking.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default withTranslation("common")(ContentBooking);
+function mapStateToProps(state) {
+  return {
+      portalInfo: state.portal.portalData
+  }
+}
+
+export default withTranslation("common")(connect(mapStateToProps)(ContentBooking));

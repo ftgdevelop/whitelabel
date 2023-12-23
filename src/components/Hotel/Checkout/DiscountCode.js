@@ -81,7 +81,7 @@ const DiscountCode = (props) => {
             >حذف</Button>}
         </Input.Group>
         {deleteValue ?
-          <span className={styles.textAddCode}>
+          <span className={`${styles.textAddCode} ${discountLoading ? styles.textAddCodeBlack : discountMessage ? "" : styles.textAddCodeGreen }`}>
             {discountLoading ? 
               <>
                 <LoadingOutlined spin className={styles.alertLoading} />

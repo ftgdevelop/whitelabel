@@ -521,6 +521,13 @@ Description:
   font-size: 12px;
   color: #e11523;
 }
+.discountCode .content .textAddCodeBlack{
+  color: #777777;
+}
+
+.discountCode .content .textAddCodeGreen{
+  color: green;
+}
 .discountCode .content .textAddCode .alertLoading {
   display: inline-block;
   margin-left: 5px;

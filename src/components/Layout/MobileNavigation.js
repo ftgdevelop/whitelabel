@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link, withTranslation } from '../../../i18n'
 import dynamic from 'next/dynamic'
+import { connect } from 'react-redux'
 
 import styles from '../../styles/Home.module.css'
 import { Drawer, Button } from 'antd'
@@ -36,7 +37,7 @@ const MobileNavigation = (props) => {
   const istanbulUrl = `/hotels-foreign/Istanbul/location-75286/checkin-${yeart}-${montht}-${dayt}/checkout-${yearst}-${monthst}-${dayst}/adult-1`
   const tehranmashadUrl = `/flights/THR-MHD?adult=1&child=0&infant=0&step=results&departing=${yeart}-${montht}-${dayt}`
 
-  const { t } = props
+  const { t,auth } = props;
 
   const [visible, setVisible] = useState(false)
   const showDrawer = () => {
@@ -87,7 +88,7 @@ const MobileNavigation = (props) => {
                   </a>
                 </Link>
               </li>
-              <li className="custom-mobile-menu-link">
+              {!auth?.isAuthenticated && <li className="custom-mobile-menu-link">
                 <BookingTicketIcon />
                 <RetrieveMyBooking />
                 {/* <Link as="/" href="/">
@@ -98,7 +99,7 @@ const MobileNavigation = (props) => {
                     </span>
                   </a>
                 </Link> */}
-              </li>
+              </li>}
               <li>
                 <Link as="/myaccount/wallet" href="/myaccount/wallet">
                   <a>
@@ -276,4 +277,10 @@ MobileNavigation.propTypes = {
   t: PropTypes.func.isRequired,
 }
 
-export default withTranslation('common')(MobileNavigation)
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
+}
+
+export default withTranslation('common')(connect(mapStateToProps)(MobileNavigation))
