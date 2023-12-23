@@ -92,6 +92,7 @@ module.exports = withPWA({
   },
   env: {
     SITE_NAME: 'https://www.safaraneh.com',
+    COMPANY_NAME: 'سفرانه',
     ABP_TENANT_ID: 1040,
     API_KEY: 'e8fad1497a1244f29f15cde4a242baf0',
     GET_PORTAL_API_KEY: 'b4fa99cc-3dfd-40a5-8bcf-53acdc2dbd84',
