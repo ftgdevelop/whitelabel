@@ -57,6 +57,14 @@ const Homepage = ({ t, portalData}) => {
   const portalKeywords = portalData?.MetaTags?.find(item => item.Name === "keywords")?.Content || "";
   const portalDescription = portalData?.MetaTags?.find(item => item.Name === "description")?.Content || "";
 
+  const portalEmailAddress = portalData?.Phrases?.find(item=> item.Keyword === "Email")?.Value;
+  const portalPhoneNumber = portalData?.Phrases?.find(item=> item.Keyword === "TelNumber")?.Value;
+  const portalAddress = portalData?.Phrases?.find(item=> item.Keyword === "Address")?.Value;
+  const portalLogo = portalData?.Phrases?.find(item=> item.Keyword === "Logo")?.ImageUrl;
+  const portalName = portalData?.Phrases?.find(item=> item.Keyword === "Name")?.Value;
+
+  const configWebsiteUrl = process.env.SITE_NAME;
+
   return (
     <Layout>
       <Head>
@@ -93,17 +101,17 @@ const Homepage = ({ t, portalData}) => {
             __html: `{
           "@context": "https://schema.org",
           "@type": "Organization",
-          "image": "https://cdn2.safaraneh.com/images/logo/fa/safaraneh-150x60.png",
+          "image": "${portalLogo}",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "ایران، تهران",
             "postalCode": "1957644595",
-            "streetAddress": "پاسداران شمالی، پایین‌تر از سه‌راه اقدسیه، مجتمع صاحبقرانیه، پلاک ۵۶۵، طبقه ۳، واحد ۷"
+            "streetAddress": "${portalAddress}"
           },
-          "email": "info(at)safaraneh.com",
+          "email": "${portalEmailAddress.replace('@','(at)')}",
           "faxNumber": "(+98) 21 26150054",
-          "name": "safaraneh.com (سفرانه)",
-          "telephone": "(+98) 21 26150051"
+          "name": "${portalName}",
+          "telephone": "${portalPhoneNumber.replace('+98','(+98) ')}(+98) 21 26150051"
         }`,
           }}
         ></script>
@@ -115,10 +123,10 @@ const Homepage = ({ t, portalData}) => {
             __html: `{
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "url": "https://www.safaraneh.com",
+            "url": "${configWebsiteUrl}",
             "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://www.safaraneh.com/fa/hotels/?q={search_term_string}",
+            "target": "${configWebsiteUrl}/fa/hotels/?q={search_term_string}",
             "query-input": "required name=search_term_string"
           }}`,
           }}
