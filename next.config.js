@@ -25,6 +25,15 @@ const withPWA = require('next-pwa')({
 
 module.exports = withPWA({
   rewrites: async () => nextI18NextRewrites(localeSubpaths),
+  redirects : async() => {
+    return [
+      {
+        source: '/fa/fa:path*',
+        destination: '/',
+        permanent: true,
+      }
+    ]
+  },
   publicRuntimeConfig: {
     localeSubpaths,
   },
@@ -91,11 +100,11 @@ module.exports = withPWA({
     formats: ['image/avif', 'image/webp'],
   },
   env: {
-    SITE_NAME: 'https://www.safaraneh.com',
-    COMPANY_NAME: 'سفرانه',
+    SITE_NAME: 'https://www.iranhotel.ir',
+    COMPANY_NAME: 'ایران هتل',
     ABP_TENANT_ID: 1040,
-    API_KEY: 'e8fad1497a1244f29f15cde4a242baf0',
-    GET_PORTAL_API_KEY: 'b4fa99cc-3dfd-40a5-8bcf-53acdc2dbd84',
+    API_KEY: '602d3109-6e40-4653-42a4-08dbc10a4f4a',
+    GET_PORTAL_API_KEY: '92ba7928-ab01-4011-be49-5bed7556ae2a',
     GOOGLE_TAG_MANAGER_ID: 'GTM-MJQWGBV',
     BLOG_URL_PANEL: 'https://panel.safaraneh.com/',
     THEME_NAME: 'TRAVELO',
