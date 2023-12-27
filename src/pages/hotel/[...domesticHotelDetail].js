@@ -13,6 +13,7 @@ import {
   GetDomesticHotelDetails,
   GetScore,
   GetAccommodationById,
+  GetPortal,
 } from '../../actions/index'
 
 const HotelHomePage = ({
@@ -21,14 +22,18 @@ const HotelHomePage = ({
   dataHotel,
   dataScore,
   dataAccommodation,
+  portalData
 }) => {
-  const router = useRouter()
-  let hotel = router.query.domesticHotelDetail[0].replace(/-/g, ' ')
+
   useEffect(() => {
     if (Router && !process.env.MODULES.includes('domesticHotel')) {
       Router.push('/')
     }
   })
+
+  const portalName = portalData?.Phrases?.find(item=> item.Keyword === "Name")?.Value;
+  const portalTwitter = portalData?.Phrases?.find(item=> item.Keyword === "Twitter")?.Value;
+  const configWebsiteUrl = process.env.SITE_NAME;
 
   return (
     process.env.MODULES.includes('domesticHotel') && (
@@ -43,7 +48,7 @@ const HotelHomePage = ({
           
           {dataHotel && (
             <>
-              <meta property="og:site_name" content="سفرانه" key="site_name" />
+              <meta property="og:site_name" content={portalName} key="site_name" />
               <meta
                 property="og:title"
                 content={dataHotel.PageTitle}
@@ -68,7 +73,7 @@ const HotelHomePage = ({
               ></meta>
               <meta name="og:locale" content="fa-IR" />
               <meta name="twitter:card" content="summary" />
-              <meta name="twitter:site" content="@safaraneh" />
+              <meta name="twitter:site" content={portalTwitter} />
               <meta name="twitter:title" content={dataHotel?.PageTitle} />
               <meta
                 name="twitter:description"
@@ -151,7 +156,7 @@ const HotelHomePage = ({
               "position": 1,
               "item":
               {
-                "@id": "https://www.safaraneh.com/",
+                "@id": "${configWebsiteUrl}",
                 "name": "صفحه اصلی"
                 }
               },
@@ -160,7 +165,7 @@ const HotelHomePage = ({
               "position": 2,
               "item":
               {
-                "@id": "https://www.safaraneh.com/fa/hotels/${
+                "@id": "${configWebsiteUrl}/fa/hotels/${
                   dataHotel && dataHotel.CityName
                 }/location-${dataHotel && dataHotel.CityId}",
                 "name": "هتل های ${dataHotel && dataHotel.CityName}"
@@ -261,23 +266,35 @@ export const getServerSideProps = async ({ query, req }) => {
   // const locale = req.cookies['next-i18next']
 
   const url = encodeURI(`/${locale}/hotel/${query.domesticHotelDetail[0]}`)
-  const res = await GetpageByUrl(url)
-  const response = await GetDomesticHotelDetails(url)
-  const responseScore = await GetScore(res.data?.Id)
-  const responseAccommodation = await GetAccommodationById(
-    response?.data?.HotelId,
-    locale,
-  )
+
+  const fetchPageDetailsAndScore = async (url) => {
+    const pageInfo = await GetpageByUrl(url);
+    const scoreInfo = await GetScore(pageInfo.data?.Id);
+    return { pageInfo, scoreInfo };
+  }
+
+  const fetchHotelDetailsAndAccomodation = async (url) => {
+    const hotelInfo = await GetDomesticHotelDetails(url);
+    const accomodationInfo = await GetAccommodationById(hotelInfo.data?.HotelId, locale);
+    return { hotelInfo, accomodationInfo };
+  }
+
+  const [{ pageInfo, scoreInfo }, { hotelInfo, accomodationInfo }, portalData] = await Promise.all([
+    fetchPageDetailsAndScore(url),
+    fetchHotelDetailsAndAccomodation(url),
+    GetPortal()
+  ]);
 
   return {
     props: {
-      data: JSON.parse(JSON.stringify(res.data)),
-      dataHotel: JSON.parse(JSON.stringify(response.data || null)),
-      dataScore: JSON.parse(JSON.stringify(responseScore.data)),
+      data: JSON.parse(JSON.stringify(pageInfo.data)),
+      dataHotel: JSON.parse(JSON.stringify(hotelInfo.data || null)),
+      dataScore: JSON.parse(JSON.stringify(scoreInfo.data)),
       dataAccommodation:
-        responseAccommodation.name === 'Error'
+      accomodationInfo.name === 'Error'
           ? null
-          : JSON.parse(JSON.stringify(responseAccommodation.data)),
+          : JSON.parse(JSON.stringify(accomodationInfo.data)),
+      portalData: portalData.data || null
     },
   }
 }
