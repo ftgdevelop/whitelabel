@@ -93,9 +93,9 @@ module.exports = withPWA({
   env: {
     SITE_NAME: 'https://www.mrbilet.ir',
     COMPANY_NAME: 'مستربیلت',
-    ABP_TENANT_ID: 1040,
-    API_KEY: 'e8fad1497a1244f29f15cde4a242baf0',
-    GET_PORTAL_API_KEY: 'b4fa99cc-3dfd-40a5-8bcf-53acdc2dbd84',
+    ABP_TENANT_ID: 1046,
+    API_KEY: 'ea3501f1-4d51-48b7-08db-08dc06a299bd',
+    GET_PORTAL_API_KEY: '4bdab768-9960-4405-89a4-e4387f7a9992',
     GOOGLE_TAG_MANAGER_ID: 'GTM-MJQWGBV',
     BLOG_URL_PANEL: 'https://panel.safaraneh.com/',
     THEME_NAME: 'TRAVELO',
