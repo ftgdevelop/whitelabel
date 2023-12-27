@@ -108,10 +108,10 @@ const Homepage = ({ t, portalData}) => {
             "postalCode": "1957644595",
             "streetAddress": "${portalAddress}"
           },
-          "email": "${portalEmailAddress.replace('@','(at)')}",
+          "email": "${portalEmailAddress?.replace('@','(at)')}",
           "faxNumber": "(+98) 21 26150054",
           "name": "${portalName}",
-          "telephone": "${portalPhoneNumber.replace('+98','(+98) ')}(+98) 21 26150051"
+          "telephone": "${portalPhoneNumber?.replace('+98','(+98) ')}(+98) 21 26150051"
         }`,
           }}
         ></script>
