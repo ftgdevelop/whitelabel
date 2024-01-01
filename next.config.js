@@ -96,6 +96,7 @@ module.exports = withPWA({
     ABP_TENANT_ID: 1046,
     API_KEY: 'ea3501f1-4d51-48b7-08db-08dc06a299bd',
     GET_PORTAL_API_KEY: '4bdab768-9960-4405-89a4-e4387f7a9992',
+    GOOGLE_ANALYTIC_ID: 'G-BR3QBTY92P',
     GOOGLE_TAG_MANAGER_ID: 'GTM-MJQWGBV',
     BLOG_URL_PANEL: 'https://panel.safaraneh.com/',
     THEME_NAME: 'TRAVELO',
