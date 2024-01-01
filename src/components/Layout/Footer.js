@@ -606,7 +606,6 @@ const Footer = (props) => {
           </div>
         )}
       </footer>
-
       <script
         id="script_footer_1"
         async=""
@@ -653,7 +652,7 @@ const Footer = (props) => {
       ></script> */}
       
       
-     {/* {!!portalGoogleAnalytic &&  <script
+     {!!portalGoogleAnalytic &&  <script
         id="script_footer_6"
         dangerouslySetInnerHTML={{
           __html: `
@@ -663,16 +662,7 @@ const Footer = (props) => {
           gtag('config', '${portalGoogleAnalytic}');
         `,
         }}
-      />} */}
-
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${portalGoogleAnalytic}`}></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments)}
-        gtag('js', new Date());
-
-        gtag('config', portalGoogleAnalytic);
-      </script>
+      />}
 
 
       {/* Global site tag (gtag.js) - Google Ads: 599246268 */}
