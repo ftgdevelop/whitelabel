@@ -75,11 +75,11 @@ const Footer = (props) => {
     facebook,
     whatsapp,
     symbol,
-    linkedin,
-    portalGoogleAnalytic;
+    linkedin;
+
+  const portalGoogleAnalytic = process.env.GOOGLE_ANALYTIC_ID;
 
   if (props.portalInfo) {
-    portalGoogleAnalytic = props.portalInfo.MetaTags?.find(item => item.Name === "google-site-verification")?.Content;
 
     portalLogo =
       getPortalValue(props.portalInfo.Phrases, 'Logo') &&
