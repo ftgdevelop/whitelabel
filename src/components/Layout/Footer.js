@@ -75,9 +75,12 @@ const Footer = (props) => {
     facebook,
     whatsapp,
     symbol,
-    linkedin
+    linkedin;
+
+  const portalGoogleAnalytic = process.env.GOOGLE_ANALYTIC_ID;
 
   if (props.portalInfo) {
+
     portalLogo =
       getPortalValue(props.portalInfo.Phrases, 'Logo') &&
       getPortalValue(props.portalInfo.Phrases, 'Logo')['ImageUrl']
@@ -647,17 +650,21 @@ const Footer = (props) => {
         async
         src="https://www.googletagmanager.com/gtag/js?id=UA-179383169-1"
       ></script> */}
-      <script
+      
+      
+     {!!portalGoogleAnalytic &&  <script
         id="script_footer_6"
         dangerouslySetInnerHTML={{
           __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'UA-179383169-1');
+          gtag('config', '${portalGoogleAnalytic}');
         `,
         }}
-      />
+      />}
+
+
       {/* Global site tag (gtag.js) - Google Ads: 599246268 */}
       {/* <script
         id="script_footer_7"
