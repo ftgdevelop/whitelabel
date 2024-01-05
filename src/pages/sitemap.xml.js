@@ -9,7 +9,7 @@ function creareSiteMap(hotelsData,postsData, domesticFlightsData){
   if(hotelsData){
     for(let i = 0 ; i <hotelsData.length ; i++ ){
       const hotel = hotelsData[i];
-      const hotelURL = `https://www.safaraneh.com${hotel.Url}/`;
+      const hotelURL = `${process.env.SITE_NAME}/${hotel.Url}/`;
       hotelXML += `
         <url>
           <loc>${hotelURL}</loc>
@@ -24,7 +24,7 @@ function creareSiteMap(hotelsData,postsData, domesticFlightsData){
     for (let i = 0; i < domesticFlightsData.length; i++) {
       const flight = domesticFlightsData[i];
 
-      const domesticFlightURL = `https://www.safaraneh.com/fa/flights/${flight.slug}/`;
+      const domesticFlightURL = `${process.env.SITE_NAME}/fa/flights/${flight.slug}/`;
       domesticFlightXML += `
         <url>
           <loc>${domesticFlightURL}</loc>
@@ -44,7 +44,7 @@ function creareSiteMap(hotelsData,postsData, domesticFlightsData){
         latestPost = postDate;
       }
 
-      const projectURL = `https://www.safaraneh.com/fa/blog/${post.slug}/`;
+      const projectURL = `${process.env.SITE_NAME}/fa/blog/${post.slug}/`;
       projectsXML += `
         <url>
           <loc>${projectURL}</loc>
@@ -58,7 +58,7 @@ function creareSiteMap(hotelsData,postsData, domesticFlightsData){
   return `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
-        <loc>https://www.safaraneh.com/fa/</loc>
+        <loc>${process.env.SITE_NAME}/fa/</loc>
         <lastmod>2021-02-03</lastmod>
         <priority>1.0</priority>
       </url>
