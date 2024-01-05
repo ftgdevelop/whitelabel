@@ -17,4 +17,4 @@ Disallow: /hotel/reserveroom/*
 Disallow: /hotels/view/*/favicon.ico$
 Disallow: /city/tag/*/favicon.ico$
 Disallow: /hotels/group/*/favicon.ico$
-Sitemap:  https://www.safaraneh.com/sitemap.xml
+Sitemap:  https://www.iranhotel.ir/sitemap.xml
