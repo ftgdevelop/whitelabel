@@ -98,7 +98,7 @@ module.exports = withPWA({
     GET_PORTAL_API_KEY: '4bdab768-9960-4405-89a4-e4387f7a9992',
     GOOGLE_ANALYTIC_ID: 'G-BR3QBTY92P',
     GOOGLE_TAG_MANAGER_ID: 'GTM-MJQWGBV',
-    BLOG_URL_PANEL: 'https://panel.safaraneh.com/',
+    BLOG_URL_PANEL: 'https://blog.iranhotel.ir/',
     THEME_NAME: 'TRAVELO',
     //THEME_NAME: "TAJAWAL",
     // MODULES:["foreignHotel","domesticHotel","blog","cip","newFeature"]
