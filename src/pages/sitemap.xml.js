@@ -9,7 +9,7 @@ function creareSiteMap(hotelsData,postsData, domesticFlightsData){
   if(hotelsData){
     for(let i = 0 ; i <hotelsData.length ; i++ ){
       const hotel = hotelsData[i];
-      const hotelURL = `${process.env.SITE_NAME}/${hotel.Url}/`;
+      const hotelURL = `${process.env.SITE_NAME}${hotel.Url}/`;
       hotelXML += `
         <url>
           <loc>${hotelURL}</loc>
