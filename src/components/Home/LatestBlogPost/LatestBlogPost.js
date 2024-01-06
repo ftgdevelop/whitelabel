@@ -27,7 +27,7 @@ const LatestBlogPost = (props) => {
       <li key={index}>
         <Link as={`/blog/${post.slug}`} href={`/blog/${post.slug}`}>
           <a className={styles.itemPostImage} title={post.title.rendered}>
-            <div
+            {!!post.images?.medium && <div
               className={`unset-img ${styles.smallImagePost}`}
               onContextMenu={(e) => e.preventDefault()}
             >
@@ -38,7 +38,7 @@ const LatestBlogPost = (props) => {
                 alt={post.title.rendered}
                 title={post.title.rendered}
               />
-            </div>
+            </div>}
             <div className={styles.titlePost}>
               <span>{post.title.rendered}</span>
               <small>{post.date}</small>
