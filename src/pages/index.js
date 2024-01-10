@@ -56,6 +56,7 @@ const Homepage = ({ t, portalData}) => {
   const portalTitle = portalData?.MetaTags?.find(item => item.Name === "title")?.Content || "";
   const portalKeywords = portalData?.MetaTags?.find(item => item.Name === "keywords")?.Content || "";
   const portalDescription = portalData?.MetaTags?.find(item => item.Name === "description")?.Content || "";
+  const portalEenamadId = portalData?.MetaTags?.find(item => item.Name === "enamad")?.Content || "";
 
   const portalEmailAddress = portalData?.Phrases?.find(item=> item.Keyword === "Email")?.Value;
   const portalPhoneNumber = portalData?.Phrases?.find(item=> item.Keyword === "TelNumber")?.Value;
@@ -72,6 +73,7 @@ const Homepage = ({ t, portalData}) => {
         {!!portalTitle && <title>{portalTitle}</title>}
         {!!portalKeywords && <meta name="keywords" content={portalKeywords} />  }
         {!!portalDescription && <meta name="description" content={portalDescription} />  }
+        {!!portalEenamadId && <meta name='enamad' content={portalEenamadId} />}
 
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=5,viewport-fit=cover" />
         
