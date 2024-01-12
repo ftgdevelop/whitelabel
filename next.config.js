@@ -83,6 +83,7 @@ module.exports = withPWA({
       'cdn.safaraneh.com',
       'cdn2.safaraneh.com',
       'panel.safaraneh.com',
+      'blog.iranhotel.ir',
       'trustseal.enamad.ir',
       'logo.samandehi.ir',
       'www.facebook.com',
