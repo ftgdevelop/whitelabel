@@ -10,6 +10,7 @@ import { Row, Col } from 'antd'
 import faceBookIcon from '../../assets/facebook.svg'
 import whatsappIcon from '../../assets/whatsapp.svg'
 import faceBookGift from '../../../public/images/tr.gif'
+import parse from 'html-react-parser';
 import {
   TelegramIcon,
   TwitterIcon,
@@ -75,6 +76,7 @@ const Footer = (props) => {
     facebook,
     whatsapp,
     symbol,
+    enamadElement,
     linkedin;
 
   const portalGoogleAnalytic = process.env.GOOGLE_ANALYTIC_ID;
@@ -108,6 +110,8 @@ const Footer = (props) => {
     symbol =
       getPortalValue(props.portalInfo.Phrases, 'Symbol') &&
       getPortalValue(props.portalInfo.Phrases, 'Symbol')['Value']
+    
+      enamadElement = props.portalInfo.Phrases.find(item => item.Keyword === "Enamad")?.Value;
   }
 
   return (
@@ -280,29 +284,9 @@ const Footer = (props) => {
                 </Col>
                 <Col xs={24} sm={12} md={12}>
                   <div className={styles.enamad}>
-                    {/* <a href="https://trustseal.enamad.ir/?id=142703&code=WNirZdUz1zG1dcxJCRIj" target="_blank" title="اینماد" onContextMenu={(e)=> e.preventDefault()}>
-                    <img src="/images/enamad.png" alt="اینماد" title="اینماد" />
-                  </a> */}
-                    <a
-                      referrerPolicy="origin"
-                      target="_blank"
-                      href="https://trustseal.enamad.ir/?id=142703&amp;Code=WNirZdUz1zG1dcxJCRIj"
-                      title="اینماد"
-                      className="unset-img"
-                    >
-                      <img
-                        referrerPolicy="origin"
-                        src="/images/enamad.png"
-                        alt=""
-                        style={{ cursor: 'pointer' }}
-                        id="WNirZdUz1zG1dcxJCRIj"
-                        // layout="fill"
-                        // className={`unset-img ${styles.nemads}`}
-                        width="70"
-                        height="75"
-                        layout="fixed"
-                      />
-                    </a>
+                  
+                  {!!enamadElement && parse(enamadElement)}
+
                   </div>
                   <div className={styles.enamad}>
                     <a
@@ -408,31 +392,9 @@ const Footer = (props) => {
                         className={styles.enamad}
                         onContextMenu={(e) => e.preventDefault()}
                       >
-                        {/* <a href="https://trustseal.enamad.ir/?id=142703&code=WNirZdUz1zG1dcxJCRIj" target="_blank" title="اینماد">
-                        <img src="https://cdn2.safaraneh.com/images/home/enamad.png" alt="اینماد" title="اینماد" /> */}
-                        {/* <i className={`${styles.generalImage} ${styles.enamad00}`} /> */}
-                        {/* </a> */}
 
-                        <a
-                          referrerPolicy="origin"
-                          target="_blank"
-                          href="https://trustseal.enamad.ir/?id=142703&amp;Code=WNirZdUz1zG1dcxJCRIj"
-                          aria-label="enamad"
-                          className={`unset-img ${styles.nemads}`}
-                        >
-                          <img
-                            referrerPolicy="origin"
-                            src="/images/enamad.png"
-                            alt=""
-                            style={{ cursor: 'pointer' }}
-                            id="WNirZdUz1zG1dcxJCRIj"
-                            // layout="fill"
-                            // className={`unset-img ${styles.nemads}`}
-                            width="70"
-                            height="75"
-                            layout="fixed"
-                          />
-                        </a>
+                        {!!enamadElement && parse(enamadElement)}
+
                       </div>
                       <div
                         className={styles.enamad}
