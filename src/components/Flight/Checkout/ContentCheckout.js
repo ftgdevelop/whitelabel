@@ -249,7 +249,7 @@ const ContentCheckout = (props) => {
           gender: values.gender,
         },
         preReserveKey: router.query.key,
-        // captchaCode: captchaCode.value,
+        captchaCode: captchaCode.value
       }
 
       const res = await sendPassenger(params)
