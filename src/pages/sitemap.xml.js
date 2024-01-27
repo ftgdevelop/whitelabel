@@ -75,7 +75,10 @@ export const getServerSideProps = async ({ res }) => {
 
 
   const [postsResponse, hotelsResponse, flightResponse] = await Promise.all([
-    axios.get(`${process.env.BLOG_URL_PANEL}wp-json/wp/v2/posts?per_page=100`),
+    axios.get(`${process.env.BLOG_URL_PANEL}wp-json/wp/v2/posts?per_page=100`).catch(function (error) {
+      console.log(error.toJSON());
+    })
+    ,
     axios.post(
       "https://api.safaraneh.com/v2/Page/GetPages",
       { "LanguageIds": [1], "LayoutIds": [21, 48] },
@@ -85,11 +88,16 @@ export const getServerSideProps = async ({ res }) => {
           'Accept-Language': 'fa-IR',
           apikey: process.env.GET_PORTAL_API_KEY,
         },
-      }),
-    axios.get(`${process.env.BLOG_URL_PANEL}wp-json/wp/v2/flightdomestic`)
+      }).catch(function (error) {
+        console.log(error.toJSON());
+      })
+    ,
+    axios.get(`${process.env.BLOG_URL_PANEL}wp-json/wp/v2/flightdomestic`).catch(function (error) {
+      console.log(error.toJSON());
+    })
   ]);
 
-  const sitemap = creareSiteMap(hotelsResponse.data , postsResponse.data, flightResponse.data );
+  const sitemap = creareSiteMap(hotelsResponse?.data , postsResponse?.data, flightResponse?.data );
 
   res.setHeader('Content-Type', 'text/xml');
   res.write(sitemap);
