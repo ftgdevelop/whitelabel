@@ -240,7 +240,7 @@ const ContentCheckoutV4RoomItem = props => {
                                     <strong>
                                         تخت اضافه 
                                         <small className="margin-start-5">
-                                            ({numberWithCommas(extraBedPrice || 0)} {t('rial')} برای هر شب)
+                                            ({numberWithCommas(extraBedPrice || 0)} {t('rial')} برای {reserveInformation?.duration === 1 ? "هر": reserveInformation?.duration } شب)
                                         </small>
                                     </strong>
                                 </Col>
