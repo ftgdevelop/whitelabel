@@ -226,10 +226,10 @@ class Header extends React.Component {
                     }`}
                   >
                     {/* <SwitchLanguage /> */}
-                      {/* <a href="https://norooz.safaraneh.com/" target="_blank"  style={{position: "relative"}}>
-                          <img src="https://cdn2.safaraneh.com/images/icon/sabze.png" width={52} alt="رزرو هتل نوروز ۱۴۰۲" title="رزرو هتل نوروز ۱۴۰۲" style={{width: "52px", position: "absolute", right: "-53px", top: "-20px"}} />
-                          <span style={{ color: "#0b5bb9" }}>رزرو هتل نوروز ۱۴۰۲</span>
-                      </a> */}
+                      {process.env.SITE_NAME ==='https://www.safaraneh.com' && <a href="https://safaranehnorooz.landin.ir/1403" target="_blank"  style={{position: "relative"}}>
+                          <img src="https://cdn2.safaraneh.com/images/icon/sabze.png" width={52} alt="رزرو هتل نوروز 1403" title="رزرو هتل نوروز 1403" style={{width: "52px", position: "absolute", right: "-53px", top: "-20px"}} />
+                          <span style={{ color: "#0b5bb9" }}>رزرو هتل نوروز 1403</span>
+                      </a>}
                     {!isAuthenticated && <RetrieveMyBooking />}
                     {isAuthenticated ? <ModalAccount /> : <ModalLogin />}
                   </Col>
