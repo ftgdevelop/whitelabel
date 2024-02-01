@@ -5,6 +5,7 @@ import { Row, Col, BackTop } from 'antd'
 import { withTranslation, Link } from '../../../i18n'
 import { connect } from 'react-redux'
 import { withRouter } from 'next/router'
+import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import Script from 'next/script'
 
@@ -60,6 +61,21 @@ class Header extends React.Component {
               </Link>
           </div>
         </div> */}
+
+        {process.env.SITE_NAME ==='https://www.safaraneh.com' && <div className='header-top-bar'>
+          <a href="https://safaranehnorooz.landin.ir/1403" target="_blank" className='nowrooz-link'>
+            <Image
+              src="https://cdn2.safaraneh.com/images/icon/sabze.png" 
+              width={52}
+              height={52}
+              alt="رزرو هتل نوروز 1403" 
+              title="رزرو هتل نوروز 1403"  
+              className='nowrooz-icon'
+            />
+            <span> رزرو هتل نوروز 1403 </span>
+          </a>
+        </div>}
+
         <div
           className={`${styles.header} ${
             process.env.THEME_NAME === 'TRAVELO' && styles.headerTravelo
@@ -226,10 +242,6 @@ class Header extends React.Component {
                     }`}
                   >
                     {/* <SwitchLanguage /> */}
-                      {process.env.SITE_NAME ==='https://www.safaraneh.com' && <a href="https://safaranehnorooz.landin.ir/1403" target="_blank"  style={{position: "relative"}}>
-                          <img src="https://cdn2.safaraneh.com/images/icon/sabze.png" width={52} alt="رزرو هتل نوروز 1403" title="رزرو هتل نوروز 1403" style={{width: "52px", position: "absolute", right: "-53px", top: "-20px"}} />
-                          <span style={{ color: "#0b5bb9" }}>رزرو هتل نوروز 1403</span>
-                      </a>}
                     {!isAuthenticated && <RetrieveMyBooking />}
                     {isAuthenticated ? <ModalAccount /> : <ModalLogin />}
                   </Col>
