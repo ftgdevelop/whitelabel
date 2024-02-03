@@ -401,17 +401,19 @@ body .ant-form-item-hidden {
 .header-top-bar {
     background: #ebebeb;
     text-align: center;
-    padding: 5px;
     font-weight: 600;
     .nowrooz-link{
-        color: red;
-        display: flex;
-        justify-content: center;
-        align-items:center;
-        gap: 10px;
+        width:100%;
+        display: block;
     }
     .nowrooz-icon{
         display: block;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        @media (max-width: 768px){
+            height: 40px;
+        }
         &+span{
             display: block;
         }
