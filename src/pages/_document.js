@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
   componentDidMount = () => {
 
-    const portalGoogleAnalytic = process.env.GOOGLE_ANALYTIC_ID;
+    const portalGoogleAnalytic = process.env.GOOGLE_TAG_MANAGER_ID;
     if (portalGoogleAnalytic){
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -21,7 +21,7 @@ class MyDocument extends Document {
 
   render() {
     
-    const portalGoogleAnalytic = process.env.GOOGLE_ANALYTIC_ID;
+    const portalGoogleAnalytic = process.env.GOOGLE_TAG_MANAGER_ID;
     return (
       <Html lang="fa">
         <Head>
