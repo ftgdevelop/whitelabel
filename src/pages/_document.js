@@ -9,8 +9,21 @@ class MyDocument extends Document {
 
 
   render() {
+
+    let ga_script_url = "";
     
     const portalGoogleAnalytic = process.env.GOOGLE_TAG_MANAGER_ID;
+
+    if (portalGoogleAnalytic) {
+      switch (process.env.SITE_NAME) {
+        case "https://www.safaraneh.com":
+          ga_script_url = "/ga-script.js";
+          break;
+        default:
+          ga_script_url = "";
+      }
+    }
+    
     return (
       <Html lang="fa">
         <Head>
@@ -19,10 +32,12 @@ class MyDocument extends Document {
             content="script-src 'self' 'unsafe-eval'; object-src 'self'"
           /> */}
            <link rel='manifest' href='/manifest.json' />
-          {!!portalGoogleAnalytic &&  <Script
-            src="/ga-script.js"
+          
+          {!!ga_script_url && <Script
+            src={ga_script_url}
             strategy="beforeInteractive"
           />}
+
           <link
             rel="stylesheet"
             type="text/css"
