@@ -359,11 +359,8 @@ body .ant-form-item-hidden {
   width: 100%;
   object-fit: cover;
   object-position: center;
-}
-@media (max-width: 768px) {
-  .header-top-bar .nowrooz-icon {
-    height: 40px;
-  }
+  height: auto;
+  min-height: 40px;
 }
 .header-top-bar .nowrooz-icon + span {
   display: block;
