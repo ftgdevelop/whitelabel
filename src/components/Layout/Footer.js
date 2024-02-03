@@ -79,7 +79,7 @@ const Footer = (props) => {
     enamadElement,
     linkedin;
 
-  const portalGoogleAnalytic = process.env.GOOGLE_ANALYTIC_ID;
+  // const portalGoogleAnalytic = process.env.GOOGLE_ANALYTIC_ID;
 
   if (props.portalInfo) {
 
@@ -568,11 +568,11 @@ const Footer = (props) => {
           </div>
         )}
       </footer>
-      <script
+      {/* <script
         id="script_footer_1"
         async=""
         src="/static/scripts/analytics.js"
-      ></script>
+      ></script> */}
       {/* <script
         id="script_footer_2"
         async=""
@@ -614,7 +614,7 @@ const Footer = (props) => {
       ></script> */}
       
       
-     {!!portalGoogleAnalytic &&  <script
+     {/* {!!portalGoogleAnalytic &&  <script
         id="script_footer_6"
         dangerouslySetInnerHTML={{
           __html: `
@@ -624,7 +624,7 @@ const Footer = (props) => {
           gtag('config', '${portalGoogleAnalytic}');
         `,
         }}
-      />}
+      />} */}
 
 
       {/* Global site tag (gtag.js) - Google Ads: 599246268 */}
@@ -633,7 +633,7 @@ const Footer = (props) => {
         async
         src="https://www.googletagmanager.com/gtag/js?id=AW-599246268"
       ></script> */}
-      <Script
+      {/* <Script
         id="script_footer_8"
         dangerouslySetInnerHTML={{
           __html: `
@@ -644,7 +644,7 @@ const Footer = (props) => {
           gtag('event', 'conversion', {'send_to': 'AW-599246268/26w4CL3KwPABELyL350C', 'transaction_id': ''});
         `,
         }}
-      />
+      /> */}
       {/* Global site tag (gtag.js) - Google Ads: 599246268 */}
       {/* <script id="script_footer_9" async src="https://www.googletagmanager.com/gtag/js?id=AW-599246268"></script>
     <script
@@ -665,7 +665,7 @@ const Footer = (props) => {
         async
         src="https://www.googletagmanager.com/gtag/js?id=AW-301558402"
       ></script> */}
-      <script
+      {/* <script
         id="script_footer_12"
         dangerouslySetInnerHTML={{
           __html: `
@@ -676,7 +676,7 @@ const Footer = (props) => {
           gtag('event', 'conversion', {'send_to': 'AW-301558402/5_PZCLOAw_0CEILV5Y8B', 'transaction_id': ''});
         `,
         }}
-      />
+      /> */}
       {/* <!-- Facebook Pixel Code --> */}
       {/* <script
     id="script_footer_13"
