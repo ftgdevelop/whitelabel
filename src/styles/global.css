@@ -348,18 +348,22 @@ body .ant-form-item-hidden {
 .header-top-bar {
   background: #ebebeb;
   text-align: center;
-  padding: 5px;
   font-weight: 600;
 }
 .header-top-bar .nowrooz-link {
-  color: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  width: 100%;
+  display: block;
 }
 .header-top-bar .nowrooz-icon {
   display: block;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 768px) {
+  .header-top-bar .nowrooz-icon {
+    height: 40px;
+  }
 }
 .header-top-bar .nowrooz-icon + span {
   display: block;

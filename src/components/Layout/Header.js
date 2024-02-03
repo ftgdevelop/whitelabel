@@ -64,15 +64,13 @@ class Header extends React.Component {
 
         {process.env.SITE_NAME ==='https://www.safaraneh.com' && <div className='header-top-bar'>
           <a href="https://safaranehnorooz.landin.ir/1403" target="_blank" className='nowrooz-link'>
-            <Image
-              src="https://cdn2.safaraneh.com/images/icon/sabze.png" 
-              width={52}
-              height={52}
+            <img
+              src="/images/nowrooz.jpg" 
               alt="رزرو هتل نوروز 1403" 
               title="رزرو هتل نوروز 1403"  
               className='nowrooz-icon'
+              height={67}
             />
-            <span> رزرو هتل نوروز 1403 </span>
           </a>
         </div>}
 
