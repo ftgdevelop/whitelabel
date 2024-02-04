@@ -135,7 +135,7 @@ class ForgetForm extends React.Component {
 
     return (
       <div className={style.forgetForm}>
-        {/* <div className={style.forgetForm__tab}>
+        <div className={style.forgetForm__tab}>
           <button
             className={`${style.forgetForm__tabItem} ${
               activeTab === 0 ? style.isActive : ''
@@ -158,9 +158,9 @@ class ForgetForm extends React.Component {
           >
             <span>{t('tel-number')}</span>
           </button>
-        </div> */}
+        </div> 
         <div className={style.forgetForm__tabContent}>
-          {/* {activeTab === 0 ? (
+          {activeTab === 0 ? (
             <Form name="mobile-signup" onFinish={this.onFinish}>
               <div className={styles.inputStyle}>
               <Form.Item
@@ -193,7 +193,7 @@ class ForgetForm extends React.Component {
                 {isSubmitLoading ? <DotsLoading /> : t('continue')}
               </button>
             </Form>
-          ) : ( */}
+          ) : (
             <Form name="mobile-signup" onFinish={this.onFinish}>
               <div className={styles.inputStyle}>
                 <Form.Item
@@ -245,7 +245,7 @@ class ForgetForm extends React.Component {
                 {isSubmitLoading ? <DotsLoading /> : t('continue')}
               </button>
             </Form>
-          {/* )} */}
+           )}
         </div>
 
         {displayVerifyMobileModal ? (
