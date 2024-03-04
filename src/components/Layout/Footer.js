@@ -435,41 +435,47 @@ const Footer = (props) => {
                 <div className={styles.navigationFooter}>
                   <ul>
                     <li>
-                      <Link as="/contact" href="/contact">
-                        <a title={t('contact-us')}>{t('contact-us')}</a>
-                      </Link>
+                      {/* TODO DELETE process.env.NEW_5_URL */}
+                      {/* <Link as="/contact" href="/contact"> */}
+                        <a title={t('contact-us')} href={`${process.env.NEW_5_URL}/contact`}>{t('contact-us')}</a>
+                      {/* </Link> */}
                     </li>
                     <li>
-                      <Link as="/faq" href="/faq">
-                        <a title={t('faq')}>{t('faq')}</a>
-                      </Link>
+                      {/* TODO DELETE process.env.NEW_5_URL */}
+                      {/* <Link as="/faq" href="/faq"> */}
+                        <a title={t('faq')} href={`${process.env.NEW_5_URL}/faq`}>{t('faq')}</a>
+                      {/* </Link> */}
                     </li>
                     <li>
-                      <Link as="/terms" href="/terms">
-                        <a title={t('rules-regulations')}>
+                      {/* TODO DELETE process.env.NEW_5_URL */}
+                      {/* <Link as="/terms" href="/terms"> */}
+                        <a title={t('rules-regulations')} href={`${process.env.NEW_5_URL}/terms`} >
                           {t('rules-regulations')}
                         </a>
-                      </Link>
+                      {/* </Link> */}
                     </li>
                     <li>
-                      <Link as="/privacy" href="/privacy">
-                        <a title={t('privacy')}>{t('privacy')}</a>
-                      </Link>
+                      {/* TODO DELETE process.env.NEW_5_URL */}
+                      {/* <Link as="/privacy" href="/privacy"> */}
+                        <a title={t('privacy')} href={`${process.env.NEW_5_URL}/privacy`} >{t('privacy')}</a>
+                      {/* </Link> */}
                     </li>
                     <li>
-                      <Link as="/about" href="/about">
-                        <a title={t('about-us')}>{t('about-us')}</a>
-                      </Link>
+                      {/* TODO DELETE process.env.NEW_5_URL */}
+                      {/* <Link as="/about" href="/about"> */}
+                        <a title={t('about-us')} href={`${process.env.NEW_5_URL}/about`} >{t('about-us')}</a>
+                      {/* </Link> */}
                     </li>
                     <li>
-                      <Link
+                      {/* TODO DELETE process.env.NEW_5_URL */}
+                      {/* <Link
                         as="/organizational-reservation"
                         href="/organizational-reservation"
-                      >
-                        <a title={t('organizational-reservation')}>
+                      > */}
+                        <a title={t('organizational-reservation')} href={`${process.env.NEW_5_URL}/organizational-reservation`}>
                           {t('organizational-reservation')}
                         </a>
-                      </Link>
+                      {/* </Link> */}
                     </li>
                   </ul>
                 </div>

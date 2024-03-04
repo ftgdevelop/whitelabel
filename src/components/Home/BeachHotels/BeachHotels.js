@@ -111,7 +111,8 @@ const BeachHotels = (props) => {
                         <div>
                             <div className={styles.item}>
                                 <a
-                                    href={t("noor-hotel-beach-link")}
+                                // TODO DELETE process.env.NEW_5_URL
+                                    href={process.env.NEW_5_URL+"/"+t("noor-hotel-beach-link")}
                                     target="_blank"
                                     title={t("noor-hotel-beach-name")}
                                 >
@@ -131,7 +132,8 @@ const BeachHotels = (props) => {
                         <div>
                             <div className={styles.item}>
                                 <a
-                                    href={t("toranj-hotel-beach-link")}
+                                // TODO DELETE process.env.NEW_5_URL
+                                    href={process.env.NEW_5_URL+"/"+t("toranj-hotel-beach-link")}
                                     target="_blank"
                                     title={t("toranj-hotel-beach-name")}
                                 >
@@ -151,7 +153,8 @@ const BeachHotels = (props) => {
                         <div>
                             <div className={styles.item}>
                                 <a
-                                    href={t("parsian-chalos-hotel-beach-link")}
+                                // TODO DELETE process.env.NEW_5_URL
+                                    href={process.env.NEW_5_URL+"/"+t("parsian-chalos-hotel-beach-link")}
                                     target="_blank"
                                     title={t("parsian-chalos-hotel-beach-name")}
                                 >
@@ -171,7 +174,8 @@ const BeachHotels = (props) => {
                         <div>
                             <div className={styles.item}>
                                 <a
-                                    href={t("homa-hotel-beach-link")}
+                                // TODO DELETE process.env.NEW_5_URL
+                                    href={process.env.NEW_5_URL+"/"+t("homa-hotel-beach-link")}
                                     target="_blank"
                                     title={t("homa-hotel-beach-name")}
                                 >
@@ -191,7 +195,8 @@ const BeachHotels = (props) => {
                         <div>
                             <div className={styles.item}>
                                 <a
-                                    href={t("lipar-hotel-beach-link")}
+                                // TODO DELETE process.env.NEW_5_URL
+                                    href={process.env.NEW_5_URL+"/"+t("lipar-hotel-beach-link")}
                                     target="_blank"
                                     title={t("lipar-hotel-beach-name")}
                                 >
@@ -211,7 +216,8 @@ const BeachHotels = (props) => {
                         <div>
                             <div className={styles.item}>
                                 <a
-                                    href={t("marina-hotel-beach-link")}
+                                    // TODO DELETE process.env.NEW_5_URL
+                                    href={process.env.NEW_5_URL+"/"+t("marina-hotel-beach-link")}
                                     target="_blank"
                                     title={t("marina-hotel-beach-name")}
                                 >

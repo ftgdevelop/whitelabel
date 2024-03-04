@@ -107,7 +107,8 @@ const SuggestedHotels = (props) => {
             <div>
               <div className={styles.item}>
                 <a
-                  href={t('azadi-hotel-link')}
+                // TODO DELETE process.env.NEW_5_URL
+                  href={process.env.NEW_5_URL+"/"+t('azadi-hotel-link')}
                   title={t('azadi-hotel-name')}
                   target="_blank"
                 >
@@ -135,7 +136,8 @@ const SuggestedHotels = (props) => {
             <div>
               <div className={styles.item}>
                 <a
-                  href={t('pars-hotel-link')}
+                // TODO DELETE process.env.NEW_5_URL
+                  href={process.env.NEW_5_URL+"/"+t('pars-hotel-link')}
                   target="_blank"
                   title={t('pars-hotel-name')}
                 >
@@ -163,7 +165,8 @@ const SuggestedHotels = (props) => {
             <div>
               <div className={styles.item}>
                 <a
-                  href={t('darvishi-hotel-link')}
+                // TODO DELETE process.env.NEW_5_URL
+                  href={process.env.NEW_5_URL+"/"+t('darvishi-hotel-link')}
                   target="_blank"
                   title={t('darvishi-hotel-name')}
                 >
@@ -191,7 +194,8 @@ const SuggestedHotels = (props) => {
             <div>
               <div className={styles.item}>
                 <a
-                  href={t('esteghlal-hotel-link')}
+                // TODO DELETE process.env.NEW_5_URL
+                  href={process.env.NEW_5_URL+"/"+t('esteghlal-hotel-link')}
                   target="_blank"
                   title={t('esteghlal-hotel-name')}
                 >
@@ -219,7 +223,8 @@ const SuggestedHotels = (props) => {
             <div>
               <div className={styles.item}>
                 <a
-                  href={t('astara-hotel-link')}
+                // TODO DELETE process.env.NEW_5_URL
+                  href={process.env.NEW_5_URL+"/"+t('astara-hotel-link')}
                   target="_blank"
                   title={t('astara-hotel-name')}
                 >
@@ -247,7 +252,8 @@ const SuggestedHotels = (props) => {
             <div>
               <div className={styles.item}>
                 <a
-                  href={t('miraj-hotel-link')}
+                // TODO DELETE process.env.NEW_5_URL
+                  href={process.env.NEW_5_URL+"/"+t('miraj-hotel-link')}
                   target="_blank"
                   title={t('miraj-hotel-name')}
                 >
@@ -275,7 +281,8 @@ const SuggestedHotels = (props) => {
             <div>
               <div className={styles.item}>
                 <a
-                  href={t('dad-hotel-link')}
+                // TODO DELETE process.env.NEW_5_URL
+                  href={process.env.NEW_5_URL+"/"+t('dad-hotel-link')}
                   target="_blank"
                   title={t('dad-hotel-name')}
                 >
@@ -303,7 +310,8 @@ const SuggestedHotels = (props) => {
             <div>
               <div className={styles.item}>
                 <a
-                  href={t('kosar-hotel-link')}
+                // TODO DELETE process.env.NEW_5_URL
+                  href={process.env.NEW_5_URL+"/"+t('kosar-hotel-link')}
                   target="_blank"
                   title={t('kosar-hotel-name')}
                 >

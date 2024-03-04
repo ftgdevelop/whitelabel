@@ -43,7 +43,8 @@ class Banner extends React.Component {
               <Row>
                 <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                   <a
-                    href={this.state.shirazUrl}
+                  // TODO DELETE process.env.NEW_5_URL
+                    href={process.env.NEW_5_URL+this.state.shirazUrl}
                     className={styles.imgLinkBanner1}
                     title={t('big-banner-h4')}
                   >
@@ -90,7 +91,7 @@ class Banner extends React.Component {
                     </div>
                   </a>
                   <a
-                    href={this.state.tehranUrl}
+                    href={process.env.NEW_5_URL+this.state.tehranUrl}
                     className={styles.imgLinkBanner2}
                     title={t('small-banner2-h4')}
                   >

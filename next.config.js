@@ -104,6 +104,7 @@ module.exports = withPWA({
     //THEME_NAME: "TAJAWAL",
     // MODULES:["foreignHotel","domesticHotel","blog","cip","newFeature"]
     DomesticHotelV4: true,
+    NEW_5_URL: "https://new5.safaraneh.com",
     MODULES: [
       'foreignHotel',
       'domesticHotel',

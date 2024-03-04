@@ -300,7 +300,8 @@ class DomesticSearchHotel extends React.Component {
 
       this.setState({ disableSubmit: false });
 
-      Router.push(url).then();
+      // TODO DELETE process.env.NEW_5_URL
+      Router.push(process.env.NEW_5_URL+url).then();
       
     }
     
