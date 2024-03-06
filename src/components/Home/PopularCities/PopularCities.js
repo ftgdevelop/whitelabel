@@ -118,8 +118,8 @@ const PopularCities = (props) => {
           <Slider ref={slider} {...settings}>
             <div className={styles.popularCitItem}>
               <a
-              // TODO DELETE process.env.NEW_5_URL
-                href={process.env.NEW_5_URL+"/"+t('esfahan-city-link')}
+              // TODO DELETE process.env.NEW_SITE_URL
+                href={process.env.NEW_SITE_URL+"/"+t('esfahan-city-link')}
                 title={t('esfahan-city-name')}
                 target="_blank"
                 className={`unset-img ${styles.item}`}
@@ -142,8 +142,8 @@ const PopularCities = (props) => {
             </div>
             <div className={styles.popularCitItem}>
               <a
-              // TODO DELETE process.env.NEW_5_URL
-                href={process.env.NEW_5_URL+"/"+t('kish-city-link')}
+              // TODO DELETE process.env.NEW_SITE_URL
+                href={process.env.NEW_SITE_URL+"/"+t('kish-city-link')}
                 title={t('kish-city-name')}
                 target="_blank"
                 className={`unset-img ${styles.item}`}
@@ -166,8 +166,8 @@ const PopularCities = (props) => {
             </div>
             <div className={styles.popularCitItem}>
               <a
-              // TODO DELETE process.env.NEW_5_URL
-                href={process.env.NEW_5_URL+"/"+t('shiraz-city-link')}
+              // TODO DELETE process.env.NEW_SITE_URL
+                href={process.env.NEW_SITE_URL+"/"+t('shiraz-city-link')}
                 title={t('shiraz-city-name')}
                 target="_blank"
                 className={`unset-img ${styles.item}`}
@@ -190,8 +190,8 @@ const PopularCities = (props) => {
             </div>
             <div className={styles.popularCitItem}>
               <a
-              // TODO DELETE process.env.NEW_5_URL
-                href={process.env.NEW_5_URL+"/"+t('mashhad-city-link')}
+              // TODO DELETE process.env.NEW_SITE_URL
+                href={process.env.NEW_SITE_URL+"/"+t('mashhad-city-link')}
                 title={t('mashhad-city-name')}
                 target="_blank"
                 className={`unset-img ${styles.item}`}
@@ -214,8 +214,8 @@ const PopularCities = (props) => {
             </div>
             <div className={styles.popularCitItem}>
               <a
-              // TODO DELETE process.env.NEW_5_URL
-                href={process.env.NEW_5_URL+"/"+t('tehran-city-link')}
+              // TODO DELETE process.env.NEW_SITE_URL
+                href={process.env.NEW_SITE_URL+"/"+t('tehran-city-link')}
                 title={t('tehran-city-name')}
                 target="_blank"
                 className={`unset-img ${styles.item}`}

@@ -25,9 +25,9 @@ const LatestBlogPost = (props) => {
   let latestPostList = blogLatestPosts ? (
     blogLatestPosts.map((post, index) => (
       <li key={index}>
-        {/* TODO DELETE process.env.NEW_5_URL
+        {/* TODO DELETE process.env.NEW_SITE_URL
         <Link as={`/blog/${post.slug}`} href={`/blog/${post.slug}`}></Link> */}
-          <a className={styles.itemPostImage} title={post.title.rendered} href={`${process.env.NEW_5_URL}/blog/${post.slug}`}>
+          <a className={styles.itemPostImage} title={post.title.rendered} href={`${process.env.NEW_SITE_URL}/blog/${post.slug}`}>
             {!!post.images?.medium && <div
               className={`unset-img ${styles.smallImagePost}`}
               onContextMenu={(e) => e.preventDefault()}

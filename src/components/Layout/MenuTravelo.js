@@ -23,9 +23,9 @@ const MenuTravelo = props => {
       overlay={
         <ul className={`${i18n.language === "us" ? "ltr" : "rtl"} ant-dropdown-menu-travelo`}>
           {process.env.MODULES.includes("domesticHotel") && <li>
-          {/* TODO DELETE process.env.NEW_5_URL
+          {/* TODO DELETE process.env.NEW_SITE_URL
           <Link as="/hotels-home" href="/hotels-home"> */}
-            <a title={t('domestic-hotels')} href={process.env.NEW_5_URL} >
+            <a title={t('domestic-hotels')} href={process.env.NEW_SITE_URL} >
               <HotelIcon />
               <span className='margin-start-10'>{t('domestic-hotels')}</span>
             </a>
@@ -71,48 +71,48 @@ const MenuTravelo = props => {
            </Link>
           </li>}
           {process.env.MODULES.includes("blog") && <li>
-                      {/* TODO DELETE process.env.NEW_5_URL
+                      {/* TODO DELETE process.env.NEW_SITE_URL
           <Link as="/hotels-home" href="/hotels-home"> */}
-              <a title={t('blog')} href={`${process.env.NEW_5_URL}/blog`}>
+              <a title={t('blog')} href={`${process.env.NEW_SITE_URL}/blog`}>
                   <BlogIcon/>
                   <span className='margin-start-10'>{t('blog')}</span>
               </a>
           </li>}
           <li>
-                      {/* TODO DELETE process.env.NEW_5_URL
+                      {/* TODO DELETE process.env.NEW_SITE_URL
           <Link as="/hotels-home" href="/hotels-home"> */}
-              <a title={t('organizational-reservation')} href={`${process.env.NEW_5_URL}/organizational-reservation`}>
+              <a title={t('organizational-reservation')} href={`${process.env.NEW_SITE_URL}/organizational-reservation`}>
                 <span>{t('organizational-reservation')}</span>
               </a>
           </li>
           <li>
-                      {/* TODO DELETE process.env.NEW_5_URL
+                      {/* TODO DELETE process.env.NEW_SITE_URL
           <Link as="/hotels-home" href="/hotels-home"> */}
-              <a title={t('contact-us')} href={`${process.env.NEW_5_URL}/contact`}>
+              <a title={t('contact-us')} href={`${process.env.NEW_SITE_URL}/contact`}>
                 <span>{t('contact-us')}</span>
               </a>
           </li>
           <li>
-                      {/* TODO DELETE process.env.NEW_5_URL
+                      {/* TODO DELETE process.env.NEW_SITE_URL
           <Link as="/hotels-home" href="/hotels-home"> */}
-              <a title={t('faq')} href={`${process.env.NEW_5_URL}/faq`} >
+              <a title={t('faq')} href={`${process.env.NEW_SITE_URL}/faq`} >
                 <span>{t('faq')}</span>
               </a>
    
           </li>
           <li>
-                      {/* TODO DELETE process.env.NEW_5_URL
+                      {/* TODO DELETE process.env.NEW_SITE_URL
           <Link as="/hotels-home" href="/hotels-home"> */}
-              <a title={t('rules-regulations')} href={`${process.env.NEW_5_URL}/terms`} >
+              <a title={t('rules-regulations')} href={`${process.env.NEW_SITE_URL}/terms`} >
                 <span>{t('rules-regulations')}</span>
               </a>
           
           </li>
           <li>
-                      {/* TODO DELETE process.env.NEW_5_URL
+                      {/* TODO DELETE process.env.NEW_SITE_URL
           <Link as="/hotels-home" href="/hotels-home"> */}
 
-              <a title={t('about-us')} href={`${process.env.NEW_5_URL}/about`} >
+              <a title={t('about-us')} href={`${process.env.NEW_SITE_URL}/about`} >
                 <span>{t('about-us')}</span>
               </a>
 
