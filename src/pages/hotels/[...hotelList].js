@@ -9,6 +9,7 @@ import Script from 'next/script'
 import HotelList from '../../components/Hotel/HotelList/HotelList'
 import DomesticHotelList from '../../components/Hotel/HotelList/DomesticHotelList'
 import { GetpageByUrl, GetAllFaqById } from '../../actions/index'
+import { useSelector } from 'react-redux'
 
 const HotelListFaPage = ({ t, data, dataFaq }) => {
   const router = useRouter()
@@ -16,18 +17,24 @@ const HotelListFaPage = ({ t, data, dataFaq }) => {
     if (Router && !process.env.MODULES.includes('domesticHotel')) {
       Router.push('/')
     }
-  })
+  });
+
+  const portalData = useSelector(state => state.portal?.portalData);
+  const siteName = portalData?.Phrases?.find(item => item.Keyword === "Name")?.Value || "";
 
   return (
     process.env.MODULES.includes('domesticHotel') && (
       <Layout>
         <Head>
-          <title>{data && data.PageTitle}</title>
+          
+          <title>{data && data.PageTitle?.replace("{0}",siteName)}</title>
+          
           {data && data.MetaTags
             ? data.MetaTags.map((item) => (
-                <meta name={item.Name} content={item.Content} key={item.Name} />
+                <meta name={item.Name} content={item.Content?.replace("{0}", siteName)} key={item.Name} />
               ))
             : null}
+
           {data && data.Url && (
             <link rel="canonical" href={process.env.SITE_NAME + data.Url} />
           )}
