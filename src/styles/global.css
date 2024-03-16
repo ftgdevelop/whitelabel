@@ -345,3 +345,23 @@ body .ant-form-item-hidden {
     font-size: 12px;
   }
 }
+.header-top-bar {
+  background: #ebebeb;
+  text-align: center;
+  font-weight: 600;
+}
+.header-top-bar .nowrooz-link {
+  width: 100%;
+  display: block;
+}
+.header-top-bar .nowrooz-icon {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: auto;
+  min-height: 40px;
+}
+.header-top-bar .nowrooz-icon + span {
+  display: block;
+}
