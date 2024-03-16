@@ -39,10 +39,10 @@ const HotelHomePage = ({
     process.env.MODULES.includes('domesticHotel') && (
       <Layout>
         <Head>
-          <title>{data && data.PageTitle}</title>
+          <title>{data && data.PageTitle?.replace("{0}",portalName)}</title>
           {data && data.MetaTags
             ? data.MetaTags.map((item) => (
-                <meta name={item.Name} content={item.Content} key={item.Name} />
+                <meta name={item.Name} content={item.Content?.replace("{0}",portalName)} key={item.Name} />
               ))
             : null}
           
