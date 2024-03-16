@@ -151,6 +151,7 @@ const DomesticHotelDetailsRooms = (props) => {
                 <img
                   src={availabilityItem.rooms[0].image || defaultRoomImage.src}
                   alt={"room"}
+                  onContextMenu={(e)=> e.preventDefault()}
                 />
               </div>
               {availabilityItem.rooms[0].facilities?.length && <RoomFacilities availabilityItem={availabilityItem} />}
