@@ -1,9 +1,9 @@
 version: '3'
 services:
-  server_asli_mrbilet:
-    image: asli_mrbilet
+  main_mrbilet_service:
+    image: main_mrbilet_image
     restart: always
     build: ./
-    command: 'yarn start -p 2096'
+    command: 'yarn start -p 2085'
     ports:
-      - '2096:2096'
+      - '2085:2085'
