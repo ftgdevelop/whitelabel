@@ -1,9 +1,9 @@
 version: '3'
 services:
-  server_tickets_safaraneh:
-    image: tickets_safaraneh
+  tickets_safaraneh_service:
+    image: tickets_safaraneh_image
     restart: always
     build: ./
-    command: 'yarn start -p 2097'
+    command: 'yarn start -p 2083'
     ports:
-      - '2097:2097'
+      - '2083:2083'

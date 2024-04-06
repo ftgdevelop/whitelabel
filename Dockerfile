@@ -1,7 +1,4 @@
-FROM node:20-alpine
-  
+FROM node:14-alpine
 COPY . /app
-
 WORKDIR /app
-
-CMD "yarn start -p 2097"
+CMD "yarn start -p 2083"
