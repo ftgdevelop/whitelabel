@@ -62,7 +62,7 @@ class Header extends React.Component {
           </div>
         </div> */}
 
-        {process.env.SITE_NAME ==='https://www.safaraneh.com' && <div className='header-top-bar'>
+        {/* {process.env.SITE_NAME ==='https://www.safaraneh.com' && <div className='header-top-bar'>
           <a href="https://safaranehnorooz.landin.ir/1403" target="_blank" className='nowrooz-link'>
             <img
               onContextMenu={(e)=> e.preventDefault()}
@@ -73,7 +73,7 @@ class Header extends React.Component {
               height={67}
             />
           </a>
-        </div>}
+        </div>} */}
 
         <div
           className={`${styles.header} ${
