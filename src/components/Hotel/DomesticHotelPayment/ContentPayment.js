@@ -103,7 +103,7 @@ const ContentPayment = props => {
                         props.gateWays?
                         <Radio.Group defaultValue={props.gateWays[0].id} className="bankGateWaysRadio" onChange={onChangeBank}>
                             {props.gateWays.filter(bankItem => bankItem.id !== 1006 && bankItem.id !== 6).map(bank=><Radio.Button key={bank.id} value={bank.id}>
-                                <img className="gatewaysRadioIcon" src={(bank.id === 5)?"/images/saderat.png":"/images/unknown-bank.png"} /> {bank.name}
+                                <img className="gatewaysRadioIcon" src={(bank.id === 5)?"/images/saderat.png":"/images/unknown-bank.png"} /> {bank.displayName || bank.name}
                                 {console.log(props.gateWays)}
                             </Radio.Button>)}
                         </Radio.Group>
