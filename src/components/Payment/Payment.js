@@ -69,7 +69,7 @@ const Payment = (props) => {
     const res = await makeToken(params);
     if (res.status == 200) {
       window.location.replace(
-        `https://payline.safaraneh.com/fa/Reserves/Payment/PaymentRequest?tokenId=${res.data.result.tokenId}`
+        `https://payline.samita.com/fa/Reserves/Payment/PaymentRequest?tokenId=${res.data.result.tokenId}`
       );
     } else {
       openNotification("error", "bottomRight", res.data.error.message);

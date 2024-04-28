@@ -77,7 +77,7 @@ const AddCredit = (props) => {
     const res = await MakeToken(params);
     if (res.status == 200) {
       window.location.replace(
-        `https://payline.safaraneh.com/fa/User/Payment/PaymentRequest?tokenId=${res.data.result.tokenId}`
+        `https://payline.samita.com/fa/User/Payment/PaymentRequest?tokenId=${res.data.result.tokenId}`
       );
     } else {
       openNotification("error", "bottomRight", res.data.error.message);
@@ -183,7 +183,7 @@ const AddCredit = (props) => {
                             src={bank.image.path}
                             alt={bank.image.altAttribute}
                           />
-                          {bank.name}
+                          {bank.displayName || bank.name}
                         </Radio.Button>
                       ))}
 

@@ -168,7 +168,7 @@ const ContentPayment = (props) => {
                     src={bank.image.path}
                     alt={bank.image.altAttribute}
                   />
-                  {bank.name}
+                  {bank.displayName || bank.name}
                 </Radio.Button>
               ))}
 
