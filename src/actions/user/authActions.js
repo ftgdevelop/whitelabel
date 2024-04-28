@@ -506,7 +506,7 @@ export const GetBalance = (currency = 'IRR') => {
       const token = localStorage.getItem('Token')
 
       const res = await axios.get(
-        'https://payline.safaraneh.com/api/services/app/Deposit/GetBalance',
+        'https://payline.samita.com/api/services/app/Deposit/GetBalance',
         {
           headers: {
             currency: 'IRR',
@@ -532,7 +532,7 @@ export const UserDepositeBankGateway = async () => {
     const token = localStorage.getItem('Token')
 
     const res = await axios.get(
-      'https://payline.safaraneh.com/api/services/app/UserDepositBankGateway/GetAll?CurrencyType=IRR',
+      'https://payline.samita.com/api/services/app/UserDepositBankGateway/GetAll?CurrencyType=IRR',
       {
         headers: {
           'Accept-Language': 'fa-IR',
@@ -552,7 +552,7 @@ export const MakeToken = async (params) => {
     const token = localStorage.getItem('Token')
 
     const res = await axios.post(
-      'https://payline.safaraneh.com/api/services/app/UserDepositBankGateway/MakeToken',
+      'https://payline.samita.com/api/services/app/UserDepositBankGateway/MakeToken',
       params,
       {
         headers: {
@@ -572,7 +572,7 @@ export const GetTransactionDeposit = async (params) => {
     const token = localStorage.getItem('Token')
 
     const res = await axios.get(
-      `https://payline.safaraneh.com/api/services/app/TransactionDeposit/GetAll?${params}`,
+      `https://payline.samita.com/api/services/app/TransactionDeposit/GetAll?${params}`,
       {
         headers: {
           'Accept-Language': 'fa-IR',
@@ -592,7 +592,7 @@ export const ConfirmByDeposit = async (params) => {
     const token = localStorage.getItem('Token')
 
     const res = await axios.post(
-      `https://payline.safaraneh.com/api/services/app/DepositReserve/ConfirmByDeposit`,
+      `https://payline.samita.com/api/services/app/DepositReserve/ConfirmByDeposit`,
       params,
       {
         headers: {

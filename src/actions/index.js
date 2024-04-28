@@ -1438,7 +1438,7 @@ export const getReserveBankGateway = async (id) => {
   const token = localStorage.getItem('Token')
   try {
     const res = await axios.get(
-      `https://payline.safaraneh.com/api/services/app/ReserveBankGateway/GetAll?ReserveId=${id}`,
+      `https://payline.samita.com/api/services/app/ReserveBankGateway/GetAll?ReserveId=${id}`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -1506,7 +1506,7 @@ export const makeToken = async (params) => {
   const token = localStorage.getItem('Token')
   try {
     const res = await axios.post(
-      `https://payline.safaraneh.com/api/services/app/ReserveBankGateway/MakeToken`,
+      `https://payline.samita.com/api/services/app/ReserveBankGateway/MakeToken`,
       params,
       {
         headers: {
