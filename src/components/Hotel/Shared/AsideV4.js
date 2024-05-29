@@ -4,6 +4,7 @@ import { withTranslation, Link, i18n } from '../../../../i18n'
 import dynamic from 'next/dynamic'
 
 import { HotelIcon, UserOutlineIcon, DateOutlineIcon, ArrowLeftIcon } from '../../UI/Icons'
+import {CheckOutlined } from '@ant-design/icons';
 import ArrowPng from '../../../assets/arrow_right.png';
 import defaultImage from '../../../assets/defaultHotel.svg';
 import styles from '../../../styles/Home.module.css'
