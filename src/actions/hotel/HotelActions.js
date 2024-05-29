@@ -73,7 +73,7 @@ export const DomesticHotelV4Search = async (param) => {
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
-      `https://hotelv4.safaraneh.com/api/services/app/Booking/AvailabilityByHotelId`,
+      `https://hotelv5.safaraneh.com/api/services/app/Booking/AvailabilityByHotelId`,
       param,
       {
         headers: {
@@ -97,7 +97,7 @@ export const DomesticHotelV4GetRooms = async (params, currentLang = 'fa') => {
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.get(
-      `https://hotelv4.safaraneh.com/api/services/app/Booking/GetRoom?Id=${params.hotelId}&CheckIn=${params.checkin}&CheckOut=${params.checkout}`,
+      `https://hotelv5.safaraneh.com/api/services/app/Booking/GetRoom?Id=${params.hotelId}&CheckIn=${params.checkin}&CheckOut=${params.checkout}`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ export const DomesticHotelV4Validate = async (param, currentLang = 'fa') => {
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
-      "https://hotelv4.safaraneh.com/api/services/app/Booking/Validate",
+      "https://hotelv5.safaraneh.com/api/services/app/Booking/Validate",
       param,
       {
         headers: {
@@ -148,7 +148,7 @@ export const DomesticHotelV4GetValidate = async (key, currentLang = 'fa') => {
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.get(
-      `https://hotelv4.safaraneh.com/api/services/app/Booking/GetValidate?Id=${key}`,
+      `https://hotelv5.safaraneh.com/api/services/app/Booking/GetValidate?Id=${key}`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -171,7 +171,7 @@ export const DomesticHotelV4PreReserve = async (param, currentLang = 'fa') => {
   const token = localStorage.getItem('Token')
   try {
     let response = await axios.post(
-      "https://hotelv4.safaraneh.com/api/services/app/Booking/PreReserve",
+      "https://hotelv5.safaraneh.com/api/services/app/Booking/PreReserve",
       param,
       {
         headers: {
@@ -195,7 +195,7 @@ export const HotelV4DomesticGetReserve = async (reserveId, userName, currentLang
   
   const token = localStorage.getItem('Token')
   try {
-    let response = await axios.get(`https://hotelv4.safaraneh.com/api/services/app/Reserve/Get?ReserveId=${reserveId}&Username=${userName}`,
+    let response = await axios.get(`https://hotelv5.safaraneh.com/api/services/app/Reserve/Get?ReserveId=${reserveId}&Username=${userName}`,
       {
         headers: {
           accept: 'text/plain',
@@ -219,7 +219,7 @@ export const getConfirmHotelV4Domestic = async (reserveId, username) => {
   const token = localStorage.getItem('Token')
   try {
     const res = await axios.post(
-      `https://hotelv4.safaraneh.com/api/services/app/Booking/Confirm`,
+      `https://hotelv5.safaraneh.com/api/services/app/Booking/Confirm`,
       {
         reserveId: reserveId,
         username: username,
@@ -269,7 +269,7 @@ export const getReserveV4Domestic = async (reserveId, username) => {
   const token = localStorage.getItem('Token')
   try {
     const res = await axios.get(
-      `https://hotelv4.safaraneh.com/api/services/app/Reserve/Get?ReserveId=${reserveId}&Username=${username}`,
+      `https://hotelv5.safaraneh.com/api/services/app/Reserve/Get?ReserveId=${reserveId}&Username=${username}`,
       {
         headers: {
           'Content-Type': 'application/json',
